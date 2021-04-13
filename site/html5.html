@@ -4,17 +4,200 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ce site présente mes notes de cours sur ma formation STUDI de Graduate développeur PHP / Symfony.">
+  <meta name="description" content="Ce site présente mes notes de cours sur ma formation STUDI de Graduate développeur 
+  PHP / Symfony.">
   <link rel="stylesheet" href="style.css">
   <title>Notes - Graduate développeur PHP/Symfony</title>
 </head>
-<body>
-  <header>
-    <h1>HTML 5</h1>
+<body class="container">
+  <header id="up">
+    <h1>HTML, CSS et BootStrap</h1>
     <a href="index.html">Acceuil</a>
   </header>
-  <footer>
-    <p>Me contacter <a href="mailto:fabriceatln@gmail.com">fabriceatln@gmail.com</a></p>
+  <main>
+    <section class="summary">
+      <h2 class="sub-title-h2">Sommaire</h2>
+      <ul>
+        <li><a href="#internet">Internet</a></li>
+        <li><a href="#decouverte-Web">Découverte du Web</a></li>
+        <li><a href="#sites-web">Les sites web</a></li>
+        <li><a href="#html">Le HTML</a></li>
+        <li><a href="#vsCode">Visual Studio Code</a></li>
+      </ul>
+    </section>
+    <section class="section">
+      <h2>Introduction au HTML</h2>
+      <article  class="art-box">
+        <header>
+          <h2 id="internet" class="sub-title-h2">Internet</h2>
+        </header>
+        <p>Internet est un réseau de communication mondial entre ordinateurs, créé dans les années 60 pour l'armée 
+          américaine (<strong><a href="https://fr.wikipedia.org/wiki/ARPANET#:~:text=ARPANET%20ou%20Arpanet%20(de%20l,Research%20Projects%20Agency%20(DARPA)." target="_blank">ARPAnet</a></strong>).<br>
+          Lorsque l'on se connecte sur un site web, on se connecte sur un autre ordinateur (appellé <strong>serveur
+          </strong>) relié au réseau Internet. Cet ordinateur a été programmé pour renvoyer le contenu du site à chaque 
+          ordinateur qui lui demande. Sur ce réseau, tous les ordinateurs peuvent communiquer entre eux en s'envoyant 
+          des messages. Pour se 
+          comprendre, il a fallu concevoir une même manière d'envoyer ces messages : c'est le <strong>protocole TCP/IP
+          </strong>.
+          <img 
+            id="img-internet" src="images/internet.gif" 
+            alt="Réseau internet mondiale" title="Le réseau internet mondiale">
+        </p>
+        <p>Il est la fusion de deux protocoles :</p>
+        <dl>
+          <dt class="dt">TCP (Transmission Control Protocol)</dt>
+          <dd class="dd">désigne la manière dont les messages doivent être écrits et leur formalisme.</dd>
+          <dt class="dt">IP (Internet Protocol)</dt>
+          <dd class="dd">
+            désigne la manière d'attribuer un identifiant unique à un ordinateur pour pouvoir le retrouver.
+          </dd>
+        </dl>
+        <h3 class="sub-title-h3">Qu'est-ce qu'une adresse IP ?</h3>
+        <p>C'est une adresse définie pour chaque ordinateur sur le réseau par le protocole. Les serveurs, étant aussi 
+          des ordinateurs, en ont également. Elle prend la forme de 4 nombres compris entre 0 et 255 séparés par des 
+          points. Par exemple : 21.245.3.98.
+        </p>
+        <h3 class="sub-title-h3">Qu'est-ce qu'un nom de domaine ?</h3>
+        <p>Comme les adresses IP sont difficiles à mémoriser et peuvent être amenées à changer, il a été décidé 
+          d'utiliser un système plus simple : les noms de domaine.<br>
+          Les noms de domaine sont composés :
+          <ul>
+            <li>
+              d'un domaine de premier niveau (TLD, pour Top-Level Domain) ou extension.
+              Les TLD se placent à la fin du nom de domaine et indiquent leur provenance (<i>fr, be...</i>) ou le type de site 
+              Internet (<i>com, org...</i>).<br>
+            </li>
+            <li>
+              d'un domaine et, parfois, d'un ou plusieurs sous-domaines, tous séparés par des points.
+              Les domaines sont le nom du site, comme "google" ou "wikipedia".
+            </li>
+            <li>
+              de sous-domaines pouvant définir des sous-parties d'un même domaine (<i>mail, drive...</i>).
+            </li>
+          </ul>
+        </p>
+        <h3 class="sub-title-h3">Le DNS</h3>
+        <p>Il existe un système qui transforme le nom de domaine en adresse IP. Ce système est appelé le <strong>DNS
+          </strong>, pour <strong>Domain Name System</strong>. Les serveurs DNS sur le réseau possèdent une liste de noms 
+          de domaines et des adresses IP associées. Il suffit de leur donner un nom de domaine pour qu'ils retournent 
+          l'adresse IP correspondante.
+        </p>
+        <a href="#up">Haut</a>
+      </article>
+      <article class="art-box">
+        <header>
+          <h2 id="decouverte-Web" class="sub-title-h2">Découverte du Web</h2>
+        </header>
+        <p>Le Web actuel, tel que nous le connaissons, a été inventé par Tim Berners-Lee en 1989, chercheur au CERN, 
+          afin de rendre les échanges entre les membres de la communauté scientifique instantanés. Le World Wide Web 
+          (WWW), le Web et la Toile sont en fait la même chose : il s'agit d'une application mondiale qui fonctionne 
+          grâce à Internet et qui met à notre disposition des milliards de ressources.<br>
+          Il faut donc bien distinguer le Web des sites web. Le Web est comme une bibliothèque géante que l'on peut 
+          parcourir, un site est un livre, et une page web est une page du livre.
+        </p>
+        <h3 class="sub-title-h3">Internet vs Web</h3>
+        <p>On entend souvent parler de <i>site Internet</i>, mais c'est un abus de langage. Il s'agit de 
+          deux choses complètement différentes. Le Web est l'application permettant de consulter des données, 
+          représentées sous forme de sites web, qui sont disponibles sur Internet.
+        </p>
+        <a href="#up">Haut</a>
+      </article>
+      <article class="art-box">
+        <header>
+          <h2 id="sites-web" class="sub-title-h2">Les sites web</h2>
+        </header>
+        <p>Un site web est un ensemble de pages web, hébergées sur un serveur. Les trois plus répandues sont :
+          <ul>
+            <li>
+              les sites de vente en ligne dit de e-commerce,
+            </li>
+            <li>
+              les sites vitrine donnant aux entreprises plus de visibilité sur leur activité ou leurs produits,
+            </li>
+            <li>
+              l'application web permettant de réaliser des traitements complexes.
+            </li>
+          </ul>
+        </p>
+        <h3 class="sub-title-h3">Les composants d'un site</h3>
+        <p>Un site est un ensemble de données :<br>
+          <ul>
+            <li>
+              du texte, avec diverses fonctionnalités (liens vers d'autres pages, titres...) utilisant le <strong>
+                langage HTML</strong>,
+            </li>
+            <li>
+              des feuilles de style pour l'apparence, utilisant le <strong>langage CSS</strong>,
+            </li>
+            <li>
+              des fichiers multimédias comme des vidéos ou du son, aussi importés en HTML,
+            </li>
+            <li>
+              du contenu interactif grâce à des <strong>scripts en JavaScript</strong>, permettant aux pages de devenir plus vivants et 
+              plus complexes.
+            </li>
+          </ul>
+        </p>
+        <h3 class="sub-title-h3">Back-end vs Front-end</h3>
+        <p>Le <strong>back-end</strong>, est la partie du code exécuté par le serveur pour générer nos pages web.<br>
+          Le <strong>front-end</strong>, est la partie visible d'un site web, soit le code exécuté par le navigateur.<br>
+          Le HTML, le CSS et le JavaScript sont ainsi les trois grandes composantes de ce que doit connaître un 
+          développeur front-end. Pour le back-end, le langages le plus utilisé est le <strong>PHP</strong>.
+        </p>
+        <h3 class="sub-title-h3">Les différents types de site</h3>
+        <p>Il existe deux grands types de site :<br>
+          <ul>
+            <li>
+              site statique : c'est un site qui ne change jamais. 
+            </li>
+            <li>
+              site dynamique : c'est un site qui peut se mettre régulièrement à jour.
+            </li>
+          </ul>
+        </p>
+        <h3 class="sub-title-h3">Fonctionnement des sites</h3>
+        <p>Afin de mettre un site à jour, on utilise un serveur web. C'est l'ordinateur qui va stocker les données 
+          relatives au bon fonctionnement des sites qu'il héberge, dont le code. Il assure également la disponibilité 
+          des ressources (<i>images, les vidéos...</i>) ! Lorsque l'on effectue une recherche, notre navigateur 
+          (<strong>le client</strong>) envoie alors une demande à l'ordinateur qui stocke le code du site (<strong>le 
+            serveur</strong>). On effectue alors une requête. Le serveur va alors nous renvoyer la ressource que nous 
+            lui avons demandée, puis notre navigateur se charge de l'afficher. On dit alors qu'il nous envoie une 
+            réponse. On appelle ce type de communication une <strong>communication client/serveur</strong>.<br>
+            Il est possible, dans le cas d'un site dynamique, qu'il fasse appel à une base de données afin de récupérer 
+            des données supplémentaires : par exemple en cas d'une connexion, il affiche les données qui nous sont 
+            propres.
+          </p>
+        <h3 class="sub-title-h3">Identifier une page web</h3>
+        <a href="#up">Haut</a>
+      </article>
+      <article class="art-box">
+        <header>
+          <h2 id="html" class="sub-title-h2">Le HTML</h2>
+        </header>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe asperiores corrupti magnam consequuntur et. 
+          Veritatis ut minima maiores sunt pariatur inventore rem. Rerum itaque mollitia commodi impedit repudiandae 
+          velit exercitationem? Deserunt officiis ipsum, numquam consequuntur voluptas excepturi aspernatur suscipit 
+          non nam at id accusamus iusto tempora sequi, dicta culpa veritatis rerum soluta praesentium, quas eveniet! 
+          Sapiente quae illo expedita iure!
+        </p>
+        <a href="#up">Haut</a>
+      </article>
+      <article class="art-box">
+        <header>
+          <h2 id="vsCode" class="sub-title-h2">Visual Studio Code</h2>
+        </header>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet tempore aliquid sed illo nisi suscipit 
+          maiores repellendus quibusdam quam nesciunt. Earum impedit rerum neque! Dolorem possimus dicta quia sapiente 
+          nihil. Necessitatibus, ipsam unde, provident cupiditate aut eaque itaque, quibusdam nemo iure eveniet adipisci 
+          repellat. Atque, porro dolorem optio temporibus, minima quod quam deserunt dolore doloremque blanditiis 
+          mollitia vero laborum pariatur.
+        </p>
+        <a href="#up">Haut</a>
+      </article>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>&copy; 2021 - <strong>Graduate développeur PHP / Symfony</strong></p>
   </footer>
 </body>
 </html>
