@@ -8,6 +8,14 @@
   background-color: #f9f9f9;
 }
 
+.under {
+  display: none;
+}
+
+ul li:hover .under {
+  display: block;
+}
+
 .footer {
   margin-top: 20px;
   padding: 10px;
@@ -48,12 +56,12 @@
 }
 
 a {
-  transition: all .2s ease-in-out;
+  /* transition: all .2s ease-in-out; */
   opacity: .6;
 }
 
 a:hover {
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
   opacity: 1;
 }
 
@@ -64,14 +72,25 @@ a:visited {
 .art-box {
   background-color: #e7e7e7;
 }
+ li {
+   width: max-content;
+ }
 
 .summary ul {
-  height: auto;
+  width: auto;
+  /* height: auto; */
   list-style-type: none;
-  display: flex;
+  padding: 0;
+  /* display: flex;
   flex-flow: column wrap;
-  justify-content: space-evenly;
+  justify-content: space-evenly; */
 }
+
+.summary ol {
+  list-style-type: none;
+  padding-left: 5px;
+}
+
 
 img {
   width: 100%;
