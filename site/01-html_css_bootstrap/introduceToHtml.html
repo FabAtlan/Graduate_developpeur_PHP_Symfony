@@ -6,26 +6,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Ce site présente mes notes de cours sur ma formation STUDI de Graduate développeur 
   PHP / Symfony.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/site/style.css">
   <title>Notes - Graduate développeur PHP/Symfony</title>
 </head>
 <body class="container">
   <header id="up">
-    <h1>HTML, CSS et BootStrap</h1>
-    <a href="index.html">Acceuil</a>
+    <h1>Développement front-End</h1>
+    <a href="/site/index.html">Acceuil</a>
   </header>
   <main>
-    <section class="summary">
-      <h2 class="sub-title-h2">Sommaire</h2>
+    <div class="card">
+      <a href="#">
+        <img class="size-logo" src="/site/images/logohtml.png" alt="HTML 5">
+        <div class="container">
+          <h4 class="title-h4">HTML</h4>
+        </div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="#">
+        <img class="size-logo" src="/site/images/css3.png" alt="CSS 3">
+        <div class="container">
+          <h4 class="title-h4">CSS</h4>
+        </div>
+      </a>
+    </div>
+    <!-- <section class="summary flex-row">
+
+    </section> -->
+    <!-- <section class="summary">
       <ul>
-        <li><a href="#internet">Internet</a></li>
-        <li><a href="#decouverte-Web">Découverte du Web</a></li>
-        <li><a href="#sites-web">Les sites web</a></li>
-        <li><a href="#html">Le HTML</a></li>
-        <li><a href="#vsCode">Visual Studio Code</a></li>
+        <li><a class="main-scrolling" ref="#">Créer un site web avec HTML, CSS et Bootstrap</a> &#9660;
+          <ol class="under">
+            <li><a href="#">Introduction au HTML</a></li>
+            <li><a href="#">Syntaxe générale de HTML</a></li>
+            <li><a href="#">L'organisation du texte</a></li>
+            <li><a href="#">Un langage hypertexte</a></li>
+            <li><a href="#">Le multimédia en HTML</a></li>
+            <li><a href="#">Introduction au CSS</a></li>
+            <li><a href="#">CSS3 : Le stylage du texte</a></li>
+            <li><a href="#">La structuration logique en HTML5 et le modèle de boîtes en CSS3</a></li>
+            <li><a href="#">Les sélecteurs CSS</a></li>
+            <li><a href="#">La mise en page avec CSS</a></li>
+            <li><a href="#">La création de tableaux</a></li>
+            <li><a href="#">La création de formulaires</a></li>
+            <li><a href="#">Layout avec CSS Grid</a></li>
+            <li><a href="#">Les effets avancés de CSS</a></li>
+            <li><a href="#">Utiliser des documentations CSS</a></li>
+            <li><a href="#">Le responsive design</a></li>
+            <li><a href="#">Valider la qualité de son site</a></li>
+            <li><a href="#">L'installation et la prise en main du framework Bootstrap : Hello world</a></li>
+            <li><a href="#">La grille bootstrap</a></li>
+            <li><a href="#">Les éléments bootstrap</a></li>
+            <li><a href="#">Les composants bootstrap</a></li>
+            <li><a href="#">Ouverture vers d'autres framework CSS</a></li>
+            <li><a href="#">SASS</a></li>
+            <li><a href="#">Le référencement des sites Web</a></li>
+            <li><a href="#">Déployer son site sur le Web</a></li>
+          </ol>
+        </li>
+        <li><a class="main-scrolling" href="#">S'initier à la programmation avec Javascript</a> &#9660;
+          <ol class="under">
+            <ul>
+              <li class="sub-li">Les dates &#9660;
+                <ol class="under1">
+                  <li><a href="../01-html_css_bootstrap/JavaScript/objet-date.html">L'objet Date</a></li>
+                  <li><a href="../01-html_css_bootstrap/JavaScript/setters-getters.html">Setters et getters</a></li>
+                  <li><a href="#">Les manipulations de dates</a></li>
+                </ol> 
+              </li>
+              <li class="sub-li">Les objets Javascript &#9660;
+                <ol class="under1">
+                  <li><a href="../01-html_css_bootstrap/JavaScript/objet-date.html">L'objet Date</a></li>
+                  <li><a href="#">Setters et getters</a></li>
+                  <li><a href="#">Les manipulations de dates</a></li>
+                </ol> 
+              </li> 
+            </ul>
+          </ol> 
+        </li>
       </ul>
     </section>
-    <section class="section">
+    <section>
       <h2>Introduction au HTML</h2>
       <article  class="art-box">
         <header>
@@ -40,7 +102,7 @@
           comprendre, il a fallu concevoir une même manière d'envoyer ces messages : c'est le <strong>protocole TCP/IP
           </strong>.
           <img 
-            id="img-internet" src="images/internet.gif" 
+            id="img-internet" src="../images/internet.gif" 
             alt="Réseau internet mondiale" title="Le réseau internet mondiale">
         </p>
         <p>Il est la fusion de deux protocoles :</p>
@@ -63,9 +125,7 @@
           Les noms de domaine sont composés :
           <ul>
             <li>
-              d'un domaine de premier niveau (TLD, pour Top-Level Domain) ou extension.
-              Les TLD se placent à la fin du nom de domaine et indiquent leur provenance (<i>fr, be...</i>) ou le type de site 
-              Internet (<i>com, org...</i>).<br>
+              d'un domaine de premier niveau (TLD, pour Top-Level Domain) ou extension. Les TLD se placent à la fin du nom de domaine et indiquent leur provenance (<i>fr, be...</i>) ou le type de site Internet (<i>com, org...</i>).<br>
             </li>
             <li>
               d'un domaine et, parfois, d'un ou plusieurs sous-domaines, tous séparés par des points.
@@ -145,7 +205,8 @@
           développeur front-end. Pour le back-end, le langages le plus utilisé est le <strong>PHP</strong>.
         </p>
         <h3 class="sub-title-h3">Les différents types de site</h3>
-        <p>Il existe deux grands types de site :<br>
+        <p>Il existe deux grands types de site :</p>
+        <div>
           <ul>
             <li>
               site statique : c'est un site qui ne change jamais. 
@@ -154,7 +215,7 @@
               site dynamique : c'est un site qui peut se mettre régulièrement à jour.
             </li>
           </ul>
-        </p>
+        </div>
         <h3 class="sub-title-h3">Fonctionnement des sites</h3>
         <p>Afin de mettre un site à jour, on utilise un serveur web. C'est l'ordinateur qui va stocker les données 
           relatives au bon fonctionnement des sites qu'il héberge, dont le code. Il assure également la disponibilité 
@@ -194,7 +255,7 @@
         </p>
         <a href="#up">Haut</a>
       </article>
-    </section>
+    </section> -->
   </main>
   <footer class="footer">
     <p>&copy; 2021 - <strong>Graduate développeur PHP / Symfony</strong></p>
