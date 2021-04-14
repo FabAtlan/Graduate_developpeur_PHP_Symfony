@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ce site présente mes notes de cours sur ma formation STUDI de Graduate développeur 
+  PHP / Symfony.">
+  <link rel="stylesheet" href="/site/style.css">
+  <title>Notes - Graduate développeur PHP/Symfony</title>
+</head>
+<body class="container">
+  <header id="up">
+    <h1>S'initier à la programmation avec Javascript - Les dates</h1>
+    <a href="../introduceToHtml.html">Retour</a>
+  </header>
+  <main>
+    <section class="section">
+      <h2>L'objet date</h2>
+      <article  class="art-box">
+        <header>
+          <h2 id="internet" class="sub-title-h2">Une date en JavaScript est généralement représentée de trois manières 
+            différentes</h2>
+        </header>
+        <p>
+          <ol>
+            <li>
+              En format textuel, par exemple December 17, 1995 03:24:00
+            </li>
+            <li>
+              En timestamp UNIX, c'est-à-dire le nombre de secondes écoulées depuis le 1er janvier 1970 à minuit (UTC) (par exemple 1584028448 équivaut au 12 mars 2020 à 15:54:08)
+            </li>
+            <li>
+              Sous la forme d'un objet Date qui en porte toutes les composantes (année, mois, jour, fuseau horaire...).
+            </li>
+          </ol>
+        </p>
+        <p>La troisième forme, est la plus simple à manipuler grâce aux nombreuses méthodes que nous offre le langage.</p>
+        <p>Dans l'exemple suivant nous avons créé une variable date en lui assignant un nouvel objet Date 
+          (new Date()) :</p>
+        <code>const date = new Date()<br>console.log(date)</code><br>
+        <p><b>Résultat :</b><br></p>
+        <code>Thu Mar 05 2020 17:20:00 GMT+0100</code>
+        <p>Il est possible de passer en paramètre une date sous forme de chaîne de caractères :</p>
+        <code>const date = new Date('February 29, 2020 09:30:59')<br>console.log(date)</code>
+        <p><b>Résultat :</b></p>
+        <code>Sat Feb 29 2020 09:30:59 GMT+0100</code>
+        <p>Cependant, cette méthode n'est pas à privilégier car la chaîne peut être analysée différemment en fonction 
+          du navigateur.</p>
+        <p>Privilégiez l'utilisation des paramètres ci-dessous :</p>
+          <ul>
+            <li>
+              année (obligatoire) : un entier représentant l'année.
+            </li>
+            <li>
+              mois (obligatoire) : un entier allant de 0 (janvier) à 11 (décembre).
+            </li>
+            <li>
+              jour (facultatif) : le jour du mois sous forme d'entier (1 à 31).
+            </li>
+            <li>
+              heures (facultatif) : l'heure du jour (0 à 23).
+            </li>
+            <li>
+              minutes (facultatif) : les minutes (0 à 59).
+            </li>
+            <li>
+              secondes (facultatif) : les secondes (0 à 59).
+            </li>
+            <li>
+              millisecondes (facultatif) : les millisecondes (0 à 999).
+            </li>
+          </ul>
+        <p><b>Exemple :</b><br>
+        <code>const date = new Date(2020, 1, 25)<br>console.log(date)</code><br>
+        <b>Résultat :<br></b><code>Tue Feb 25 2020 00:00:00 GMT+0100 (heure normale d'Europe centrale) {}</code></p>
+        <p>Les mois vont de 0 (janvier) à 11 (décembre).</p>
+      </article>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>&copy; 2021 - <strong>Graduate développeur PHP / Symfony</strong></p>
+  </footer>
+</body>
+</html>
