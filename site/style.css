@@ -1,4 +1,6 @@
 body {
+  margin: 0;
+  padding: 5px;
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: .8rem;
@@ -6,10 +8,32 @@ body {
   background-color: #e3d18a;
 }
 
+footer {
+  padding: 3px;
+  background-color: #fff;
+  background-color: #e8d19d;
+  color: darkblue;
+  font-weight: bold;
+  text-align: center;
+}
+
+.code {
+  width: fit-content;
+  padding: 10px;
+  background-color: #000;
+  color: rgb(231, 225, 204);
+}
+
 .container {
-  padding: 1rem;
-  margin: 0 auto;
-  background-color: #f9f9f9;
+  padding: 5px 15px;
+  text-align: center;
+  border-radius: 0 0 30px 30px;
+}
+
+.flex-h-center {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .img-logo {
@@ -18,24 +42,58 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
 }
 
-main {
-  /* display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  gap: 30px; */
-}
-
 .list {
   padding: 0;
 }
 
-li {
+/* Pour liste */
+nav {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #f0d9a4;
+  box-shadow: 0 5px 5px 0px #83724b;
+}
+
+.ul-p17 {
+  padding: 0 17px;
+  color: ;
+}
+
+.li-empty {
+  margin: 0px 0;
+  padding: 0 10px;
+  line-height: 1.8;
   list-style-type: none;
 }
 
+.li-empty li {
+  margin: 0px 0;
+  padding: 5px 0;
+}
+
+.li-empty a {
+  padding: 5px 2px;
+  text-decoration: none;
+  color: #093c5a;
+  transition: .2s ease-in-out;
+}
+
+.li-empty a:hover {
+  font-size: .96em;
+  margin: 10px;
+  color: #0d3942;
+  opacity: .5;
+}
+
+.li-square {
+  list-style-type: square;
+}
+
+/* Pour carte */
 .card {
   width: 45%;
   height: auto;
+  margin: 10px;
   box-shadow: 0 5px 10px 0 #a09e9d;
   background-color: rgb(217, 226, 243);
   transition: .3s;
@@ -46,24 +104,31 @@ li {
   box-shadow: 0 10px 20px 0 #a09e9d;
 }
 
-.title-h4 {
-  margin: 10px 0;
-}
-
 .card p {
   margin-top: 0;
   margin-bottom: 10px;
 }
 
-.container {
-  padding: 5px 15px;
-  text-align: center;
-  border-radius: 0 0 30px 30px;
+/* Titre et sous-titre */
+.sub-title-h2 {
+  margin: 10px 10px 0;
+  color: cadetblue;
 }
+
+.title-h4 {
+  margin: 10px 0;
+}
+/* --------- */
 
 .size-logo {
   width: 100%;
   height: auto;
+}
+
+.shape-title {
+  padding: 5px 10px;
+  background-color: rgb(82, 124, 240);
+  clip-path: polygon(0 0, 55% 0, 65% 100%, 0 100%);
 }
 
 /* 
@@ -121,10 +186,6 @@ li {
 
   .title-h1, .sub-title-h2, .sub-title-h3 {
     margin: 0;
-  }
-
-  .sub-title-h2 {
-    color: cadetblue;
   }
 
   .sub-title-h3 {
