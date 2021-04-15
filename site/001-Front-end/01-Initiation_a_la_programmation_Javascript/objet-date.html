@@ -6,24 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Ce site présente mes notes de cours sur ma formation STUDI de Graduate développeur 
   PHP / Symfony.">
-  <link rel="stylesheet" href="/site/style.css">
+  <link rel="stylesheet" href="../../style.css">
   <title>Notes - Graduate développeur PHP/Symfony</title>
 </head>
-<body class="container">
+<body>
   <header id="up">
-    <h1>S'initier à la programmation avec Javascript - Les dates</h1>
-    <a href="initProgJSMenu2.html">Retour</a>
+    <h1 class="shape-title">S'initier à la programmation avec Javascript</h1>
   </header>
   <main>
-    <section class="section">
-      <h2>L'objet date</h2>
-      <article  class="art-box">
-        <header>
-          <h2 id="internet" class="sub-title-h2">Une date en JavaScript est généralement représentée de trois manières 
-            différentes</h2>
-        </header>
+    <nav>
+      <section class="return" >
+        <h2 class="sub-title-h2">Sommaire</h2>
+        <a href="initProgJSMenu2.html">Retour</a>
+      </section>
+      <ul class="li-empty">
+        <li><a href="#objet-date">L'objet date</a></li>
+        <li><a href="#setters_getters">Setters et getters</a></li>
+        <li><a href="#manip-date">Les manipulations de dates</a></li>
+        <li><a href="#format-date">Formater les dates</a></li>
+        <li><a href="#moment-js">Moment.js</a></li>
+      </ul>
+    </nav>  
+    <section>
+      <h2 id="objet-date">L'objet date</h2>
+      <article>
+        <p>Une date en JavaScript est généralement représentée de trois manières 
+          différentes</p>
         <p>
-          <ol>
+          <ul>
             <li>
               En format textuel, par exemple December 17, 1995 03:24:00
             </li>
@@ -33,53 +43,314 @@
             <li>
               Sous la forme d'un objet Date qui en porte toutes les composantes (année, mois, jour, fuseau horaire...).
             </li>
-          </ol>
+          </ul>
         </p>
         <p>La troisième forme, est la plus simple à manipuler grâce aux nombreuses méthodes que nous offre le langage.</p>
-        <p>Dans l'exemple suivant nous avons créé une variable date en lui assignant un nouvel objet Date 
-          (new Date()) :</p>
-        <code>const date = new Date()<br>console.log(date)</code><br>
-        <p><b>Résultat :</b><br></p>
-        <code>Thu Mar 05 2020 17:20:00 GMT+0100</code>
+        <p>Dans l'exemple suivant nous avons créé une variable date en lui assignant un nouvel objet <code>Date 
+          (new Date())</code> :</p>
+          <div class="code">
+            <code>const date = new Date()<br>console.log(date)<br><br>
+            Affichage console :<br>
+            Thu Mar 05 2020 17:20:00 GMT+0100</code>
+          </div>
         <p>Il est possible de passer en paramètre une date sous forme de chaîne de caractères :</p>
-        <code>const date = new Date('February 29, 2020 09:30:59')<br>console.log(date)</code>
-        <p><b>Résultat :</b></p>
-        <code>Sat Feb 29 2020 09:30:59 GMT+0100</code>
+        <div class="code">
+          <code>const date = new Date('February 29, 2020 09:30:59')<br>console.log(date)<br><br>
+          Affichage console :<br>
+          Sat Feb 29 2020 09:30:59 GMT+0100</code>
+        </div>
         <p>Cependant, cette méthode n'est pas à privilégier car la chaîne peut être analysée différemment en fonction 
           du navigateur.</p>
-        <p>Privilégiez l'utilisation des paramètres ci-dessous :</p>
+        <p>Privilégiez l'utilisation des paramètres ci-dessous :
           <ul>
-            <li>
-              année (obligatoire) : un entier représentant l'année.
-            </li>
-            <li>
-              mois (obligatoire) : un entier allant de 0 (janvier) à 11 (décembre).
-            </li>
-            <li>
-              jour (facultatif) : le jour du mois sous forme d'entier (1 à 31).
-            </li>
-            <li>
-              heures (facultatif) : l'heure du jour (0 à 23).
-            </li>
-            <li>
-              minutes (facultatif) : les minutes (0 à 59).
-            </li>
-            <li>
-              secondes (facultatif) : les secondes (0 à 59).
-            </li>
-            <li>
-              millisecondes (facultatif) : les millisecondes (0 à 999).
-            </li>
+            <li>année (obligatoire) : un entier représentant l'année.</li>
+            <li>mois (obligatoire) : un entier allant de 0 (janvier) à 11 (décembre).</li>
+            <li>jour (facultatif) : le jour du mois sous forme d'entier (1 à 31).</li>
+            <li>heures (facultatif) : l'heure du jour (0 à 23).</li>
+            <li>minutes (facultatif) : les minutes (0 à 59).</li>
+            <li>secondes (facultatif) : les secondes (0 à 59).</li>
+            <li>millisecondes (facultatif) : les millisecondes (0 à 999).</li>
           </ul>
-        <p><b>Exemple :</b><br>
-        <code>const date = new Date(2020, 1, 25)<br>console.log(date)</code><br>
-        <b>Résultat :<br></b><code>Tue Feb 25 2020 00:00:00 GMT+0100 (heure normale d'Europe centrale) {}</code></p>
+        </p>
+        <div class="code">
+          <code>const date = new Date(2020, 1, 25)<br>console.log(date) <br><br>Affichage console :<br>Tue Feb 25 2020 00:00:00 GMT+0100 heure normale d'Europe centrale) {}
+        </code>
+        </div>
         <p>Les mois vont de 0 (janvier) à 11 (décembre).</p>
       </article>
     </section>
+    <section>
+      <h2 id="setters_getters">Setters et getters</h2>
+      <section>
+        <article>
+        <p>Etudions à présent les différentes méthodes dont dispose l'objet Date. Pour construire une date deux méthodes possible :<br>
+          <ul>
+            <li>
+              <strong>les setters :</strong> permet de construire une date (en définissant ses secondes, minutes, etc.).
+            </li>
+            <li>
+              <strong>les getters :</strong> permet de récupérer ses données (jour du mois, de la semaine, etc.).
+            </li>
+          </ul>
+        </p>
+        <h3>Setters</h3>
+        <ul>
+          <li>
+            <strong>setFullYear(), setMonth(), setDate() :</strong> affecte l'année, le mois ou le jour à une date.
+            <div class="code"><code>const date = new Date()<br>
+              console.log(date)<br>
+              date.setFullYear(2020)<br>
+              date.setMonth(11)<br>
+              date.setDate(31)<br>
+              console.log(date)<br><br>
+              Affichage console :<br>
+              2021-04-15T13:07:46.168Z<br>
+              2020-12-31T14:07:46.168Z</code>
+            </div>
+          </li>
+          <li>
+            <strong>setHours(), setMinutes(), setSeconds(), setMilliseconds() :</strong> affecte les heures, minutes, secondes ou 
+            millisecondes à une date.
+            <div class="code"><code>const date = new Date(2020, 1, 29)<br>
+              console.log(date)<br>
+              date.setHours(22)<br>
+              date.setMinutes(30)<br>
+              date.setSeconds(45)<br>
+              date.setMilliseconds(500)<br>
+              console.log(date)<br><br>
+              Affichage console :<br>
+              2020-02-28T23:00:00.000Z<br>
+              2020-02-29T21:30:45.500Z
+            </code></div>
+          </li>
+          <li>
+            <strong>setTime()</strong> : affecte une date à partir d'un timestamp.
+            <div class="code"><code>const date = new Date(2020, 1, 29)<br>
+              date.setTime(date.setTime(1584028448))<br>
+              console.log(date)<br><br>
+              Affichage console :<br>
+              1970-01-19T08:00:28.448Z
+            </code></div>
+          </li>
+        </ul>
+        <h3>Getters</h3>
+        <ul>
+          <li>
+            <strong>getFullYear(), getMonth(), getDate() :</strong> récupère l'année, le mois ou le jour d'une date donnée.
+            <div class="code"><code>const date = new Date(2020, 1, 29)<br>
+              console.log(date.getFullYear()) // 2020<br>
+              console.log(date.getMonth()) // 1<br>
+              console.log(date.getDate()) // 29</code>
+            </div>
+          </li>
+          <li>
+            <strong>getHours(), getMinutes(), getSeconds(), getMilliseconds() :</strong> récupère l'heure, les minutes, secondes ou 
+            millisecondes d'une date donnée.
+            <div class="code"><code>const date = new Date(2020, 1, 29, 22, 30, 45, 500)<br>
+              console.log(date.getHours()) // 22<br>
+              console.log(date.getMinutes()) // 30<br>
+              console.log(date.getSeconds()) // 45<br>
+              console.log(date.getMilliseconds()) // 500</code></div>
+          </li>
+          <li>
+            <strong>getDay()</strong> : récupère le jour de la semaine d'une date donnée (0 dimanche à 6 samedi).
+            <div class="code"><code>const date = new Date(2020, 1, 29)<br>
+              console.log(date.getDay()) // 6</code></div>
+          </li>
+          <li>
+            <strong>getTime() :</strong> récupère le timestamp d'une date donnée.
+            <div class="code"><code>const date = new Date(2020, 1, 29)<br>
+              console.log(date.getTime()) // 1582930800000</code></div>
+          </li>
+          <li>
+            <strong>Date.now() :</strong> récupère le timestamp actuel.
+            <div class="code"><code>const date = Date.now()<br>
+              console.log(date) // 1583751043304</code></div>
+          </li>
+        </ul>
+      </article>
+    </section>
+    <section>
+      <h2 id="manip-date">Les manipulations de dates</h2>
+      <p>Il est possible de réaliser des opérations mathématiques sur les dates.</p>
+      <div class="code"><code>const date = new Date(2020, 1, 29)<br>
+        const date2 = new Date()<br><br>
+        date2.setFullYear(date.getFullYear() + 1)<br>
+        date2.setMonth(date.getMonth() + 6)<br>
+        date2.setDate(date.getDate() + 15)<br><br>
+        console.log(date2)<br><br>
+        Affichage console :<br>
+        2021-09-13T13:42:49.514Z
+      </code></div><br>
+      <div class="code"><code>const date = new Date(2020, 1, 29, 21, 30, 55)<br>
+        const date2 = new Date()<br><br>
+        date2.setFullYear(date.getFullYear())<br>
+        date2.setMonth(date.getMonth())<br>
+        date2.setDate(date.getDate())<br><br>
+        
+        date2.setHours(date.getHours() + 4)<br>
+        date2.setMinutes(date.getMinutes() + 30)<br>
+        date2.setSeconds(date.getSeconds() + 30)<br><br>
+        console.log(date2)<br><br>
+        Affichage console :<br>
+        2020-03-01T01:01:25.907Z
+      </code></div><br>
+      <div class="code"><code>const date = new Date(2020, 1, 29, 20, 30, 45)<br>
+        const date2 = new Date()<br><br>
+        date2.setFullYear(<br>
+          date.getFullYear() + 1,<br>
+          date.getMonth() + 6,<br>
+          date.getDate() + 15<br>
+        )<br><br>
+        date2.setHours(<br>
+          date.getHours() + 4,<br>
+          date.getMinutes() + 30,<br>
+          date.getSeconds() + 30<br>
+        )<br><br>
+        console.log(date2)<br><br>
+        Affichage console :<br>
+        2021-09-13T23:01:15.850Z
+      </code></div><br>
+      <div class="code"><code>const date = new Date(2020, 1, 29, 20, 30, 45)<br>
+        const date2 = new Date(<br>
+          date.getFullYear() + 1,<br>
+          date.getMonth() + 6,<br>
+          date.getDate() + 15,<br>
+          date.getHours() + 4,<br>
+          date.getMinutes() + 30,<br>
+          date.getSeconds() + 30<br>
+        )<br><br>
+        console.log(date2)<br><br>
+        Affichage console :<br>
+        2021-09-13T23:01:15.000Z
+      </code></div><br>
+      <div class="code"><code>const date = new Date(2020, 1, 29)<br>
+        const date2 = new Date(2020, 7, 15, 21, 45)<br>
+        const date3 = new Date(2020, 7, 15, 22)<br><br>
+        console.log(date.getTime())<br>
+        console.log(date2.getTime())<br>
+        console.log(date3.getTime())<br><br>
+        Affichage console :<br>
+        1582930800000<br>
+        1597520700000<br>
+        1597521600000<br>
+      </code></div>
+    </section>
+    <section>
+      <h2 id="format-date">Formater les dates</h2>
+      <p>Il est possible de formater les dates afin quelles correspondent à nos besoins.</p>
+      <p><strong>toLocaleString()</strong></p>
+      <p>Retourne une chaîne de caractères et prend deux paramètres facultatifs :</p>
+      <ul>
+        <li>
+          <b>Locales :</b> une chaîne de localisation (fr-FR pour la France, de-DE pour l'Allemagne...). Si aucun paramètre, c'est la locale par défaut du navigateur.
+        </li>
+        <li>
+          <b>Options :</b> un objet contenant toutes ou certaines propriétés, que nous n'allons pas détailler ici, mais qui permettent par exemple de définir le fuseau horaire, le format 12 heures (au lieu de 24), la représentation de l'année, du mois...
+          <div class="code"><code>const date = new Date(2020, 1, 29, 21, 30, 45)<br>
+            const dateDisplayed = date.toLocaleString('fr-FR')<br>
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }<br>
+            const dateDisplayedLong = date.toLocaleString('fr-FR', options)<br><br>
+            console.log(dateDisplayed)<br>
+            console.log(dateDisplayedLong)<br><br>
+            Affichage console :<br>
+            29/02/2020, 21:30:45<br>
+            samedi 29 février 2020, 21:30</code>
+          </div>
+        </li>
+      </ul>
+      <h2>toLocaleTimeString()</h2>
+      <p>Retourne directement l'heure de la date. Toutefois, les paramètres dans l'objet options permettent quand même de tout afficher si on le souhaite.</p>
+      <div class="code"><code>const date = new Date(2020, 1, 29, 21, 30, 45)<br>const dateDisplayed = date.toLocaleTimeString('fr-FR')<br>
+        console.log(dateDisplayed)<br><br>
+        Affichage console :<br>
+        21:30:45
+      </code></div>
+      <h2>Intl.DateTimeFormat</h2>
+      <p>Formatage des dates à privilégier pour des raisons de performance. Créer un objet <strong>Intl.DateTimeFormat</strong> et utiliser sa propriété <strong>format</strong> en lui <i>passant la date</i>. Les paramètres facultatifs et locales sont optionnels.</p>
+      <div class="code"><code>const date = new Date(2020, 1, 29, 21, 30, 45)<br>
+        const dateDisplayed = new Intl.DateTimeFormat('fr-FR').format(date)<br>
+        const options = {<br>
+          weekday: 'long',<br>
+          year: 'numeric',<br>
+          month: 'long',<br>
+          day: 'numeric',<br>
+          hour: '2-digit',<br>
+          minute: '2-digit'<br>
+        }<br>
+        const dateDisplayedLong = new Intl.DateTimeFormat('fr-FR', options).format(date)<br>
+        console.log(dateDisplayed)<br>
+        console.log(dateDisplayedLong)<br><br>
+        Affichage console :<br>
+        29/02/2020<br>
+        samedi 29 février 2020, 21:30
+      </code></div>
+    </section>
+    <section>
+      <h2 id="moment-js">Moment-js</h2>
+      <p>Moment.js est une librairie JavaScript spécialisée dans la gestion des dates. Elle évite aux développeur d'avoir à écrire beaucoup de code pour les traitements complexes.</p>
+      <h3>Installation de Moment.js</h3>
+        <ol class="ul-p17">
+          <li>
+            Se rendre sur le site officiel et cliquer sur <strong>download - moment-with-locales.js</strong>.
+          </li>
+          <li>
+            Créer un fichier moment.js dans le projet.
+          </li>
+          <li>
+            Copier-coller le texte brut du site dans moment.js.
+          </li>
+          <li>
+            Créer un fichier script.js.
+          </li>
+        </ol>
+      <p>
+        <div class="red">
+          Le fichier moment.js doit être placé avant le fichier script.js dans le code HTML.
+        </div>
+        Une fois les deux fichiers créés, nous devrions avoir la structure de fichier suivante :
+        <div class="code">
+          <code>
+            &#60;!DOCTYPE html&#62;<br>
+            &#60;html&#62;<br>
+              &#60;head&#62;<br>
+                &#60;meta charset="utf-8" /&#62;<br>
+                &#60;title&#62Les dates&#60;/title&#62;<br>
+                <div class="red">
+                  &#60;script type="text/javascript" src="./moment.js"&#62&#60;/script&#62;<br>
+                  &#60;script type="text/javascript" src="./script.js"&#62&#60;/script&#62;<br>
+                </div>
+              &#60;/head&#62;<br>
+              &#60;body&#62&#60;/body&#62;<br>
+            &#60;/html&#62;<br>
+          </code>
+        </div>
+      </p>
+      <p>Le code doit être écrit dans le fichier script.js :</p>
+      <div class="code">
+        <code>
+          moment.locale('fr')<br>
+          let date = moment('2020-02-29')<br>
+          // Display : samedi 29 février 2020<br>
+          console.log(date.format('dddd D MMMM YYYY'))<br><br>
+          // Display : 5 (number of the day of the week starting with 0 for Monday)<br>
+          console.log(date.weekday())<br><br>
+          // Display : 1 (quarter number)<br>
+          console.log(date.quarter())<br><br>
+          // Display : samedi 7 mars 2020 (add 7 days to the initial date)<br>
+          console.log(date.add(7, 'd').format('dddd D MMMM YYYY'))<br><br>
+          let dateEnd = moment('2020-11-01')<br>
+          // Display : dans 8 mois<br>
+          console.log(dateEnd.from(date))<br><br>
+          // Display : 239 (number of days difference between these 2 dates)<br>
+          console.log(dateEnd.diff(date, 'days'))<br><br>
+          // Display : false (because dateEnd is not before date)<br>
+          console.log(dateEnd.isBefore(date))
+        </code>
+      </div>
+    </section>
+    <p><a href="#up">Haut</a></p>
   </main>
-  <footer class="footer">
-    <p>&copy; 2021 - <strong>Graduate développeur PHP / Symfony</strong></p>
-  </footer>
+  <footer><p>&copy;2021 - Graduate développeur PHP/Symfony</p></footer>
 </body>
 </html>

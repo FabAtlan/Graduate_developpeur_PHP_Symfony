@@ -8,11 +8,19 @@ body {
   background-color: #e3d18a;
 }
 
+.container {
+  margin: 0 auto;
+  text-align: center;
+}
+
 .return {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  /* font-size: .6em; */
+}
+
+.red {
+  color: #e20808;
 }
 
 footer {
@@ -44,7 +52,7 @@ footer {
 }
 
 .img-logo {
-  width: 100%;
+  width: calc(100% - 35%);
   height: auto;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
 }
@@ -136,6 +144,13 @@ a:hover {
   padding: 5px 10px;
   background-color: rgb(82, 124, 240);
   clip-path: polygon(0 0, 80% 0, 95% 100%, 0 100%);
+}
+
+/* Media queries */
+@media screen and (min-width: 1200px) {
+  .img-logo {
+    max-width: 40%;
+  }
 }
 
 /* 
