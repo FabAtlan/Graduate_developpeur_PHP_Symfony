@@ -8,6 +8,13 @@ body {
   background-color: #e3d18a;
 }
 
+.return {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  /* font-size: .6em; */
+}
+
 footer {
   padding: 3px;
   background-color: #fff;
@@ -71,14 +78,14 @@ nav {
   padding: 5px 0;
 }
 
-.li-empty a {
+a {
   padding: 5px 2px;
   text-decoration: none;
   color: #093c5a;
   transition: .2s ease-in-out;
 }
 
-.li-empty a:hover {
+a:hover {
   font-size: .96em;
   margin: 10px;
   color: #0d3942;
@@ -111,7 +118,7 @@ nav {
 
 /* Titre et sous-titre */
 .sub-title-h2 {
-  margin: 10px 10px 0;
+  margin: 0px 10px 0;
   color: cadetblue;
 }
 
@@ -128,7 +135,7 @@ nav {
 .shape-title {
   padding: 5px 10px;
   background-color: rgb(82, 124, 240);
-  clip-path: polygon(0 0, 55% 0, 65% 100%, 0 100%);
+  clip-path: polygon(0 0, 80% 0, 95% 100%, 0 100%);
 }
 
 /* 
