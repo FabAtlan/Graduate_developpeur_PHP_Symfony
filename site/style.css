@@ -45,15 +45,28 @@ footer {
   border-radius: 0 0 30px 30px;
 }
 
+/* Placement flex box */
+.flex-v-center {
+  display: flex;
+  flex-flow: column wrap;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
 .flex-h-center {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  align-items: center;
 }
 
+/* --- */
+
 .img-logo {
-  width: calc(100% - 35%);
+  position: relative;
+  width: 100%;
   height: auto;
+  z-index: 0;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
 }
 
@@ -102,6 +115,26 @@ a:hover {
 
 .li-square {
   list-style-type: square;
+}
+
+/* Bloc de cours */
+.training-bloc {
+  position: absolute;
+  top: 5%;
+  width: fit-content;
+  height: fit-content;
+  padding: 20px;
+  line-height: 2.5;
+  box-shadow: 0 5px 10px 0 #a09e9d;
+  background-color: rgb(217, 226, 243);
+  list-style-type: none;
+  z-index: 1;
+  transition: .3s;
+  border-radius: 10px;
+}
+
+.relative {
+  position: relative;
 }
 
 /* Pour carte */
