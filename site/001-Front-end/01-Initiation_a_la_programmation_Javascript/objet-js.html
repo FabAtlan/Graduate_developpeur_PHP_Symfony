@@ -14,342 +14,478 @@
     <h1 class="shape-title">S'initier à la programmation avec Javascript</h1>
   </header>
   <main>
-    <h2>Les objets JavaScript</h2>
-    <nav>
-      <section class="return" >
-        <h2 class="sub-title-h2">Sommaire</h2>
-        <a href="initProgJSMenu2.html">Retour</a>
-      </section>
-      <ul class="li-empty">
-        <li><a href="#objet-date">Les objets JavaScript</a></li>
-        <li><a href="#setters_getters">Setters et getters</a></li>
-        <li><a href="#manip-date">Les manipulations de dates</a></li>
-        <li><a href="#format-date">Formater les dates</a></li>
-        <li><a href="#moment-js">Moment.js</a></li>
-      </ul>
-    </nav>  
     <section>
-      <h2 id="objet-date">L'objet date</h2>
+      <h2>Les objets JavaScript <a href="../../PDF/Les_objets_javascript.pdf" target="_blank" class="doc-pdf">PDF</a></h2>
+      <nav>
+        <section class="return" >
+          <h2 class="sub-title-h2">Sommaire</h2>
+          <a href="initProgJSMenu2.html">Retour</a>
+        </section>
+        <ul class="li-empty">
+          <li>
+            <a href="#objet-javaScript">Qu'est-ce qu'un objet JavaScript ?</a>
+          </li>
+          <li>
+            <a href="#declarer-objet">Déclarer un objet avec Object()</a>
+          </li>
+          <li>
+            <a href="#this">this</a>
+          </li>
+          <li>
+            <a href="#notation-litterale">Déclarer un objet avec la notation littérale</a>
+          </li>
+          <li>
+            <a href="#fonction-obj">Créer une fonction pour construire nos objets</a>
+          </li>
+          <li>
+            <a href="#proprietes">Les propriétés d'un objet JavaScript</a>
+          </li>
+          <li>
+            <a href="#crochets">Avec les crochets ([])</a>
+          </li>
+          <li>
+            <a href="#modif">Modifier une valeur de propriété</a>
+          </li>
+          <li>
+            <a href="#ajout">Ajouter une nouvelle propriété</a>
+          </li>
+          <li>
+            <a href="#dif">Différences entre l'objet Object() et l'objet Array()</a>
+          </li>
+          <li>
+            <a href="#similitude">Différences et similitude</a>
+          </li>
+          <li>
+            <a href="#methodes">Les méthodes de l'objet Object()</a>
+          </li>
+          <li>
+            <a href="#transformer">Transformer un Objet() en Array()</a>
+          </li>
+          <li>
+            <a href="#property">HasOwnProperty()</a>
+          </li>
+        </ul>
+      </nav>  
+    </section>
+    <section>
+      <h3 id="objet-javaScript" class="sub-title-h3">Qu'est-ce qu'un objet JavaScript ?</h3>
       <article>
-        <p>Une date en JavaScript est généralement représentée de trois manières 
-          différentes</p>
         <p>
-          <ul>
-            <li>
-              En format textuel, par exemple December 17, 1995 03:24:00
-            </li>
-            <li>
-              En timestamp UNIX, c'est-à-dire le nombre de secondes écoulées depuis le 1er janvier 1970 à minuit (UTC) (par exemple 1584028448 équivaut au 12 mars 2020 à 15:54:08)
-            </li>
-            <li>
-              Sous la forme d'un objet Date qui en porte toutes les composantes (année, mois, jour, fuseau horaire...).
-            </li>
-          </ul>
+          Pour manipuler des données complexes, il faut utiliser les objets (les informations d'un utilisateur : 
+          firstName, lastName, email, age, phoneNumber...).
         </p>
-        <p>La troisième forme, est la plus simple à manipuler grâce aux nombreuses méthodes que nous offre le langage.</p>
-        <p>Dans l'exemple suivant nous avons créé une variable date en lui assignant un nouvel objet <code>Date 
-          (new Date())</code> :</p>
-          <div class="code">
-            <code>const date = new Date()<br>console.log(date)<br><br>
-            Affichage console :<br>
-            Thu Mar 05 2020 17:20:00 GMT+0100</code>
-          </div>
-        <p>Il est possible de passer en paramètre une date sous forme de chaîne de caractères :</p>
-        <div class="code">
-          <code>const date = new Date('February 29, 2020 09:30:59')<br>console.log(date)<br><br>
-          Affichage console :<br>
-          Sat Feb 29 2020 09:30:59 GMT+0100</code>
-        </div>
-        <p>Cependant, cette méthode n'est pas à privilégier car la chaîne peut être analysée différemment en fonction 
-          du navigateur.</p>
-        <p>Privilégiez l'utilisation des paramètres ci-dessous :
-          <ul>
-            <li>année (obligatoire) : un entier représentant l'année.</li>
-            <li>mois (obligatoire) : un entier allant de 0 (janvier) à 11 (décembre).</li>
-            <li>jour (facultatif) : le jour du mois sous forme d'entier (1 à 31).</li>
-            <li>heures (facultatif) : l'heure du jour (0 à 23).</li>
-            <li>minutes (facultatif) : les minutes (0 à 59).</li>
-            <li>secondes (facultatif) : les secondes (0 à 59).</li>
-            <li>millisecondes (facultatif) : les millisecondes (0 à 999).</li>
-          </ul>
+        <p>
+          Un objet contient des données sous forme de <em>propriété / valeur</em>.
         </p>
-        <div class="code">
-          <code>const date = new Date(2020, 1, 25)<br>console.log(date) <br><br>Affichage console :<br>Tue Feb 25 2020 00:00:00 GMT+0100 heure normale d'Europe centrale) {}
-        </code>
-        </div>
-        <p>Les mois vont de 0 (janvier) à 11 (décembre).</p>
+        <p>
+          Contrairement aux tableaux, un objet possède des propriétés (firstName...).
+        </p>
       </article>
     </section>
     <section>
-      <h2 id="setters_getters">Setters et getters</h2>
-      <section>
-        <article>
-        <p>Etudions à présent les différentes méthodes dont dispose l'objet Date. Pour construire une date deux méthodes possible :<br>
-          <ul>
-            <li>
-              <strong>les setters :</strong> permet de construire une date (en définissant ses secondes, minutes, etc.).
-            </li>
-            <li>
-              <strong>les getters :</strong> permet de récupérer ses données (jour du mois, de la semaine, etc.).
-            </li>
-          </ul>
+      <h3 id="declarer-objet">Déclarer un objet avec Object()</h3>
+      <article>
+        <p>
+          Un objet se déclare avec le constructeur Object() à l'aide d'une variable et lui affecter comme valeur un 
+          nouvel objet (<strong>new Object()</strong>).
         </p>
-        <h3>Setters</h3>
-        <ul>
-          <li>
-            <strong>setFullYear(), setMonth(), setDate() :</strong> affecte l'année, le mois ou le jour à une date.
-            <div class="code"><code>const date = new Date()<br>
-              console.log(date)<br>
-              date.setFullYear(2020)<br>
-              date.setMonth(11)<br>
-              date.setDate(31)<br>
-              console.log(date)<br><br>
-              Affichage console :<br>
-              2021-04-15T13:07:46.168Z<br>
-              2020-12-31T14:07:46.168Z</code>
-            </div>
-          </li>
-          <li>
-            <strong>setHours(), setMinutes(), setSeconds(), setMilliseconds() :</strong> affecte les heures, minutes, secondes ou 
-            millisecondes à une date.
-            <div class="code"><code>const date = new Date(2020, 1, 29)<br>
-              console.log(date)<br>
-              date.setHours(22)<br>
-              date.setMinutes(30)<br>
-              date.setSeconds(45)<br>
-              date.setMilliseconds(500)<br>
-              console.log(date)<br><br>
-              Affichage console :<br>
-              2020-02-28T23:00:00.000Z<br>
-              2020-02-29T21:30:45.500Z
-            </code></div>
-          </li>
-          <li>
-            <strong>setTime()</strong> : affecte une date à partir d'un timestamp.
-            <div class="code"><code>const date = new Date(2020, 1, 29)<br>
-              date.setTime(date.setTime(1584028448))<br>
-              console.log(date)<br><br>
-              Affichage console :<br>
-              1970-01-19T08:00:28.448Z
-            </code></div>
-          </li>
-        </ul>
-        <h3>Getters</h3>
-        <ul>
-          <li>
-            <strong>getFullYear(), getMonth(), getDate() :</strong> récupère l'année, le mois ou le jour d'une date donnée.
-            <div class="code"><code>const date = new Date(2020, 1, 29)<br>
-              console.log(date.getFullYear()) // 2020<br>
-              console.log(date.getMonth()) // 1<br>
-              console.log(date.getDate()) // 29</code>
-            </div>
-          </li>
-          <li>
-            <strong>getHours(), getMinutes(), getSeconds(), getMilliseconds() :</strong> récupère l'heure, les minutes, secondes ou 
-            millisecondes d'une date donnée.
-            <div class="code"><code>const date = new Date(2020, 1, 29, 22, 30, 45, 500)<br>
-              console.log(date.getHours()) // 22<br>
-              console.log(date.getMinutes()) // 30<br>
-              console.log(date.getSeconds()) // 45<br>
-              console.log(date.getMilliseconds()) // 500</code></div>
-          </li>
-          <li>
-            <strong>getDay()</strong> : récupère le jour de la semaine d'une date donnée (0 dimanche à 6 samedi).
-            <div class="code"><code>const date = new Date(2020, 1, 29)<br>
-              console.log(date.getDay()) // 6</code></div>
-          </li>
-          <li>
-            <strong>getTime() :</strong> récupère le timestamp d'une date donnée.
-            <div class="code"><code>const date = new Date(2020, 1, 29)<br>
-              console.log(date.getTime()) // 1582930800000</code></div>
-          </li>
-          <li>
-            <strong>Date.now() :</strong> récupère le timestamp actuel.
-            <div class="code"><code>const date = Date.now()<br>
-              console.log(date) // 1583751043304</code></div>
-          </li>
-        </ul>
-      </article>
-    </section>
-    <section>
-      <h2 id="manip-date">Les manipulations de dates</h2>
-      <p>Il est possible de réaliser des opérations mathématiques sur les dates.</p>
-      <div class="code"><code>const date = new Date(2020, 1, 29)<br>
-        const date2 = new Date()<br><br>
-        date2.setFullYear(date.getFullYear() + 1)<br>
-        date2.setMonth(date.getMonth() + 6)<br>
-        date2.setDate(date.getDate() + 15)<br><br>
-        console.log(date2)<br><br>
-        Affichage console :<br>
-        2021-09-13T13:42:49.514Z
-      </code></div><br>
-      <div class="code"><code>const date = new Date(2020, 1, 29, 21, 30, 55)<br>
-        const date2 = new Date()<br><br>
-        date2.setFullYear(date.getFullYear())<br>
-        date2.setMonth(date.getMonth())<br>
-        date2.setDate(date.getDate())<br><br>
-        
-        date2.setHours(date.getHours() + 4)<br>
-        date2.setMinutes(date.getMinutes() + 30)<br>
-        date2.setSeconds(date.getSeconds() + 30)<br><br>
-        console.log(date2)<br><br>
-        Affichage console :<br>
-        2020-03-01T01:01:25.907Z
-      </code></div><br>
-      <div class="code"><code>const date = new Date(2020, 1, 29, 20, 30, 45)<br>
-        const date2 = new Date()<br><br>
-        date2.setFullYear(<br>
-          date.getFullYear() + 1,<br>
-          date.getMonth() + 6,<br>
-          date.getDate() + 15<br>
-        )<br><br>
-        date2.setHours(<br>
-          date.getHours() + 4,<br>
-          date.getMinutes() + 30,<br>
-          date.getSeconds() + 30<br>
-        )<br><br>
-        console.log(date2)<br><br>
-        Affichage console :<br>
-        2021-09-13T23:01:15.850Z
-      </code></div><br>
-      <div class="code"><code>const date = new Date(2020, 1, 29, 20, 30, 45)<br>
-        const date2 = new Date(<br>
-          date.getFullYear() + 1,<br>
-          date.getMonth() + 6,<br>
-          date.getDate() + 15,<br>
-          date.getHours() + 4,<br>
-          date.getMinutes() + 30,<br>
-          date.getSeconds() + 30<br>
-        )<br><br>
-        console.log(date2)<br><br>
-        Affichage console :<br>
-        2021-09-13T23:01:15.000Z
-      </code></div><br>
-      <div class="code"><code>const date = new Date(2020, 1, 29)<br>
-        const date2 = new Date(2020, 7, 15, 21, 45)<br>
-        const date3 = new Date(2020, 7, 15, 22)<br><br>
-        console.log(date.getTime())<br>
-        console.log(date2.getTime())<br>
-        console.log(date3.getTime())<br><br>
-        Affichage console :<br>
-        1582930800000<br>
-        1597520700000<br>
-        1597521600000<br>
-      </code></div>
-    </section>
-    <section>
-      <h2 id="format-date">Formater les dates</h2>
-      <p>Il est possible de formater les dates afin quelles correspondent à nos besoins.</p>
-      <p><strong>toLocaleString()</strong></p>
-      <p>Retourne une chaîne de caractères et prend deux paramètres facultatifs :</p>
-      <ul>
-        <li>
-          <b>Locales :</b> une chaîne de localisation (fr-FR pour la France, de-DE pour l'Allemagne...). Si aucun paramètre, c'est la locale par défaut du navigateur.
-        </li>
-        <li>
-          <b>Options :</b> un objet contenant toutes ou certaines propriétés, que nous n'allons pas détailler ici, mais qui permettent par exemple de définir le fuseau horaire, le format 12 heures (au lieu de 24), la représentation de l'année, du mois...
-          <div class="code"><code>const date = new Date(2020, 1, 29, 21, 30, 45)<br>
-            const dateDisplayed = date.toLocaleString('fr-FR')<br>
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }<br>
-            const dateDisplayedLong = date.toLocaleString('fr-FR', options)<br><br>
-            console.log(dateDisplayed)<br>
-            console.log(dateDisplayedLong)<br><br>
-            Affichage console :<br>
-            29/02/2020, 21:30:45<br>
-            samedi 29 février 2020, 21:30</code>
-          </div>
-        </li>
-      </ul>
-      <h2>toLocaleTimeString()</h2>
-      <p>Retourne directement l'heure de la date. Toutefois, les paramètres dans l'objet options permettent quand même de tout afficher si on le souhaite.</p>
-      <div class="code"><code>const date = new Date(2020, 1, 29, 21, 30, 45)<br>const dateDisplayed = date.toLocaleTimeString('fr-FR')<br>
-        console.log(dateDisplayed)<br><br>
-        Affichage console :<br>
-        21:30:45
-      </code></div>
-      <h2>Intl.DateTimeFormat</h2>
-      <p>Formatage des dates à privilégier pour des raisons de performance. Créer un objet <strong>Intl.DateTimeFormat</strong> et utiliser sa propriété <strong>format</strong> en lui <i>passant la date</i>. Les paramètres facultatifs et locales sont optionnels.</p>
-      <div class="code"><code>const date = new Date(2020, 1, 29, 21, 30, 45)<br>
-        const dateDisplayed = new Intl.DateTimeFormat('fr-FR').format(date)<br>
-        const options = {<br>
-          weekday: 'long',<br>
-          year: 'numeric',<br>
-          month: 'long',<br>
-          day: 'numeric',<br>
-          hour: '2-digit',<br>
-          minute: '2-digit'<br>
-        }<br>
-        const dateDisplayedLong = new Intl.DateTimeFormat('fr-FR', options).format(date)<br>
-        console.log(dateDisplayed)<br>
-        console.log(dateDisplayedLong)<br><br>
-        Affichage console :<br>
-        29/02/2020<br>
-        samedi 29 février 2020, 21:30
-      </code></div>
-    </section>
-    <section>
-      <h2 id="moment-js">Moment-js</h2>
-      <p>Moment.js est une librairie JavaScript spécialisée dans la gestion des dates. Elle évite aux développeur d'avoir à écrire beaucoup de code pour les traitements complexes.</p>
-      <h3>Installation de Moment.js</h3>
-        <ol class="ul-p17">
-          <li>
-            Se rendre sur le site officiel et cliquer sur <strong>download - moment-with-locales.js</strong>.
-          </li>
-          <li>
-            Créer un fichier moment.js dans le projet.
-          </li>
-          <li>
-            Copier-coller le texte brut du site dans moment.js.
-          </li>
-          <li>
-            Créer un fichier script.js.
-          </li>
-        </ol>
-      <p>
-        <div class="red">
-          Le fichier moment.js doit être placé avant le fichier script.js dans le code HTML.
-        </div>
-        Une fois les deux fichiers créés, nous devrions avoir la structure de fichier suivante :
+        <p>
+          Ses différentes propriétés seront accolées à cette variable par un point, puis le nom de la propriété désirée 
+          et lui affecter une valeur à droite du signe <strong>=</strong>.
+        </p>
         <div class="code">
           <code>
-            &#60;!DOCTYPE html&#62;<br>
-            &#60;html&#62;<br>
-              &#60;head&#62;<br>
-                &#60;meta charset="utf-8" /&#62;<br>
-                &#60;title&#62Les dates&#60;/title&#62;<br>
-                <div class="red">
-                  &#60;script type="text/javascript" src="./moment.js"&#62&#60;/script&#62;<br>
-                  &#60;script type="text/javascript" src="./script.js"&#62&#60;/script&#62;<br>
-                </div>
-              &#60;/head&#62;<br>
-              &#60;body&#62&#60;/body&#62;<br>
-            &#60;/html&#62;<br>
+            let user = new Object()<br>
+            user.firstName = 'John'<br>
+            user.lastName = 'DOE'<br>
+            user.age = 36<br>
+            user.email = 'j.doe@email.com'<br>
+            user.phoneNumbers = ['0660504030', '0123456789']<br>
+            user.fullName = function() {<br>
+            return this.firstName + ' ' + this.lastName<br>
+            }<br><br>
+            console.log(user)<br><br>
+            <span class="console">Affichage console :</span><br>
+            { firstName: 'John',<br>
+            lastName: 'DOE',<br>
+            age: 36,<br>
+            email: 'j.doe@email.com',<br>
+            phoneNumbers: [ '0660504030', '0123456789' ],<br>
+            fullName: [Function]<br>
+            }
           </code>
         </div>
-      </p>
-      <p>Le code doit être écrit dans le fichier script.js :</p>
+      </article>
+    </section>
+    <section>
+      <h3 id="this">this</h3>
+      <article>
+        <p>
+          Dans la fonction ajoutée à l'objet, le mot-clé this se réfère à l'objet courant au sein duquel le code est 
+          écrit (ici, il se réfère donc à : user).</p>
+        </p>
+        <p>Dans le cas d'un nouvel objet user2, <strong>this</strong> se référera cette fois à user2.</p>
+      </article>
+    </section>
+    <section>
+      <h3 id="notation-litterale">Déclarer un objet avec la notation littérale</h3>
+      <article>
+        <p>La notation littérale peut être utiliser pour créer un objet en listant les propriétés entre accolades.</p>
+        <div class="code">
+          <code>
+            let user = {<br>
+            firstName: 'John',<br>
+            lastName: 'DOE',<br>
+            age: 36,<br>
+            email: 'j.doe@email.com',<br>
+            phoneNumbers: ['0660504030', '0123456789'],<br>
+            fullName: function() {<br>
+              return this.firstName + ' ' + this.lastName<br>
+            }<br>
+            }<br>
+            console.log(user)<br><br>
+            <span class="console">Affichage console :</span><br>
+            { firstName: 'John',<br>
+            lastName: 'DOE',<br>
+            age: 36,<br>
+            email: 'j.doe@email.com',<br>
+            phoneNumbers: [ '0660504030', '0123456789' ],<br>
+            fullName: [Function]<br>
+            }
+          </code>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h3 id="fonction-obj">Créer une fonction pour construire nos objets</h3>
+      <article>
+        <p>
+          Il est possible de créer des objets avec une fonction, ce qui permet de les réutiliser pour faciliter 
+          leur utilisation et la modification de nos objets.
+        </p>  
+        <p>
+          Par convention, le nom de la fonction commencera par une majuscule : User().<br>
+          Cette fonction prendra en paramètres les différentes propriétés et valeurs.
+        </p>
+          Les valeurs seront passées à la fonction lors de son appel (ex : new User('John', 'DOE', ...)).
+        </p>
+        <div class="code">
+          <code>
+            function User(<br>
+            firstNameValue, <br>
+            lastNameValue, <br>
+            ageValue, <br>
+            emailValue,<br>
+            phoneNumbersValue<br>
+          ) {<br>
+            this.firstName = firstNameValue<br>
+            this.lastName = lastNameValue<br>
+            this.age = ageValue<br>
+            this.email = emailValue<br>
+            this.phoneNumbers = phoneNumbersValue<br>
+            this.fullName = function() {<br>
+              return this.firstName + ' ' + this.lastName<br>
+            }<br>
+          }<br>
+          let user = new User(<br>
+            'John', <br>
+            'DOE', <br>
+            36, <br>
+            'j.doe@email.com', <br>
+            ['0660504030', '0123456789']<br>
+          )<br><br>
+          console.log(user)<br><br>
+          <span class="console">Affichage console :</span><br>
+          User {<br>
+          firstName: 'John',<br>
+          lastName: 'DOE',<br>
+          age: 36,<br>
+          email: 'j.doe@email.com',<br>
+          phoneNumbers: [ '0660504030', '0123456789' ],<br>
+          fullName: [Function] }<br>
+          </code>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h3 id="proprietes" class="sub-title-h3">Les propriétés d'un objet JavaScript</h3>
+      <article>
+        <h3>Les propriétés</h3>
+        <p>
+          Une propriété Object() peut stocker tous les types (string, number, booleen, Array()).
+        </p>
+        <h3>Avec le point (.)</h3>
+        <p>
+          Pour accéder à une propriété, utilisez le nom de la variable suivi d'un point, puis du nom de la propriété.
+        </p>
+        <p>
+          Si la valeur de la propriété est un <strong>tableau</strong>, alors nous pouvons la manipuler comme tel, par 
+          exemple en affichant la première valeur (<strong>user.phoneNumbers[0]</strong>).
+        </p>
+        <p>
+          Si la valeur de la propriété est une <strong>fonction</strong>, alors il faut lui ajouter des parenthèses pour 
+          l'appeler <strong>user.fullName()</strong>.
+        </p>
+        <div class="code">
+          <code>
+            let user = {<br>
+              firstName: 'John',<br>
+              lastName: 'DOE',<br>
+              age: 36,<br>
+              email: 'j.doe@email.com',<br>
+              phoneNumbers: ['0660504030', '0123456789'],<br>
+              fullName: function() {<br>
+                return this.firstName + ' ' + this.lastName<br>
+              }<br>
+            }<br><br>
+            // Display : John<br>
+            console.log(user.firstName)<br><br>
+            // Display the first phone number in the array : 0660504030<br>
+            console.log(user.phoneNumbers[0])<br><br>
+            // Display the return of the fullName() function : John DOE<br>
+            console.log(user.fullName())<br><br>
+            <span class="console">Affichage console :</span><br>
+            John<br>
+            0660504030<br>
+            John DOE<br>
+          </code>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h3 id="crochets">Avec les crochets ([])</h3>
+        <article>
+          <p>
+            Il est également possible de manipuler les propriétés à la manière d'un tableau en accolant à la suite de 
+            notre variable le nom de la propriété entre crochets. Le nom de la propriété devra être mis entre 
+            apostrophes au sein des crochets (<strong>user['firstName']</strong>).
+          </p>
+          <div class="code">
+            <code>
+              let user = {<br>
+                firstName: 'John',<br>
+                lastName: 'DOE',<br>
+                age: 36,<br>
+                email: 'j.doe@email.com',<br>
+                phoneNumbers: ['0660504030', '0123456789'],<br>
+                fullName: function() {<br>
+                  return this.firstName + ' ' + this.lastName<br>
+                }<br>
+              }<br><br>
+              // Display : John<br>
+              console.log(user['firstName'])<br><br>
+              // Display the first phone number in the array : 0660504030<br>
+              console.log(user['phoneNumbers'][0])<br><br>
+              // Display the return of the fullName() function : John DOE<br>
+              console.log(user['fullName']())<br><br>
+              <span class="console">Affichage console :</span><br>
+                John<br>
+                0660504030<br>
+                John DOE<br>
+            </code>
+          </div>
+        </article>
+    </section>
+    <section>
+      <h3 id="modif">Modifier une valeur de propriété</h3>
+      <article>
+        <p>
+          Pour modifier une valeur, appelez l'une des méthodes et lui affecter une nouvelle valeur.
+        </p>
+        <div class="code">
+          <code>
+            let user = {<br>
+              firstName: 'John',<br>
+              lastName: 'DOE'<br>
+            }<br><br>
+            user.firstName = 'Bob'<br><br>
+            // Display : Bob<br>
+            console.log(user.firstName)<br><br>
+            <span class="console">Affichage console :</span><br>
+            John<br>
+            0660504030<br>
+            John DOE<br>
+          </code>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h3 id="ajout">Ajouter une nouvelle propriété</h3>
+      <article>
+        <p>
+          Pour ajouter une nouvelle propriété, nous utilisons la variable, puis la propriété avec la méthode entre 
+          accolades et nous lui affectons la valeur désirée.
+        </p>
+      </article>
       <div class="code">
         <code>
-          moment.locale('fr')<br>
-          let date = moment('2020-02-29')<br>
-          // Display : samedi 29 février 2020<br>
-          console.log(date.format('dddd D MMMM YYYY'))<br><br>
-          // Display : 5 (number of the day of the week starting with 0 for Monday)<br>
-          console.log(date.weekday())<br><br>
-          // Display : 1 (quarter number)<br>
-          console.log(date.quarter())<br><br>
-          // Display : samedi 7 mars 2020 (add 7 days to the initial date)<br>
-          console.log(date.add(7, 'd').format('dddd D MMMM YYYY'))<br><br>
-          let dateEnd = moment('2020-11-01')<br>
-          // Display : dans 8 mois<br>
-          console.log(dateEnd.from(date))<br><br>
-          // Display : 239 (number of days difference between these 2 dates)<br>
-          console.log(dateEnd.diff(date, 'days'))<br><br>
-          // Display : false (because dateEnd is not before date)<br>
-          console.log(dateEnd.isBefore(date))
+          let user = {<br>
+            firstName: 'John',<br>
+            lastName: 'DOE'<br>
+          }<br><br>
+          user.userName = 'jdoe'<br><br>
+          // Display : { firstName: 'John', lastName: 'DOE', userName: 'jdoe' }<br>
+          console.log(user)<br><br>
+          <span class="console">Affichage console :</span><br>
+          { firstName: 'John', lastName: 'DOE', userName: 'jdoe' }
         </code>
       </div>
     </section>
+    <section>
+      <h3 id="dif" class="sub-title-h3">Différences entre l'objet Object() et l'objet Array()</h3>
+      <h3 id="similitude">Similitudes et différences</h3>
+      <article>
+        <p>
+          L'objet <strong>Array()</strong> peut être assimilé à une liste. Pour récupérer un élément de la liste, on va itérer sur ses 
+          index tandis que pour un <strong>Object()</strong> on va itérer sur ses propriétés.
+        </p>
+        <div class="code">
+          <code>
+            const carInObject = {<br>
+              type: 'BMW',<br>
+              doors: 3,<br>
+              color: 'blue'<br>
+            }<br><br>
+            const carInArray = ['BMW', 3, 'blue'];<br><br>
+            console.log(carInObject.color); // blue<br>
+            console.log(carInArray[2]); // blue<br><br>
+            <span class="console">Affichage console :</span><br>
+            blue<br>
+            blue
+          </code>
+        </div>
+        <p>Un Object() peut stocker un Array(), et inversement. L'exemple ci-dessous renvoi <i>undefined</i> sur l'objet CarInObject.
+        </p>  
+        <div class="code">
+          <code>
+            const carInObject = {<br>
+              type: 'BMW',<br>
+              doors: 3,<br>
+              color: 'blue'<br>
+            }<br><br>
+            const carInArray = ['BMW', 3, 'blue'];<br><br>
+            console.log(carInObject.length);<br>
+            console.log(carInArray.length);<br><br>
+            <span class="console">Affichage console :</span><br>
+            undefined<br>
+            3
+          </code></div>
+          <p>
+            Pour connaître le nombre d'éléments présents dans un Object() il faut le transformer en Array().
+          </p>
+        <p>
+          Malgré leurs similitudes, les cas d'utilisation d'un <strong>Object</strong> et d'un <strong>Array</strong> sont
+          très différent.
+        </p>
+        <p>
+          Un Array, au sens JavaScript est un objet mais un objet un peu particulier.
+          <ul>
+            <li>
+              Un <strong>Array()</strong> sert à stocker une <strong>liste</strong> d'éléments.
+            </li>
+            <li>
+              Un <strong>Object()</strong> sert à stocker les <strong>caractéristiques</strong> d'un élément.
+            </li>
+          </ul>
+        </p>
+        <div class="code">
+          <code>
+            const car1 = {<br>
+              type: 'BMW',<br>
+              doors: 3,<br>
+              color: 'blue'<br>
+            }<br><br>
+            const car2 = {<br>
+              type: 'PEUGEOT',<br>
+              doors: 5,<br>
+              color: 'grey'<br>
+            }<br><br>
+            // Dans l'objet garage nous sotckons la liste des objets car<br>
+            const garage1 = {<br>
+               cars: [car1, car2]<br>
+            }<br><br>
+            const garage2 = {<br>
+               cars: [car1, car2]<br>
+            }<br><br>
+            // Pour stocker la liste des garages nous utiliseront un Array()<br>
+            const garages = [garage1, garage2]
+          </code>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h3 id="methodes" class="sub-title-h3">Les méthodes de l'objet Object()</h3>
+      <article>
+        <h3 id="transformer">Transformer un Objet() en Array()</h3>
+      <p>
+        Il sera parfois nécessaire de transformer notre Objet en Array.<br> Nous allons citer quelques méthodes pour y parvenir :
+        <ul>
+          <li>
+            <strong>Object.keys()</strong> : permet de récupérer un tableau contenant la liste des propriétés de l'objet donné.
+          </li>
+          <li>
+            <strong>Object.values()</strong> : permet de récupérer un tableau contenant la liste des valeurs des propriétés de l'objet.
+          </li>
+          <li>
+            <strong>Object.entries()</strong> : renvoie un tableau à plusieurs dimensions contenant les propriétés avec les valeurs associées.
+          </li>
+        </ul>
+      </p>
+      <div class="code">
+        <code>
+          let user = {<br>
+            firstName: 'John',<br>
+            lastName: 'DOE',<br>
+            age: 36,<br>
+            email: 'j.doe@email.com',<br>
+            phoneNumbers: ['0660504030', '0123456789'],<br>
+          }<br><br>
+          console.log(Object.<span class="comment">keys</span>(user));<br>
+          <span class="console">
+            //['firstName', 'lastName', 'age', 'email', 'phoneNumbers']
+          </span><br>
+          console.log(Object.<span class="comment">values</span>(user));<br>
+          <span class="console">
+            // ['John', 'DOE', 36, 'j.doe@email.com', ['0660504030', '0123456789']]
+          </span><br>
+          console.log(Object.<span class="comment">entries</span>(user));<br>
+          <div class="console">
+            <code>
+              [[ 'firstName', 'John' ],<br>
+                [ 'lastName', 'DOE' ],<br>
+                [ 'age', 36 ],<br>
+                [ 'email', 'j.doe@email.com' ],<br>
+                [ 'phoneNumbers', [ '0660504030', '0123456789' ] ],<br>
+                [ 'fullName', [Function] ]]<br>
+            </code>
+          </div>
+        </code>
+      </div>
+      </article>
+    </section>
+    <section>
+      <h3 id="property">HasOwnProperty()</h3>
+      <p>
+        Afin d'éviter de transformer un Object en Array, nous pouvons vérifier qu'une propriété existe avec <strong>Object.hasOwnProperty('property')</strong>.
+      </p>
+      <div class="code">
+        <code>
+          let user = {<br>
+            firstName: 'John',<br>
+            lastName: 'DOE',<br>
+            age: 36,<br>
+            email: 'j.doe@email.com',<br>
+            phoneNumbers: ['0660504030', '0123456789'],<br>
+          }<br><br>
+          let propertyLastNameExist = user.hasOwnProperty('lastName')<br>
+          if (propertyLastNameExist) {<br>
+            console.log(user['lastName'])<br>
+          }<br>
+          <span class="console">//DOE</span></code></div>
+    </section>
+
+
+
     <p><a href="#up">Haut</a></p>
   </main>
   <footer><p>&copy;2021 - Graduate développeur PHP/Symfony</p></footer>

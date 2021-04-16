@@ -32,6 +32,10 @@ footer {
   text-align: center;
 }
 
+.doc-pdf {
+  font-size: .7em;
+}
+
 .code {
   width: fit-content;
   padding: 10px;
@@ -163,6 +167,14 @@ a:hover {
   color: cadetblue;
 }
 
+.sub-title-h3, .console {
+  color: darkcyan;
+}
+
+.comment {
+  color: #088d1e;
+}
+
 .title-h4 {
   margin: 10px 0;
 }
@@ -241,10 +253,6 @@ a:hover {
 
   .title-h1, .sub-title-h2, .sub-title-h3 {
     margin: 0;
-  }
-
-  .sub-title-h3 {
-    color: darkcyan;
   }
 
   .dt  {
