@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ce site présente mes notes de cours sur ma formation STUDI de Graduate développeur 
+  PHP / Symfony.">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Notes - Graduate développeur PHP/Symfony</title>
+</head>
+<body>
+  <header id="up">
+    <h1 class="shape-title">S'initier à la programmation avec Javascript</h1>
+  </header>
+  <main>
+    <p class="bgc-up"><a href="initProgJSMenu2.html">Retour</a></p>
+    <section>
+      <h2>Les objets JavaScript <a href="../../PDF/Les_objets_javascript.pdf" target="_blank" class="doc-pdf">PDF</a></h2>
+      <nav>
+        <section class="return" >
+          <h2 class="sub-title-h2">Sommaire</h2>
+        </section>
+        <ul class="li-empty">
+          <li>
+            <a href="#objet-javaScript">Qu'est-ce qu'un objet JavaScript ?</a>
+          </li>
+          <li>
+            <a href="#declarer-objet">Déclarer un objet avec Object()</a>
+          </li>
+          <li>
+            <a href="#proprietes">Les propriétés d'un objet JavaScript</a>
+          </li>
+          <li>
+            <a href="#dif">Différences entre l'objet Object() et l'objet Array()</a>
+          </li>
+          <li>
+            <a href="#methodes">Les méthodes de l'objet Object()</a>
+          </li>
+        </ul>
+      </nav>  
+    </section>
+    <section class="bgc-section">
+      <h2 id="objet-javaScript" class="sub-title-h3">Qu'est-ce qu'un objet JavaScript ?</h2>
+      <article>
+        <p>
+          Pour manipuler des données complexes, il faut utiliser les objets (les informations d'un utilisateur : 
+          firstName, lastName, email, age, phoneNumber...).
+        </p>
+        <p>
+          Un objet contient des données sous forme de <em>propriété / valeur</em>.
+        </p>
+        <p>
+          Contrairement aux tableaux, un objet possède des propriétés (firstName...).
+        </p>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="declarer-objet" class="sub-title-h3">Déclarer un objet avec Object()</h2>
+      <article>
+        <p>
+          Un objet se déclare avec le constructeur Object() à l'aide d'une variable et lui affecter comme valeur un 
+          nouvel objet (<strong>new Object()</strong>).
+        </p>
+        <p>
+          Ses différentes propriétés seront accolées à cette variable par un point, puis le nom de la propriété désirée 
+          et lui affecter une valeur à droite du signe <strong>=</strong>.
+        </p>
+        <div class="code">
+          <code>
+            let user = new Object()<br>
+            user.firstName = 'John'<br>
+            user.lastName = 'DOE'<br>
+            user.age = 36<br>
+            user.email = 'j.doe@email.com'<br>
+            user.phoneNumbers = ['0660504030', '0123456789']<br>
+            user.fullName = function() {<br>
+            return this.firstName + ' ' + this.lastName<br>
+            }<br><br>
+            console.log(user)<br><br>
+            <span class="console">Affichage console :</span><br>
+            { firstName: 'John',<br>
+            lastName: 'DOE',<br>
+            age: 36,<br>
+            email: 'j.doe@email.com',<br>
+            phoneNumbers: [ '0660504030', '0123456789' ],<br>
+            fullName: [Function]<br>
+            }
+          </code>
+        </div>
+      </article>
+      <h3>this</h3>
+      <article>
+        <p>
+          Dans la fonction ajoutée à l'objet, le mot-clé this se réfère à l'objet courant au sein duquel le code est 
+          écrit (ici, il se réfère donc à : user).</p>
+        </p>
+        <p>Dans le cas d'un nouvel objet user2, <strong>this</strong> se référera cette fois à user2.</p>
+      </article>
+      <h3>Déclarer un objet avec la notation littérale</h3>
+      <article>
+        <p>La notation littérale peut être utiliser pour créer un objet en listant les propriétés entre accolades.</p>
+        <div class="code">
+          <code>
+            let user = {<br>
+            firstName: 'John',<br>
+            lastName: 'DOE',<br>
+            age: 36,<br>
+            email: 'j.doe@email.com',<br>
+            phoneNumbers: ['0660504030', '0123456789'],<br>
+            fullName: function() {<br>
+              return this.firstName + ' ' + this.lastName<br>
+            }<br>
+            }<br>
+            console.log(user)<br><br>
+            <span class="console">Affichage console :</span><br>
+            { firstName: 'John',<br>
+            lastName: 'DOE',<br>
+            age: 36,<br>
+            email: 'j.doe@email.com',<br>
+            phoneNumbers: [ '0660504030', '0123456789' ],<br>
+            fullName: [Function]<br>
+            }
+          </code>
+        </div>
+      </article>
+      <h3>Créer une fonction pour construire nos objets</h3>
+      <article>
+        <p>
+          Il est possible de créer des objets avec une fonction, ce qui permet de les réutiliser pour faciliter 
+          leur utilisation et la modification de nos objets.
+        </p>  
+        <p>
+          Par convention, le nom de la fonction commencera par une majuscule : User().<br>
+          Cette fonction prendra en paramètres les différentes propriétés et valeurs.
+        </p>
+          Les valeurs seront passées à la fonction lors de son appel (ex : new User('John', 'DOE', ...)).
+        </p>
+        <div class="code">
+          <code>
+            function User(<br>
+            firstNameValue, <br>
+            lastNameValue, <br>
+            ageValue, <br>
+            emailValue,<br>
+            phoneNumbersValue<br>
+          ) {<br>
+            this.firstName = firstNameValue<br>
+            this.lastName = lastNameValue<br>
+            this.age = ageValue<br>
+            this.email = emailValue<br>
+            this.phoneNumbers = phoneNumbersValue<br>
+            this.fullName = function() {<br>
+              return this.firstName + ' ' + this.lastName<br>
+            }<br>
+          }<br>
+          let user = new User(<br>
+            'John', <br>
+            'DOE', <br>
+            36, <br>
+            'j.doe@email.com', <br>
+            ['0660504030', '0123456789']<br>
+          )<br><br>
+          console.log(user)<br><br>
+          <span class="console">Affichage console :</span><br>
+          User {<br>
+          firstName: 'John',<br>
+          lastName: 'DOE',<br>
+          age: 36,<br>
+          email: 'j.doe@email.com',<br>
+          phoneNumbers: [ '0660504030', '0123456789' ],<br>
+          fullName: [Function] }<br>
+          </code>
+        </div>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="proprietes" class="sub-title-h3">Les propriétés d'un objet JavaScript</h2>
+      <article>
+        <h3>Les propriétés</h3>
+        <p>
+          Une propriété Object() peut stocker tous les types (string, number, booleen, Array()).
+        </p>
+        <h3>Avec le point (.)</h3>
+        <p>
+          Pour accéder à une propriété, utilisez le nom de la variable suivi d'un point, puis du nom de la propriété.
+        </p>
+        <p>
+          Si la valeur de la propriété est un <strong>tableau</strong>, alors nous pouvons la manipuler comme tel, par 
+          exemple en affichant la première valeur (<strong>user.phoneNumbers[0]</strong>).
+        </p>
+        <p>
+          Si la valeur de la propriété est une <strong>fonction</strong>, alors il faut lui ajouter des parenthèses pour 
+          l'appeler <strong>user.fullName()</strong>.
+        </p>
+        <div class="code">
+          <code>
+            let user = {<br>
+              firstName: 'John',<br>
+              lastName: 'DOE',<br>
+              age: 36,<br>
+              email: 'j.doe@email.com',<br>
+              phoneNumbers: ['0660504030', '0123456789'],<br>
+              fullName: function() {<br>
+                return this.firstName + ' ' + this.lastName<br>
+              }<br>
+            }<br><br>
+            // Display : John<br>
+            console.log(user.firstName)<br><br>
+            // Display the first phone number in the array : 0660504030<br>
+            console.log(user.phoneNumbers[0])<br><br>
+            // Display the return of the fullName() function : John DOE<br>
+            console.log(user.fullName())<br><br>
+            <span class="console">Affichage console :</span><br>
+            John<br>
+            0660504030<br>
+            John DOE<br>
+          </code>
+        </div>
+      </article>
+      <h3>Avec les crochets ([])</h3>
+        <article>
+          <p>
+            Il est également possible de manipuler les propriétés à la manière d'un tableau en accolant à la suite de 
+            notre variable le nom de la propriété entre crochets. Le nom de la propriété devra être mis entre 
+            apostrophes au sein des crochets (<strong>user['firstName']</strong>).
+          </p>
+          <div class="code">
+            <code>
+              let user = {<br>
+                firstName: 'John',<br>
+                lastName: 'DOE',<br>
+                age: 36,<br>
+                email: 'j.doe@email.com',<br>
+                phoneNumbers: ['0660504030', '0123456789'],<br>
+                fullName: function() {<br>
+                  return this.firstName + ' ' + this.lastName<br>
+                }<br>
+              }<br><br>
+              // Display : John<br>
+              console.log(user['firstName'])<br><br>
+              // Display the first phone number in the array : 0660504030<br>
+              console.log(user['phoneNumbers'][0])<br><br>
+              // Display the return of the fullName() function : John DOE<br>
+              console.log(user['fullName']())<br><br>
+              <span class="console">Affichage console :</span><br>
+                John<br>
+                0660504030<br>
+                John DOE<br>
+            </code>
+          </div>
+        </article>
+      <h3>Modifier une valeur de propriété</h3>
+      <article>
+        <p>
+          Pour modifier une valeur, appelez l'une des méthodes et lui affecter une nouvelle valeur.
+        </p>
+        <div class="code">
+          <code>
+            let user = {<br>
+              firstName: 'John',<br>
+              lastName: 'DOE'<br>
+            }<br><br>
+            user.firstName = 'Bob'<br><br>
+            // Display : Bob<br>
+            console.log(user.firstName)<br><br>
+            <span class="console">Affichage console :</span><br>
+            John<br>
+            0660504030<br>
+            John DOE<br>
+          </code>
+        </div>
+      </article>
+      <h3>Ajouter une nouvelle propriété</h3>
+      <article>
+        <p>
+          Pour ajouter une nouvelle propriété, nous utilisons la variable, puis la propriété avec la méthode entre 
+          accolades et nous lui affectons la valeur désirée.
+        </p>
+      </article>
+      <div class="code">
+        <code>
+          let user = {<br>
+            firstName: 'John',<br>
+            lastName: 'DOE'<br>
+          }<br><br>
+          user.userName = 'jdoe'<br><br>
+          // Display : { firstName: 'John', lastName: 'DOE', userName: 'jdoe' }<br>
+          console.log(user)<br><br>
+          <span class="console">Affichage console :</span><br>
+          { firstName: 'John', lastName: 'DOE', userName: 'jdoe' }
+        </code>
+      </div>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="dif" class="sub-title-h3">Différences entre l'objet Object() et l'objet Array()</h2>
+      <h3>Similitudes et différences</h3>
+      <article>
+        <p>
+          L'objet <strong>Array()</strong> peut être assimilé à une liste. Pour récupérer un élément de la liste, on va itérer sur ses 
+          index tandis que pour un <strong>Object()</strong> on va itérer sur ses propriétés.
+        </p>
+        <div class="code">
+          <code>
+            const carInObject = {<br>
+              type: 'BMW',<br>
+              doors: 3,<br>
+              color: 'blue'<br>
+            }<br><br>
+            const carInArray = ['BMW', 3, 'blue'];<br><br>
+            console.log(carInObject.color); // blue<br>
+            console.log(carInArray[2]); // blue<br><br>
+            <span class="console">Affichage console :</span><br>
+            blue<br>
+            blue
+          </code>
+        </div>
+        <p>Un Object() peut stocker un Array(), et inversement. L'exemple ci-dessous renvoi <i>undefined</i> sur l'objet CarInObject.
+        </p>  
+        <div class="code">
+          <code>
+            const carInObject = {<br>
+              type: 'BMW',<br>
+              doors: 3,<br>
+              color: 'blue'<br>
+            }<br><br>
+            const carInArray = ['BMW', 3, 'blue'];<br><br>
+            console.log(carInObject.length);<br>
+            console.log(carInArray.length);<br><br>
+            <span class="console">Affichage console :</span><br>
+            undefined<br>
+            3
+          </code></div>
+          <p>
+            Pour connaître le nombre d'éléments présents dans un Object() il faut le transformer en Array().
+          </p>
+        <p>
+          Malgré leurs similitudes, les cas d'utilisation d'un <strong>Object</strong> et d'un <strong>Array</strong> sont
+          très différent.
+        </p>
+        <p>
+          Un Array, au sens JavaScript est un objet mais un objet un peu particulier.
+          <ul class="ul-p17">
+            <li>
+              Un <strong>Array()</strong> sert à stocker une <strong>liste</strong> d'éléments.
+            </li>
+            <li>
+              Un <strong>Object()</strong> sert à stocker les <strong>caractéristiques</strong> d'un élément.
+            </li>
+          </ul>
+        </p>
+        <div class="code">
+          <code>
+            const car1 = {<br>
+              type: 'BMW',<br>
+              doors: 3,<br>
+              color: 'blue'<br>
+            }<br><br>
+            const car2 = {<br>
+              type: 'PEUGEOT',<br>
+              doors: 5,<br>
+              color: 'grey'<br>
+            }<br><br>
+            // Dans l'objet garage nous sotckons la liste des objets car<br>
+            const garage1 = {<br>
+               cars: [car1, car2]<br>
+            }<br><br>
+            const garage2 = {<br>
+               cars: [car1, car2]<br>
+            }<br><br>
+            // Pour stocker la liste des garages nous utiliseront un Array()<br>
+            const garages = [garage1, garage2]
+          </code>
+        </div>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="methodes" class="sub-title-h3">Les méthodes de l'objet Object()</h2>
+      <article>
+        <h3>Transformer un Objet() en Array()</h3>
+      <p>
+        Il sera parfois nécessaire de transformer notre Objet en Array.<br> Nous allons citer quelques méthodes pour y parvenir :
+        <ul class="ul-p17">
+          <li>
+            <strong>Object.keys()</strong> : permet de récupérer un tableau contenant la liste des propriétés de l'objet donné.
+          </li>
+          <li>
+            <strong>Object.values()</strong> : permet de récupérer un tableau contenant la liste des valeurs des propriétés de l'objet.
+          </li>
+          <li>
+            <strong>Object.entries()</strong> : renvoie un tableau à plusieurs dimensions contenant les propriétés avec les valeurs associées.
+          </li>
+        </ul>
+      </p>
+      <div class="code">
+        <code>
+          let user = {<br>
+            firstName: 'John',<br>
+            lastName: 'DOE',<br>
+            age: 36,<br>
+            email: 'j.doe@email.com',<br>
+            phoneNumbers: ['0660504030', '0123456789'],<br>
+          }<br><br>
+          console.log(Object.<span class="comment">keys</span>(user));<br>
+          <span class="console">
+            //['firstName', 'lastName', 'age', 'email', 'phoneNumbers']
+          </span><br>
+          console.log(Object.<span class="comment">values</span>(user));<br>
+          <span class="console">
+            // ['John', 'DOE', 36, 'j.doe@email.com', ['0660504030', '0123456789']]
+          </span><br>
+          console.log(Object.<span class="comment">entries</span>(user));<br>
+          <div class="console">
+            <code>
+              [[ 'firstName', 'John' ],<br>
+                [ 'lastName', 'DOE' ],<br>
+                [ 'age', 36 ],<br>
+                [ 'email', 'j.doe@email.com' ],<br>
+                [ 'phoneNumbers', [ '0660504030', '0123456789' ] ],<br>
+                [ 'fullName', [Function] ]]<br>
+            </code>
+          </div>
+        </code>
+      </div>
+      </article>
+      <h3>HasOwnProperty()</h3>
+      <p>
+        Afin d'éviter de transformer un Object en Array, nous pouvons vérifier qu'une propriété existe avec <strong>Object.hasOwnProperty('property')</strong>.
+      </p>
+      <div class="code">
+        <code>
+          let user = {<br>
+            firstName: 'John',<br>
+            lastName: 'DOE',<br>
+            age: 36,<br>
+            email: 'j.doe@email.com',<br>
+            phoneNumbers: ['0660504030', '0123456789'],<br>
+          }<br><br>
+          let propertyLastNameExist = user.hasOwnProperty('lastName')<br>
+          if (propertyLastNameExist) {<br>
+            console.log(user['lastName'])<br>
+          }<br>
+          <span class="console">//DOE</span>
+        </code>
+      </div>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+  </main>
+  <footer><p>&copy;2021 - Graduate développeur PHP/Symfony</p></footer>
+</body>
+</html>
