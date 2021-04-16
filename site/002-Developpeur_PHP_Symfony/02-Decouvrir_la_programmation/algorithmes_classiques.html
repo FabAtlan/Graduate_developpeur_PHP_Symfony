@@ -13,6 +13,7 @@
     <h1 class="shape-title">Découvrir la programmation</h1>
   </header>
   <main>
+    <p class="bgc-up"><a href="decouvProg.html">Retour</a></p>
     <section>
       <h2 class="section">Algorithmes classiques</h2>
       <p class="">Pour être un bon développeur, il est important d'avoir une culture des algorithmes classiques. Ce sont des algorithmes qui ont été écrits et qui sont reconnus comme étant la meilleure solution pour un problème donné.</p>
@@ -20,7 +21,6 @@
         <nav>
           <section class="return" >
             <h2 class="sub-title-h2">Sommaire</h2>
-            <a href="decouvProg.html">Retour</a>
           </section>
           <ul class="li-empty">
             <li><a href="#searchInUnordered">Position d'une valeur (liste non triée)</a></li>
@@ -36,6 +36,8 @@
           </ul>
         </nav>
       </article>
+    </section>
+    <section class="bgc-section">
       <article>
         <h3 id="searchInUnordered">Position d'une valeur (liste non triée)</h3>
         <p>Dans le cas d'une liste non triée, il sera nécessaire de parcourir toutes les cases une à une.</p>
@@ -49,6 +51,9 @@
             }</code>
         </div>
       </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
       <article>
         <h3 id="maxInUnordered">Maximum d'une valeur (liste non triée)</h3>
         <p>L'algorithme suivant retourne la valeur maximale d'une liste non triée. Il teste les éléments un à un et possède une variable qui stocke le maximum.</p>
@@ -65,10 +70,15 @@
         <p>La recherche du minimum est identique. Il suffira jsute d'inverser la condition du if à l'intérieur de la boucle.</p>
         <p>La complexité en temps de ces deux algorithmes est <b>O(<i>n</i>)</b> car il est nécessaire de parcourir tous les éléments de la liste pour trouver ce que l'on cherche.</p>
       </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
       <article>
         <h3>Rechercher dans des listes triées</h3>
         <p>La complexité <b>O(<i>n</i>)</b> d'une recherche dans une liste non-triée n'est pas très optimale. Sur de grands volumes de données ou en cas de recherche fréquentes, le temps d'exécution ou les performances pourraient être impacté. Il est préférable de trier notre liste puis d'utiliser un algorithme de recherche pour liste triée.</p>
       </article>
+    </section>
+    <section class="bgc-section">
       <article>
         <h3 id="maxInOrdered">Maximum d'une valeur (liste triée)</h3>
         <p>Il suffit d'une seule instruction pour trouver le maximum. La liste étant triée, il s'agit forcément du dernier élément. La complexité de l'algorithme est donc de <b>O(<i>1</i>)</b>.</p>
@@ -78,6 +88,9 @@
             console.log(max)</code>
         </div>
       </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
       <article>
         <h3 id="naive">Algorythme naïf</h3>
         <p>Voici un algorithme qui permet de retourner les indices d'une valeur donnée dans une liste triée. Il est dit naïf car très intuitif mais pas des plus optimisé.</p>
@@ -94,6 +107,9 @@
             console.log('Fin')</code>
         </div>
       </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
       <article>
         <h3 id="dichotomie">Recherche par dichotomie</h3>
         <p>Ce problème consiste à renvoyer la position d'une valeur donnée présente dans une liste triée. L'algorithme réalise une <strong><a href="#">dichotomie</a></strong> qui permet d'optimiser la recherche. On considère pour simplifier des listes sans doublons.<br>
@@ -143,6 +159,9 @@
           </ul>
           La complexité en temps de la dichotomie <b>O(<i>log(n)</i>)</b> est bien meilleure notamment pour des très grandes listes.</p>
       </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
       <article>
         <h3 id="cartesien">Créer des paires (produit cartésien)</h3>
         <p>Une des opérations résalisé dans le cadre du traitement d'une base de données est d'effectuer le produit cartésien. Cette opération mathématique permet de regrouper deux ensembles de données et de lister les combinaisons possibles entre eux. C'est une opération simple à réaliser, mais coûteuse en terme de complexité algorithmique.<br>Attention de ne pas lister les éléments d'un même ensemble.</p>
@@ -155,7 +174,7 @@
                 console.log(vehicles[i], colors[j])<br>
               }<br>
             }<br><br>
-            //Affichage console :<br>
+            <span class="console">Affichage console :</span><br>
             Vélo Rouge<br>
             Vélo Bleu<br>
             Trottinette Rouge<br>
@@ -165,6 +184,9 @@
         </div>
         <p>La complexité du produit cartésien est <b>O(<i>n*m</i>)</b>. n est le nombre d'éléments de X et m celui de Y. Cette complexité est visible grâce à l’imbrication des boucles.</p>
       </article>
+    <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
       <article>
         <h3 id="fibonacci">Suite de Fibonacci</h3>
         <p>Dans leur observation de la nature, certains mathématiciens ont découvert la récurrence d'une suite de nombres bien précise : la suite de Fibonacci. On retrouve, par exemple, cette suite dans la floraison de l'artichaut ou dans la disposition d'une pomme de pain. Cette présence énigmatique dans de nombreuses dispositions naturelles continuent d'intriguer les scientifiques et alimente encore aujourd'hui des recherches ou des créations artistiques.</p>
@@ -176,7 +198,7 @@
             fibo[i] = fibo[i - 1] + fibo[i - 2]<br>
           }<br>
           console.log(fibo)<br><br>
-          //Affichage console :<br>
+          <span class="console">Affichage console :</span><br>
           [ 0, 1, 1, 2, 3 ]</code></div>
           <h3>Déroulement pas à pas de la suite de Fibonacci</h3>
           <ul class="ul-p17">
@@ -202,6 +224,9 @@
         <p>La liste des cinq premiers termes de la suite est affichée dans la console.</p>
         <p>La complexité en temps de cet algorithme est <b>O(<i>n</i>)</b>. On peut voir très clairement ce qui explique cette complexité car on voit deux boucles simples. On pourrait être plus précis en disant O(2 * n) mais cette complexité est considérée comme équivalente à O(n) car on souhaite simplement un ordre de grandeur.</p>
       </article>
+    <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
       <article>
         <h3 id="triBulles">Trier des listes (tri à bulles)</h3>
         <p>L'idée de ce tri est de faire remonter itérations après itérations les valeurs hautes vers la fin de la liste à l'instar des gouttes d'huiles remontant petit à petit vers la surface de l'eau.</p>
@@ -264,6 +289,9 @@
         </ul>
         <p>La complexité en temps de ce tri est <b>O(<i>n²</i>)</b>. On peut voir très clairement ce qui explique cette complexité grâce à la boucle imbriquée.</p>
       </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
       <article>
         <h3 id="eratosthene">Le crible d'Erastosthène</h3>
         <p>Cet algorithme permet de trouver tous les nombres premiers inférieurs à un certain nombre. Un nombre premier est un nombre qui n'est divisible que par 1 et lui-même</p>
@@ -285,17 +313,19 @@
             }<br>
             L.splice(0, 1)<br>
           }<br>
-          
           console.log(primeNumbers)<br><br>
-          Affiche console :<br>
+          <span class="console">Affichage console :</span><br>
           [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]</code></div>
       </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
       <article>
         <h3 id="listNumber">Trier une liste de nombres</h3>
         <p>Voilà de quelle manière une liste de nombres est triée avec sort() :</p>
         <div class="code"><code>const scores = [58, 13, 29, 100, 203, 1, 5, 13, 56, 33, 123];<br>
           console.log(scores.sort());<br><br>
-          Affichage console :<br>
+          <span class="console">Affichage console :</span><br>
           [ 1, 100, 123, 13, 13, 203, 29, 33, 5, 56, 58 ]
         </code></div>
         <p>La fonction sort() n'est pas suffisante car elle trie les éléments de manière alphabétique. Pour cela, il faut une fonction supplémentaire :</p>
@@ -304,14 +334,14 @@
              return a - b <br>
             }<br>
           console.log(scores.sort(compareNumbers))<br><br>
-          Affichage console :<br>
+          <span class="console">Affichage console :</span><br>
           [1, 5, 13, 13, 29, 33, 56, 58, 100, 123, 203 ]
         </code></div>
       </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
-    <p><a href="#up">Haut</a></p>
   </main>
-  <footer>
+  <footer class="bgc-section">
     <p>&copy;2021 - Graduate développeur PHP/Symfony</p>
   </footer>
 </body>

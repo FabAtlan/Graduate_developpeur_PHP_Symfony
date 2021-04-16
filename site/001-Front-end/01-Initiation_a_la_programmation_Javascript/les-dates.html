@@ -13,12 +13,12 @@
   <header id="up">
     <h1 class="shape-title">S'initier à la programmation avec Javascript</h1>
   </header>
+  <a href="initProgJSMenu2.html" class="bgc-up">Retour</a>
   <main>
     <h2>Les dates <a href="../../PDF/Les_dates.pdf" target="_blank" class="doc-pdf">PDF</a></h2>
     <nav>
       <section class="return" >
         <h2 class="sub-title-h2">Sommaire</h2>
-        <a href="initProgJSMenu2.html">Retour</a>
       </section>
       <ul class="li-empty">
         <li><a href="#objet-date">L'objet date</a></li>
@@ -28,8 +28,8 @@
         <li><a href="#moment-js">Moment.js</a></li>
       </ul>
     </nav>  
-    <section>
-      <h2 id="objet-date">L'objet date</h2>
+    <section class="bgc-section">
+      <h2 id="objet-date" class="sub-title-h3">L'objet date</h2>
       <article>
         <p>Une date en JavaScript est généralement représentée de trois manières 
           différentes</p>
@@ -51,13 +51,13 @@
           (new Date())</code> :</p>
           <div class="code">
             <code>const date = new Date()<br>console.log(date)<br><br>
-            Affichage console :<br>
+            <span class="console">Affichage console :</span><br>
             Thu Mar 05 2020 17:20:00 GMT+0100</code>
           </div>
         <p>Il est possible de passer en paramètre une date sous forme de chaîne de caractères :</p>
         <div class="code">
           <code>const date = new Date('February 29, 2020 09:30:59')<br>console.log(date)<br><br>
-          Affichage console :<br>
+            <span class="console">Affichage console :</span><br>
           Sat Feb 29 2020 09:30:59 GMT+0100</code>
         </div>
         <p>Cependant, cette méthode n'est pas à privilégier car la chaîne peut être analysée différemment en fonction 
@@ -74,15 +74,17 @@
           </ul>
         </p>
         <div class="code">
-          <code>const date = new Date(2020, 1, 25)<br>console.log(date) <br><br>Affichage console :<br>Tue Feb 25 2020 00:00:00 GMT+0100 heure normale d'Europe centrale) {}
+          <code>const date = new Date(2020, 1, 25)<br>console.log(date) <br><br>
+            <span class="console">Affichage console :</span><br>
+            Tue Feb 25 2020 00:00:00 GMT+0100 heure normale d'Europe centrale) {}
         </code>
         </div>
         <p>Les mois vont de 0 (janvier) à 11 (décembre).</p>
       </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
-    <section>
-      <h2 id="setters_getters">Setters et getters</h2>
-      <section>
+    <section class="bgc-section">
+      <h2 id="setters_getters" class="sub-title-h3">Setters et getters</h2>
         <article>
         <p>Etudions à présent les différentes méthodes dont dispose l'objet Date. Pour construire une date deux méthodes possible :<br>
           <ul>
@@ -104,7 +106,7 @@
               date.setMonth(11)<br>
               date.setDate(31)<br>
               console.log(date)<br><br>
-              Affichage console :<br>
+              <span class="console">Affichage console :</span><br>
               2021-04-15T13:07:46.168Z<br>
               2020-12-31T14:07:46.168Z</code>
             </div>
@@ -119,7 +121,7 @@
               date.setSeconds(45)<br>
               date.setMilliseconds(500)<br>
               console.log(date)<br><br>
-              Affichage console :<br>
+              <span class="console">Affichage console :</span><br>
               2020-02-28T23:00:00.000Z<br>
               2020-02-29T21:30:45.500Z
             </code></div>
@@ -129,7 +131,7 @@
             <div class="code"><code>const date = new Date(2020, 1, 29)<br>
               date.setTime(date.setTime(1584028448))<br>
               console.log(date)<br><br>
-              Affichage console :<br>
+              <span class="console">Affichage console :</span><br>
               1970-01-19T08:00:28.448Z
             </code></div>
           </li>
@@ -170,9 +172,10 @@
           </li>
         </ul>
       </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
-    <section>
-      <h2 id="manip-date">Les manipulations de dates</h2>
+    <section class="bgc-section">
+      <h2 id="manip-date" class="sub-title-h3">Les manipulations de dates</h2>
       <p>Il est possible de réaliser des opérations mathématiques sur les dates.</p>
       <div class="code"><code>const date = new Date(2020, 1, 29)<br>
         const date2 = new Date()<br><br>
@@ -180,7 +183,7 @@
         date2.setMonth(date.getMonth() + 6)<br>
         date2.setDate(date.getDate() + 15)<br><br>
         console.log(date2)<br><br>
-        Affichage console :<br>
+        <span class="console">Affichage console :</span><br>
         2021-09-13T13:42:49.514Z
       </code></div><br>
       <div class="code"><code>const date = new Date(2020, 1, 29, 21, 30, 55)<br>
@@ -193,7 +196,7 @@
         date2.setMinutes(date.getMinutes() + 30)<br>
         date2.setSeconds(date.getSeconds() + 30)<br><br>
         console.log(date2)<br><br>
-        Affichage console :<br>
+        <span class="console">Affichage console :</span><br>
         2020-03-01T01:01:25.907Z
       </code></div><br>
       <div class="code"><code>const date = new Date(2020, 1, 29, 20, 30, 45)<br>
@@ -209,7 +212,7 @@
           date.getSeconds() + 30<br>
         )<br><br>
         console.log(date2)<br><br>
-        Affichage console :<br>
+        <span class="console">Affichage console :</span><br>
         2021-09-13T23:01:15.850Z
       </code></div><br>
       <div class="code"><code>const date = new Date(2020, 1, 29, 20, 30, 45)<br>
@@ -222,7 +225,7 @@
           date.getSeconds() + 30<br>
         )<br><br>
         console.log(date2)<br><br>
-        Affichage console :<br>
+        <span class="console">Affichage console :</span><br>
         2021-09-13T23:01:15.000Z
       </code></div><br>
       <div class="code"><code>const date = new Date(2020, 1, 29)<br>
@@ -231,14 +234,15 @@
         console.log(date.getTime())<br>
         console.log(date2.getTime())<br>
         console.log(date3.getTime())<br><br>
-        Affichage console :<br>
+        <span class="console">Affichage console :</span><br>
         1582930800000<br>
         1597520700000<br>
         1597521600000<br>
       </code></div>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
-    <section>
-      <h2 id="format-date">Formater les dates</h2>
+    <section class="bgc-section">
+      <h2 id="format-date" class="sub-title-h3">Formater les dates</h2>
       <p>Il est possible de formater les dates afin quelles correspondent à nos besoins.</p>
       <p><strong>toLocaleString()</strong></p>
       <p>Retourne une chaîne de caractères et prend deux paramètres facultatifs :</p>
@@ -254,20 +258,20 @@
             const dateDisplayedLong = date.toLocaleString('fr-FR', options)<br><br>
             console.log(dateDisplayed)<br>
             console.log(dateDisplayedLong)<br><br>
-            Affichage console :<br>
+            <span class="console">Affichage console :</span><br>
             29/02/2020, 21:30:45<br>
             samedi 29 février 2020, 21:30</code>
           </div>
         </li>
       </ul>
-      <h2>toLocaleTimeString()</h2>
+      <h3>toLocaleTimeString()</h3>
       <p>Retourne directement l'heure de la date. Toutefois, les paramètres dans l'objet options permettent quand même de tout afficher si on le souhaite.</p>
       <div class="code"><code>const date = new Date(2020, 1, 29, 21, 30, 45)<br>const dateDisplayed = date.toLocaleTimeString('fr-FR')<br>
         console.log(dateDisplayed)<br><br>
-        Affichage console :<br>
+        <span class="console">Affichage console :</span><br>
         21:30:45
       </code></div>
-      <h2>Intl.DateTimeFormat</h2>
+      <h3>Intl.DateTimeFormat</h3>
       <p>Formatage des dates à privilégier pour des raisons de performance. Créer un objet <strong>Intl.DateTimeFormat</strong> et utiliser sa propriété <strong>format</strong> en lui <i>passant la date</i>. Les paramètres facultatifs et locales sont optionnels.</p>
       <div class="code"><code>const date = new Date(2020, 1, 29, 21, 30, 45)<br>
         const dateDisplayed = new Intl.DateTimeFormat('fr-FR').format(date)<br>
@@ -282,13 +286,14 @@
         const dateDisplayedLong = new Intl.DateTimeFormat('fr-FR', options).format(date)<br>
         console.log(dateDisplayed)<br>
         console.log(dateDisplayedLong)<br><br>
-        Affichage console :<br>
+        <span class="console">Affichage console :</span><br>
         29/02/2020<br>
         samedi 29 février 2020, 21:30
       </code></div>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
-    <section>
-      <h2 id="moment-js">Moment-js</h2>
+    <section class="bgc-section">
+      <h2 id="moment-js" class="sub-title-h3">Moment-js</h2>
       <p>Moment.js est une librairie JavaScript spécialisée dans la gestion des dates. Elle évite aux développeur d'avoir à écrire beaucoup de code pour les traitements complexes.</p>
       <h3>Installation de Moment.js</h3>
         <ol class="ul-p17">
@@ -349,9 +354,9 @@
           console.log(dateEnd.isBefore(date))
         </code>
       </div>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
-    <p><a href="#up">Haut</a></p>
   </main>
-  <footer><p>&copy;2021 - Graduate développeur PHP/Symfony</p></footer>
+  <footer class="bgc-section"><p>&copy;2021 - Graduate développeur PHP/Symfony</p></footer>
 </body>
 </html>

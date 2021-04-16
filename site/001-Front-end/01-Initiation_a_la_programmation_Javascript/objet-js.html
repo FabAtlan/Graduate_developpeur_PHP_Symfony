@@ -14,12 +14,12 @@
     <h1 class="shape-title">S'initier à la programmation avec Javascript</h1>
   </header>
   <main>
+    <p class="bgc-up"><a href="initProgJSMenu2.html">Retour</a></p>
     <section>
       <h2>Les objets JavaScript <a href="../../PDF/Les_objets_javascript.pdf" target="_blank" class="doc-pdf">PDF</a></h2>
       <nav>
         <section class="return" >
           <h2 class="sub-title-h2">Sommaire</h2>
-          <a href="initProgJSMenu2.html">Retour</a>
         </section>
         <ul class="li-empty">
           <li>
@@ -29,46 +29,19 @@
             <a href="#declarer-objet">Déclarer un objet avec Object()</a>
           </li>
           <li>
-            <a href="#this">this</a>
-          </li>
-          <li>
-            <a href="#notation-litterale">Déclarer un objet avec la notation littérale</a>
-          </li>
-          <li>
-            <a href="#fonction-obj">Créer une fonction pour construire nos objets</a>
-          </li>
-          <li>
             <a href="#proprietes">Les propriétés d'un objet JavaScript</a>
-          </li>
-          <li>
-            <a href="#crochets">Avec les crochets ([])</a>
-          </li>
-          <li>
-            <a href="#modif">Modifier une valeur de propriété</a>
-          </li>
-          <li>
-            <a href="#ajout">Ajouter une nouvelle propriété</a>
           </li>
           <li>
             <a href="#dif">Différences entre l'objet Object() et l'objet Array()</a>
           </li>
           <li>
-            <a href="#similitude">Différences et similitude</a>
-          </li>
-          <li>
             <a href="#methodes">Les méthodes de l'objet Object()</a>
-          </li>
-          <li>
-            <a href="#transformer">Transformer un Objet() en Array()</a>
-          </li>
-          <li>
-            <a href="#property">HasOwnProperty()</a>
           </li>
         </ul>
       </nav>  
     </section>
-    <section>
-      <h3 id="objet-javaScript" class="sub-title-h3">Qu'est-ce qu'un objet JavaScript ?</h3>
+    <section class="bgc-section">
+      <h2 id="objet-javaScript" class="sub-title-h3">Qu'est-ce qu'un objet JavaScript ?</h2>
       <article>
         <p>
           Pour manipuler des données complexes, il faut utiliser les objets (les informations d'un utilisateur : 
@@ -81,9 +54,10 @@
           Contrairement aux tableaux, un objet possède des propriétés (firstName...).
         </p>
       </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
-    <section>
-      <h3 id="declarer-objet">Déclarer un objet avec Object()</h3>
+    <section class="bgc-section">
+      <h2 id="declarer-objet" class="sub-title-h3">Déclarer un objet avec Object()</h2>
       <article>
         <p>
           Un objet se déclare avec le constructeur Object() à l'aide d'une variable et lui affecter comme valeur un 
@@ -116,9 +90,7 @@
           </code>
         </div>
       </article>
-    </section>
-    <section>
-      <h3 id="this">this</h3>
+      <h3>this</h3>
       <article>
         <p>
           Dans la fonction ajoutée à l'objet, le mot-clé this se réfère à l'objet courant au sein duquel le code est 
@@ -126,9 +98,7 @@
         </p>
         <p>Dans le cas d'un nouvel objet user2, <strong>this</strong> se référera cette fois à user2.</p>
       </article>
-    </section>
-    <section>
-      <h3 id="notation-litterale">Déclarer un objet avec la notation littérale</h3>
+      <h3>Déclarer un objet avec la notation littérale</h3>
       <article>
         <p>La notation littérale peut être utiliser pour créer un objet en listant les propriétés entre accolades.</p>
         <div class="code">
@@ -155,9 +125,7 @@
           </code>
         </div>
       </article>
-    </section>
-    <section>
-      <h3 id="fonction-obj">Créer une fonction pour construire nos objets</h3>
+      <h3>Créer une fonction pour construire nos objets</h3>
       <article>
         <p>
           Il est possible de créer des objets avec une fonction, ce qui permet de les réutiliser pour faciliter 
@@ -206,9 +174,10 @@
           </code>
         </div>
       </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
-    <section>
-      <h3 id="proprietes" class="sub-title-h3">Les propriétés d'un objet JavaScript</h3>
+    <section class="bgc-section">
+      <h2 id="proprietes" class="sub-title-h3">Les propriétés d'un objet JavaScript</h2>
       <article>
         <h3>Les propriétés</h3>
         <p>
@@ -251,9 +220,7 @@
           </code>
         </div>
       </article>
-    </section>
-    <section>
-      <h3 id="crochets">Avec les crochets ([])</h3>
+      <h3>Avec les crochets ([])</h3>
         <article>
           <p>
             Il est également possible de manipuler les propriétés à la manière d'un tableau en accolant à la suite de 
@@ -285,9 +252,7 @@
             </code>
           </div>
         </article>
-    </section>
-    <section>
-      <h3 id="modif">Modifier une valeur de propriété</h3>
+      <h3>Modifier une valeur de propriété</h3>
       <article>
         <p>
           Pour modifier une valeur, appelez l'une des méthodes et lui affecter une nouvelle valeur.
@@ -308,9 +273,7 @@
           </code>
         </div>
       </article>
-    </section>
-    <section>
-      <h3 id="ajout">Ajouter une nouvelle propriété</h3>
+      <h3>Ajouter une nouvelle propriété</h3>
       <article>
         <p>
           Pour ajouter une nouvelle propriété, nous utilisons la variable, puis la propriété avec la méthode entre 
@@ -330,10 +293,11 @@
           { firstName: 'John', lastName: 'DOE', userName: 'jdoe' }
         </code>
       </div>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
-    <section>
-      <h3 id="dif" class="sub-title-h3">Différences entre l'objet Object() et l'objet Array()</h3>
-      <h3 id="similitude">Similitudes et différences</h3>
+    <section class="bgc-section">
+      <h2 id="dif" class="sub-title-h3">Différences entre l'objet Object() et l'objet Array()</h2>
+      <h3>Similitudes et différences</h3>
       <article>
         <p>
           L'objet <strong>Array()</strong> peut être assimilé à une liste. Pour récupérer un élément de la liste, on va itérer sur ses 
@@ -379,7 +343,7 @@
         </p>
         <p>
           Un Array, au sens JavaScript est un objet mais un objet un peu particulier.
-          <ul>
+          <ul class="ul-p17">
             <li>
               Un <strong>Array()</strong> sert à stocker une <strong>liste</strong> d'éléments.
             </li>
@@ -412,14 +376,15 @@
           </code>
         </div>
       </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
-    <section>
-      <h3 id="methodes" class="sub-title-h3">Les méthodes de l'objet Object()</h3>
+    <section class="bgc-section">
+      <h2 id="methodes" class="sub-title-h3">Les méthodes de l'objet Object()</h2>
       <article>
-        <h3 id="transformer">Transformer un Objet() en Array()</h3>
+        <h3>Transformer un Objet() en Array()</h3>
       <p>
         Il sera parfois nécessaire de transformer notre Objet en Array.<br> Nous allons citer quelques méthodes pour y parvenir :
-        <ul>
+        <ul class="ul-p17">
           <li>
             <strong>Object.keys()</strong> : permet de récupérer un tableau contenant la liste des propriétés de l'objet donné.
           </li>
@@ -462,9 +427,7 @@
         </code>
       </div>
       </article>
-    </section>
-    <section>
-      <h3 id="property">HasOwnProperty()</h3>
+      <h3>HasOwnProperty()</h3>
       <p>
         Afin d'éviter de transformer un Object en Array, nous pouvons vérifier qu'une propriété existe avec <strong>Object.hasOwnProperty('property')</strong>.
       </p>
@@ -481,12 +444,11 @@
           if (propertyLastNameExist) {<br>
             console.log(user['lastName'])<br>
           }<br>
-          <span class="console">//DOE</span></code></div>
+          <span class="console">//DOE</span>
+        </code>
+      </div>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
-
-
-
-    <p><a href="#up">Haut</a></p>
   </main>
   <footer><p>&copy;2021 - Graduate développeur PHP/Symfony</p></footer>
 </body>
