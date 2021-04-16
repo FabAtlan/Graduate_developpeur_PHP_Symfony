@@ -44,7 +44,7 @@
         <div class="code">
           <code>const temperatures = [12, 5, 29, -3]<br>
             const val = 5<br>
-            for (let i = 0; i < temperatures.length; i++) {<br>
+            for (let i = 0; i &#60 temperatures.length; i++) {<br>
               if (val === temperatures[i]) {<br>
                 console.log(i)<br>
               }<br>
@@ -60,8 +60,8 @@
         <div class="code">
           <code>const temperatures = [12, 5, 29, -3]<br>
             let max = temperatures[0]<br>
-            for (let i = 1; i < temperatures.length; i++) {<br>
-              if (max < temperatures[i]) {<br>
+            for (let i = 1; i &#60 temperatures.length; i++) {<br>
+              if (max &#60 temperatures[i]) {<br>
                 max = temperatures[i]<br>
               }<br>
             }<br>
@@ -98,7 +98,7 @@
           <code>const sortedTemperatures = [-3, 5, 12, 50, 50, 78, 94, 113, 129]<br>
             const val = 50<br>
             let i = 0<br>
-            while (i < sortedTemperatures.length && sortedTemperatures[i] <= val) {<br>
+            while (i &#60 sortedTemperatures.length && sortedTemperatures[i] &#60= val) {<br>
               if (sortedTemperatures[i] === val) {<br>
                 console.log(i)<br>
               }<br>
@@ -126,12 +126,12 @@
             const val = 12<br>
             let a = 0<br>
             let b = sortedTemperatures.length - 1<br>
-            while (a <= b) {<br>
+            while (a &#60= b) {<br>
               const m = Math.floor((a + b) / 2)<br>
               if (sortedTemperatures[m] === val) {<br>
                 console.log(m)<br>
                 break<br>
-              } else if (sortedTemperatures[m] < val) {<br>
+              } else if (sortedTemperatures[m] &#60 val) {<br>
                 a = m + 1<br>
               } else {<br>
                 b = m - 1<br>
@@ -169,8 +169,8 @@
         <div class="code">
           <code>const vehicles = ['Vélo', 'Trottinette', 'Roller']<br>
             const colors = ['Rouge', 'Bleu']<br>
-            for (let i = 0; i < vehicles.length; i++){<br>
-              for (let j = 0; j < colors.length; j++){<br>
+            for (let i = 0; i &#60 vehicles.length; i++){<br>
+              for (let j = 0; j &#60 colors.length; j++){<br>
                 console.log(vehicles[i], colors[j])<br>
               }<br>
             }<br><br>
@@ -194,7 +194,7 @@
           const fibo = new Array(n)<br>
           fibo[0] = 0<br>
           fibo[1] = 1<br>
-          for (let i = 2; i < n; i++) {<br>
+          for (let i = 2; i &#60 n; i++) {<br>
             fibo[i] = fibo[i - 1] + fibo[i - 2]<br>
           }<br>
           console.log(fibo)<br><br>
@@ -232,8 +232,8 @@
         <p>L'idée de ce tri est de faire remonter itérations après itérations les valeurs hautes vers la fin de la liste à l'instar des gouttes d'huiles remontant petit à petit vers la surface de l'eau.</p>
         <div class="code"><code>const ages = [17, 1, 28, 5]<br>
           for (let i = ages.length - 1; i > 0; i--) {<br>
-            for (let j = 0; j < i; j++) {<br>
-              if (ages[j + 1] < ages[j]) {<br>
+            for (let j = 0; j &#60 i; j++) {<br>
+              if (ages[j + 1] &#60 ages[j]) {<br>
                 const temp = ages[j + 1]<br>
                 ages[j + 1] = ages[j]<br>
                 ages[j] = temp<br>
@@ -255,7 +255,7 @@
                 </ul>
               <li><b>Deuxième itération secondaire :</b></li>
                 <ul class="li-square ul-p17">
-                  <li>j = 1 : ages[1] (= 17) < ages[2] (= 28)<br>donc la liste reste [1, 17, 28, 5].</li>
+                  <li>j = 1 : ages[1] (= 17) &#60 ages[2] (= 28)<br>donc la liste reste [1, 17, 28, 5].</li>
                 </ul>
               <li><b>Troisième itération secondaire :</b></li>
                 <ul class="li-square ul-p17">
@@ -268,7 +268,7 @@
               <li>i = 2</li>
               <li><b>Première itération secondaire :</b></li>
                 <ul class="li-square ul-p17">
-                  <li>j = 0 : ages[0] (= 1) < ages[1] (= 17)<br>donc la liste reste [1, 17, 5, 28].</li>
+                  <li>j = 0 : ages[0] (= 1) &#60 ages[1] (= 17)<br>donc la liste reste [1, 17, 5, 28].</li>
                 </ul>
               <li><b>Deuxième itération secondaire :</b></li>
                 <ul class="li-square ul-p17">
@@ -281,7 +281,7 @@
               <li>i = 1</li>
               <li><b>Première itération secondaire :</b></li>
                 <ul class="li-square ul-p17">
-                  <li>j = 0 : ages[0] (= 1) < ages[1] (= 5)<br>donc la liste reste [1, 5, 17, 28].</li>
+                  <li>j = 0 : ages[0] (= 1) &#60 ages[1] (= 5)<br>donc la liste reste [1, 5, 17, 28].</li>
                   <li>j = 1 = i donc la boucle secondaire se termine.</li>
                 </ul>
               </ul>
@@ -297,14 +297,14 @@
         <p>Cet algorithme permet de trouver tous les nombres premiers inférieurs à un certain nombre. Un nombre premier est un nombre qui n'est divisible que par 1 et lui-même</p>
         <div class="code"><code>const limit = Number(prompt('Entrer la limite du crible'))<br>
           const L = []<br>
-          for (let i = 2; i <= limit; i++) {<br>
+          for (let i = 2; i &#60= limit; i++) {<br>
             L.push(i)<br>
           }<br>
           const primeNumbers = []<br>
           while (L.length > 0) {<br>
             primeNumbers.push(L[0])<br>
             let i = 1<br>
-            while (i < L.length) {<br>
+            while (i &#60 L.length) {<br>
               if (L[i] % L[0] === 0) {<br>
                 L.splice(i, 1)<br>
               } else {<br>
