@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ce site présente mes notes de cours sur ma formation STUDI de Graduate développeur 
+  PHP / Symfony.">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Notes - Graduate développeur PHP/Symfony</title>
+</head>
+<body>
+  <header id="up">
+    <h1 class="shape-title">S'initier à la programmation avec Javascript</h1>
+  </header>
+  <main>
+    <p class="bgc-up"><a href="initProgJSMenu2.html">Retour</a></p>
+    <section>
+      <h2>Les notions de test unitaire et test fonctionnel 
+        <a href="../../PDF/Les_notions_de_test_unitaire_et_test_fonctionnel.pdf" target="_blank" class="doc-pdf">PDF</a>
+      </h2>
+      <nav>
+        <section class="return" >
+          <h2 class="sub-title-h2">Sommaire</h2>
+        </section>
+        <ul class="li-empty">
+          <li>
+            <a href="#notion">Notions générales</a>
+          </li>
+          <li>
+            <a href="#type">Les différents types de tests</a>
+          </li>
+          <li>
+            <a href="#node">Node.js et NPM</a>
+          </li>
+          <li>
+            <a href="#outil">Les outils de tests JavaScript</a>
+          </li>
+        </ul>
+      </nav>  
+    </section>
+    <section class="bgc-section">
+      <h2 id="notion" class="sub-title-h3">Notions générales</h2>
+      <article>
+        <h3>Test unitaire</h3>
+        <p>
+          Un test unitaire permet de tester une partie précise du code de manière isolée et sans de vrais appels à la 
+          base de données.
+        </p>
+      </article>
+      <article>
+        <h3>Écrire un test unitaire, le pattern AAA</h3>
+        <p>
+          Le pattern <strong>AAA</strong> (<b>A</b>rrange, <b>A</b>ct, <b>A</b>ssert) est le modèle de rédaction de test 
+          unitaire le plus utilisé et consiste à diviser la rédaction d'un test unitaire en 3 parties :
+          <ul class="ul-p17">
+            <li>
+              <strong>Arrange :</strong> Initialisation des objets, définition des valeurs transmises à la méthode à tester.
+            </li>
+            <li>
+              <strong>Act :</strong> Appel de la méthode testée avec les paramètres définis dans la section Arrange.
+            </li>
+            <li>
+              <strong>Assert :</strong> Vérification que la méthode testée est conforme à ce que l'on attend.
+            </li>
+          </ul>
+        </p>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="type" class="sub-title-h3">Le différents types de tests</h2>
+      <article>
+        <h3>Test fonctionnel</h3>
+        <p>
+          Le test fonctionnel ou test système a pour but de tester un comportement complet. Ainsi, les fonctionnalités 
+          vont être testées en simulant les actions de l'utilisateur (clic, saisie, etc.).
+        </p>
+      </article>
+      <article>
+        <h3>Tests unitaires vs tests fonctionnels</h3>
+        <p>Si l'on reprend l'exemple d'un formulaire :</p>
+        <ul class="ul-p17">
+          <li>
+            Le <strong>test unitaire</strong> va tester le type de donnée unitairement. Par exemple juste que 
+            l'e-mail est correct.
+          </li>
+          <li>Le <strong>test fonctionnel</strong> testera en revanche la réaction du code à l'envoi du formulaire. Si une des données n'est pas valide, que se passe-t-il ? Les bonnes informations sont-elles enregistrées en base de données ? etc.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Les autres types de tests</h3>
+        <p>Il existe d'autres types de tests tout aussi importants :</p>
+        <ul class="ul-p17">
+          <li><strong>Le test d'intégration</strong> arrive après le test unitaire. Son rôle est de tester le bon 
+            fonctionnement des différentes parties du code (testées unitairement) entre elles.<br>
+            Par exemple : "La saisie d'un numéro de carte bleue déclenche la vérification de la validité du numéro".
+          </li>
+          <li><strong>Le test End-to-End</strong> (ou E2E) arrive après le test fonctionnel. Son rôle est de tester 
+            l'application de bout en bout afin de valider le bon fonctionnement de scénarios métier complexes.<br>
+            <b>Par exemple :</b>
+            <ul>
+              <li>L'utilisateur se connecte avec le rôle "Client",</li>
+              <li>Clique sur le lien "Ajoutez une carte bleue",</li>
+              <li>Le formulaire de saisie d'une carte bleue s'affiche,</li>
+              <li>L'utilisateur saisit le numéro de carte valide dans le champ "Numéro de carte",</li>
+              <li>Le champ est entouré de vert pour signaler que le numéro est valide,</li>
+              <li>L'utilisateur clique sur "Valider",</li>
+              <li>...</li>
+              <li>Un message s'affiche avec le texte "Carte créée avec succès".</li>
+            </ul>
+            </li>
+          <li>
+            <strong>Le test Smoke</strong> (ou Sanity testing) est un test simple d'une fonctionnalité critique. Ce test 
+            est unitaire ou fonctionnel, s'il échoue, il est inutile de lancer les autres tests.
+          </li>
+        </ul>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="node" class="sub-title-h3">Node.js et NPM</h2>
+      <article>
+        <p>
+          Pour utiliser les librairies de tests <strong>Node.JS</strong> et <strong>NPM</strong> doivent être 
+          installés.<br>
+          <b>Node.js</b> est une plateforme logicielle open source, qui s'appuie sur le moteur JavaScript V8 permettant 
+          d'exécuter du code JavaScript sur un <b>serveur</b>.
+          Il dispose également d'un <strong>gestionnaire de paquets</strong> appelé <b>NPM</b>, le plus grand écosystème 
+          de librairies open source du monde.
+        </p>
+        <h3>Node.js</h3>
+        <p>
+          Pour installer Node.js, se rendre sur <a href="https://nodejs.org/en/download/" target="_blank">nodejs.org</a>, 
+          et dans la section <b>Download</b> choisir Installer.
+        </p>
+        <p>Node.js propose deux versions :
+          <ol>
+            <li><strong>Current</strong> dernière version majeure de <b>Node.js</b> destinée aux développeurs voulant 
+              essayer les dernières nouveautés (support non assuré).</li>
+            <li><strong>LTS</strong> (Long-Term Support) désigne une version dont le support technique sera assuré sur une 
+              longue période.
+              <div class="red"><b>C'est cette version qui devra être utilisée en production et dans un cycle de 
+                développement classique.</b>
+              </div>
+            </li>
+          </ol>
+        </p>
+      </article>  
+      <article>
+        <h3>NPM</h3>
+        <p><b>NPM</b> est le gestionnaire de paquets officiel de Node.js :</p>
+        <ul>
+          <li><strong>Paquet (package)  :</strong> un paquet est un ensemble de fonctions utilitaires regroupées et 
+            mises à disposition pour pouvoir être réutilisées ou exécutées sans avoir à réécrire le code.<br>
+            Chaque paquet a un numéro de version permettant de garantir la cohérence dans leur utilisation.
+          </li>
+          <li><strong>Gestionnaire de paquets :</strong> un gestionnaire de paquets est un outil qui va permettre de 
+            télécharger, de mettre à jour et de supprimer des paquets référencés dans une application, et de gérer leurs 
+            dépendances.<br>
+            Si le paquet A référence le paquet B et que notre application référence le paquet A, alors NPM téléchargera 
+            le paquet A et le paquet B.<br>
+            NPM étant le gestionnaire de paquets officiel de Node.js, il est compris dans l'installation de Node.js.
+          </li>
+        </ul>
+      </article>
+      <article>
+        <h3>Vérifier l'installation de Node.js et NPM</h3>
+        <p>Dand un terminal taper les lignes ci-dessous :</p>
+        <div class="code">
+          <code>
+            $ npm --version <span class="console">// 6.14.10</span><br>
+            $ node --version <span class="console">// v14.15.4</span>
+          </code>
+        </div>
+        <p>Si des numéros versions apparaîssent, c'est bon !</p>
+      </article>
+      <article>
+        <h3>Utilisation de NPM</h3>
+        <p>
+          Pour gérer les différentes versions des paquets dans une application, <b>NPM</b> se base sur le fichier 
+          <strong>package.json</strong> présent à la racine de l’application. S'il n'existe pas, le créer à l'aide de la 
+          commade puis suivre les instructions :
+          <div class="code">
+            <code>$ npm init</code>
+          </div>
+        </p>
+        <p>A la fin, un fichier de configuration <b>package.json</b> est créé. Ce fichier est primordial dans les 
+          application Node.js car il contient toutes les informations sur le projet, des scripts ainsi que des 
+          dépendances éventuellements installées via NPM.
+        </p>
+        <p>
+          Pour exemple, installons un 1<sup>er</sup> package qui est un outil de test, par exemple 
+          <strong>Mocha</strong>.
+        </p>
+        <div class="code">
+          <code>$ npm install mocha --save-dev</code>
+        </div>
+        <p>
+          Cette commande installe le package pour un environnement de développement.<br>
+          Pour un environnement de production faire :
+        </p>  
+        <div class="code">
+          <code>$ npm install mocha</code>
+        </div>
+        <p>
+          Pour le désinstaller faire :
+        </p>
+        <div class="code">
+          <code>
+            $ npm unistall mocha
+          </code>
+        </div>
+        <p>
+          La commande d'installation crée un dossier <strong>node_modules</strong> et un fichier 
+          <strong>package-lock.json</strong>.<br>
+          Nous pouvons voir également que le fichier <b>package.json</b> a été modifié. Les lignes...<br>
+          Ces dépendances sont nécessaire au bon fonctionnement.
+        </p>  
+        <div class="code">
+          <code>
+            ...<br>
+            "devDependencies": {<br>
+              "mocha": "^8.3.2"<br>
+            }
+          </code>
+        </div>
+        <p>...ont été ajoutées.</p>
+      </article>
+      <article>
+        <h3>Exemple d'utilisation :</h3>
+        <p>Créer un fichier script.js dans un nouveau dossier. Puis écrire l'instruction suivante :</p>
+        <div class="code">
+          <code>console.log('Hello world.');</code>
+        </div>
+        <p>Exécuter ensuite la commande suivante dans le terminal :</p>
+        <div class="code">
+          <code>
+            $ node script.js<br>
+            <span class="console">Affichae console :</span>
+            Hello world.
+          </code>
+        </div>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="outil" class="sub-title-h3">Le outils de tests JavaScript</h2>
+      <article>
+        <h3>Mocha</h3>
+        <p>
+          Mocha est un framework de test JavaScript très basique permettant d'écrire des tests unitaires ou d'intégration.
+          C'est pourquoi, dans un cas d'utilisation plus complexe, il sera nécessaire d'utiliser des paquets tels que :
+        </p>
+        <ul>
+          <li><strong>Chai :</strong> pour avoir des assertions plus avancées ou plus lisibles.</li>
+          <li><strong>Sinon :</strong> pour créer des Fake Server (serveurs fictifs) afin d'isoler les appels et de 
+            maîtriser les réponses dans le jeu de test.
+          </li>
+        </ul>
+      </article>
+      <article>
+        <h3>Les autres frameworks de tests</h3>
+      <p>
+        <strong>Jest</strong> ou <strong>Jasmine</strong> sont des frameworks de tests concurrents de <b>Mocha</b>. Ils 
+        s'utilisent de façon très similaire et se revendiquent comme des frameworks complets. Inutile pour le 
+        développeur 'ajouter des paquets externes.
+      </p>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+  </main>
+  <footer><p>&copy;2021 - Graduate développeur PHP/Symfony</p></footer>
+</body>
+</html>

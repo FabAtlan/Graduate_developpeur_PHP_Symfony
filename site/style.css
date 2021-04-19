@@ -1,5 +1,6 @@
 body {
-  margin: 0;
+  width: 100%;
+  margin: 0 auto;
   padding: 5px;
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -9,8 +10,8 @@ body {
 }
 
 .container {
-  margin: 0 auto;
-  text-align: center;
+  /* margin: 0 auto;
+  text-align: center; */
 }
 
 .return {
@@ -211,6 +212,11 @@ a:hover {
 }
 
 /* Media queries */
+@media screen and (min-width: 500px) {
+  body {
+    width: 90%;
+  }
+}
 @media screen and (min-width: 1200px) {
   body {
     font-size: 1rem;

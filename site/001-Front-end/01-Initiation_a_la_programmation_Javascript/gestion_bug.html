@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ce site présente mes notes de cours sur ma formation STUDI de Graduate développeur 
+  PHP / Symfony.">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Notes - Graduate développeur PHP/Symfony</title>
+</head>
+<body>
+  <header id="up">
+    <h1 class="shape-title">S'initier à la programmation avec Javascript</h1>
+  </header>
+  <main>
+    <p class="bgc-up"><a href="initProgJSMenu2.html">Retour</a></p>
+    <section>
+      <h2>Gestion des bugs : stratégies générales <a href="../../PDF/Gestion_des_bugs_strategies_generales.pdf" 
+        target="_blank" class="doc-pdf">PDF</a>
+      </h2>
+      <nav>
+        <section class="return" >
+          <h2 class="sub-title-h2">Sommaire</h2>
+        </section>
+        <ul class="li-empty">
+          <li>
+            <a href="#comprendre">Comprendre le code</a>
+          </li>
+          <li>
+            <a href="#deboguer">Déboguer dans le navigateur</a>
+          </li>
+          <li>
+            <a href="#resolution">Résolution d'un bug : les étapes</a>
+          </li>
+        </ul>
+      </nav>  
+    </section>
+    <section class="bgc-section">
+      <h2 id="comprendre" class="sub-title-h3">Comprendre le code</h2>
+      <article>
+        <h3>Les types de bugs</h3>
+        <p>Voici les trois principaux types de bugs :</p>
+        <ul class="ul-p17">
+          <li>Les bugs de <strong>syntaxe</strong></li>
+          <li>Les bugs de <strong>logique</strong></li>
+          <li>Les bugs d' <strong>architecture</strong></li>
+        </ul>
+        <h3>Bugs de syntaxe</h3>
+        <p>
+          Dus à une faute de frappe, un caractère en trop ou manquant. Ils sont signalés par l'interpréteur JavaScript.
+        </p>
+        <div class="code">
+          <code>
+            var myText = 'Mon texte; //Il manque ici une apostrophe en fin de texte<br>
+            <div class="comment">
+              /*L'interpréteur pourra retourner un message comme :<br>
+              "Unclosed string. Missing semicolon. Line 1."<br>
+              ou simplement<br>
+              "SyntaxError"<br>
+              */
+            </div>
+          </code>
+        </div>
+        <h3>Bugs de logique</h3>
+        <p>
+          Dus à une erreur dans le raisonnement du développeur ou dans l'écriture du script.
+        </p>
+        <div class="code">
+          <code>
+            <span class="console">
+              //Ici une fonction censée additionner ses 2 paramètres et renvoyer la valeur de la somme
+            </span><br>
+            function Sum(first, second) {<br>
+                var result = first + second;<br>
+                return first; <span class="console">//Le résultat renvoyé n'est pas celui attendu.</span><br>
+            }
+          </code>
+        </div>
+        <h3>Bugs d'architecture</h3>
+        <p>
+          Dus à une erreur dans la conception du programme, une référence manquante ou tout ce qui touche à la structure 
+          du code.
+        </p>
+        <div class="code">
+          <code>
+            <div class="console">//Ici, on essaie d'utiliser la méthode myAwesomeFunction, présente dans un fichier 
+              distant, sans importer le module.
+            </div>
+            myAwesomeFunction('David', 'Marty', 'USAP');
+          </code>
+        </div>
+        <p>
+          <div class="code">
+            <code>
+              <div class="console">//Version correcte :</div>
+              import { myAwesomeFunction } from '/modules/fichier.js';<br>
+              myAwesomeFunction('David', 'Marty', 'USAP');
+            </code>
+          </div>
+        </p>
+      </article>
+      <article>
+        <h3>Comprendre le code</h3>
+        <p>
+          <ul class="ul-p17">
+            <li>
+              Quel est son but ?
+            </li>
+            <li>
+              Que font telles ou telles fonctions ? 
+            </li>
+            <li>
+              Quelles sont les étapes pour arriver au résultat ?
+            </li>
+          </ul>
+        </p>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a>
+    </section>
+    <section class="bgc-section">
+      <h2 id="deboguer" class="sub-title-h3">Déboguer dans le navigateur</h2>
+      <p>Les navigateurs modernes mettent à disposition des outils de débogage JavaScript.</p>
+      <article>
+        <h2>Outils de développement Firefox et Chrome</h2>
+        <p>
+          Tous les navigateurs modernes possèdent des outils de développement (<strong>DevTools</strong>). Les plus 
+          évolués sont ceux de Firefox et de Chrome.<br>
+        </p>
+        <p>Pour y accéder :</p>
+        <ul class="ul-p17">
+          <li>
+            Ouvrir le navigateur
+          </li>
+          <li>
+            Taper sur la touche <b>F12</b> du clavier<br>
+            <b>Ctrl + Shift + i</b> sous <span class="console"><b>Windows</b></span> et <span class="console"><b>Linux</b></span><br>
+            <b>Cmd + Opt + i</b> sous <span class="console"><b>macOS</b></span>.
+          </li>
+          <li>
+            La fenêtre DevTools apparaît.
+          </li>
+        </ul>
+      </article>
+      <article>
+        <h3>L'onglet elements</h3>
+        <p>
+          L'onglet <strong>Elements</strong> permet d'afficher/modifier le code HTML et CSS de la page en cours.<br>
+          <strong>Ctrl + Maj + C</strong> ou <strong>Cmd + Opt + C</strong> sous <span class="console"><b>macOS</b></span> 
+          permettra de sélectionner des éléments de la page web dans la fenêtre principale.
+        </p>
+      </article>
+      <article>
+        <h3>L'onglet console</h3>
+        <p>
+          La console a plusieurs utilités :
+        </p>
+        <ul class="ul-p17">
+          <li>
+            Elle affiche tous les messages d'erreurs et d'avertissements lors de l’exécution du code ainsi que tous les 
+            retours de console.log().
+          </li>
+          <li>
+            Il est possible d'exécuter du code JavaScript directement dans la console, en appuyant sur ENTER après avoir 
+            écrit un script.
+          </li>
+        </ul>
+      </article>
+      <article>
+        <h3>L'onglet sources</h3>
+        <p>
+          Il permet d'explorer le code source de l'application web.<br>
+          Il sera possible de naviguer/explorer l'arborescence de l'application.
+        </p>
+        <p>
+          Un des très grands intérêt de l'onglet Sources est la possibilité d’insérer des points d'arrêt et de faire du 
+          <b>pas-à-pas</b> sur le code de l'application.<br>
+          Il suffit de cliquer sur le numéro de la ligne à laquelle on veut s’arrêter, et de relancer l’exécution du 
+          code.<br>
+          Pour avancer <b>pas-à-pas</b> dans le code, on utilisera les flèches en haut à droite de la fenêtre.
+        </p>
+      </article>
+      <article>
+        <h3>Le mot-clé debugger</h3>
+        <p>
+          En JavaScript, le mot clé <strong>debugger</strong> permet de mettre le code JavaScript en pause si DevTools est ouvert.
+        </p>
+        <div class="code">
+          <code>
+            function Sum(first, second) {<br>
+              var result = first + second;<br>
+              <span class="red">debugger</span> <span class="console">//l'execution du code fera un arrêt ici</span><br>
+              return result;<br>
+            }
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>L'onglet network</h3>
+        <p>L'onglet Network va nous permettre d'intercepter les requêtes HTTP envoyées depuis l'application web :</p>
+        <ul class="ul-p17">
+          <li>
+            L'URL de destination
+          </li>
+          <li>
+            La méthode HTTP
+          </li>
+          <li>
+            Le statut de la requête
+          </li>
+          <li>
+            Les headers de la requête et de la réponse
+          </li>
+          <li>
+            La réponse
+          </li>
+          <li>
+            Le délai de traitement de la requête
+          </li>
+          <li>
+            etc...
+          </li>
+        </ul>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="resolution" class="sub-title-h3">Résolution d'un bug : les étapes</h2>
+      <article>
+        <h3>Reproduire l'erreur</h3>
+        <p>
+          Lorsqu'un bug est remonté, il est primordial d'arriver à reproduire l'erreur. Il est donc important d'avoir un 
+          scénario de reproduction complet avec données.<br>
+          Il faut simplifier au maximum la rédaction du scénario, ne garder que les étapes indispensables à la 
+          reproduction. L'idéal serait de pouvoir déclencher le bug d'un clic.
+        </p>
+        <p>
+          L'apparition d'un bug est parfois liée au contexte d'exécution du code.
+          En effet, les différents environnements :
+          <ul class="ul-p17">
+            <li>de production</li>
+            <li>d'intégration</li>
+            <li>de développement</li>
+          </ul>
+          peuvent avoir des différences :
+          <ul class="ul-p17">
+            <li>d'infrastructure</li>
+            <li>de logiciels</li>
+            <li>de données</li>
+          </ul>
+          qui vont jouer sur l'apparition de bugs.<br>
+        </p>
+        <p>
+          Il est très important que l'environnement de développement soit le plus rapproche possible de celui de 
+          production.
+        </p>
+        <p>Il est plus simple de faire du debug en local que sur un environnement d'intégration / production.</p>
+        <p>Si le bug n'est pas reproductible, il faut trouver pourquoi :</p>
+      </article>
+      <article>
+        <h3>Produire des hypothèses</h3>
+        <p>Un bug peut apparaître dans trois conditions :</p>
+        <ul class="ul-p17">
+          <li>C'est la première fois que l'on teste le comportement en erreur,</li>
+          <li>L'environnement du projet a changé (données, librairies externes...),</li>
+          <li>L'erreur a été introduite avec un nouveau code ajouté au projet.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Effectuer un diagnostic</h3>
+        <p>
+          Il convient d'employer un diagnostic grâce au <strong>Back-tracking</strong>. Il s'agit de remonter jusqu'à la 
+          source du bug de partir de la ligne  constaté du bug.
+        </p>
+        <p>Les étapes sont simples :</p>
+        <ol class="ul-p17">
+          <li>Ajouter un point d'arrêt au niveau de la ligne du bug,</li>
+          <li>Exécuter le code, selon le scénario de reproduction du bug,</li>
+          <li>Arrivé au point d'arrêt, analyser les variables et définir laquelle provoque l'erreur,</li>
+          <li>Remonter jusqu'à l'instanciation de cette variable avec la valeur en erreur et y ajouter un point d'arrêt.
+          <li>Supprimer les points d'arrêt précédemment ajoutés, pour plus de clarté,</li>
+          <li>Répéter les étapes 2 à 4, jusqu'à l'origine du bug.</li>
+        </ol>
+      </article>
+      <article>
+        <h3>Un point d'arrêt dans la console Google Chrome</h3>
+        <p>
+          <ul class="ul-p17">
+            <li>Ouvrir la console du navigateur.</li>
+            <li>La section source est divisée en 3 parties.
+              <ol>
+                <li>À gauche se situent les fichiers du site (HTML, JavaScript, etc..).<br>
+                  Cliquez sur le fichier JavaScript a tester.
+                </li>
+                <li>Au centre se trouve le code du fichier sélectionné.<br>
+                  Les lignes du code sont numérotées.<br>
+                  Cliquez sur le numéro de la ligne pour placer le point d'arrêt.
+                </li>
+                <li>À droite se trouve le résumé du débug.<br>
+                  Le menu scope permet de voir les valeurs des variables au moment où le point d’arrêt s’exécute.</li>
+              </ol>
+            </li>
+          </ul>
+        </p>
+      </article>
+        <article>
+          <h3>console.log</h3>
+          <p>Utilisez la méthode <strong>console.log()</strong>. Cette méthode retourne en console le résultat de la 
+            variable passée en paramètre (au sein d'une boucle par exemple).
+          </p>
+          <div class="red">
+            <p><b>Toujours supprimer les console.log()</b></p>
+            <p>En production les données peuvent être accessibles par des utilisateurs et il pourront y avoir accès.</p>
+          </div>
+        </article>
+        <article>
+          <h3>Corriger un bug</h3>
+          <p>
+            Une fois le bug identifié, reproductible et localisé, il faut le corriger.<br>
+            Ne pas hésiter à partager son expérience avec l'équipe projet. Cela contribuera à l'amélioration des 
+            processus et de la qualité du code en général.
+          </p>
+        </article>
+        <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+  </main>
+  <footer><p>&copy;2021 - Graduate développeur PHP/Symfony</p></footer>
+</body>
+</html>
