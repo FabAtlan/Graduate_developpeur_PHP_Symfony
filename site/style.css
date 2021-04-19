@@ -161,6 +161,14 @@ a:hover {
   position: relative;
 }
 
+.tab {
+  margin-left: 1rem;
+}
+
+.tabx2 {
+  margin-left: 2rem;
+}
+
 /* Pour carte */
 .card {
   width: 45%;

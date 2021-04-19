@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ce site présente mes notes de cours sur ma formation STUDI de Graduate développeur 
+  PHP / Symfony.">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Notes - Graduate développeur PHP/Symfony</title>
+</head>
+<body>
+  <header id="up">
+    <h1 class="shape-title">S'initier à la programmation avec Javascript</h1>
+  </header>
+  <main>
+    <p class="bgc-up"><a href="initProgJSMenu2.html">Retour</a></p>
+    <section>
+      <h2>Ouverture vers un autre langage de programmation : Python 
+        <a href="../../PDF/Ouverture_vers_un_autre_langage_de_programmation_Python.pdf" target="_blank" 
+        class="doc-pdf">PDF</a>
+      </h2>
+      <nav>
+        <section class="return" >
+          <h2 class="sub-title-h2">Sommaire</h2>
+        </section>
+        <ul class="li-empty">
+          <li>
+            <a href="#introPython">Introduction au langage Python</a>
+          </li>
+          <li>
+            <a href="#var-operat">Les variables et les opérateurs</a>
+          </li>
+          <li>
+            <a href="#cond-boucle">Les conditions et les boucles</a>
+          </li>
+          <li>
+            <a href="#fonction">Les fonctions</a>
+          </li>
+        </ul>
+      </nav>  
+    </section>
+    <section class="bgc-section">
+      <h2 id="introPython" class="sub-title-h3">Introduction au langage Python</h2>
+      <article>
+        <h3>La factorielle en mathématiques</h3>
+        <p>
+          Dans le Web en particulier, on peut trouver des langages tels que JavaScript côté client et d'autres tels que 
+          PHP, Java ou .NET pour la partie serveur. <strong>Python</strong> permet aussi de réaliser du développement web côté serveur.
+        </p>
+        <h4 class="red">Rappel :</h4>
+        <p>
+          La factorielle d'un entier naturel <i>n</i> est le produit des nombres entiers strictement positifs inférieurs 
+          ou égaux à <i>n</i>.<br>
+          Ainsi, pour calculer la factorielle de 5 (aussi noté 5!), on obtient 5 * 4 * 3 * 2 * 1, soit 120.
+        </p>
+        <h3>Syntaxe Python</h3>
+        <div class="code">
+          <code>
+            <span class="comment">#!/usr/bin/env python3</span><br>
+            n = int(input('Entrez un nombre, et sa factorielle sera affichée : '))<br><br>
+            if n &#60; 0:<br>
+                <span class="tab">raise ValueError('Vous devez saisir un nombre positif')</span><br><br>
+                fact = 1<br>
+                i = 2<br>
+                while i &#60;= n:<br>
+                <span class="tab">fact *= i</span><br>
+                <span class="tab">i += 1</span><br><br>
+                print(fact)
+          </code>
+        </div>
+        <h3>Equivalent JavaScript :</h3>
+        <div class="code">
+          <code>
+            const n = parseInt(prompt('Entrez un nombre, et sa factorielle sera affichée: '))<br>
+            if (n &#60; 0) {<br>
+            <span class="tab">throw 'Vous devez saisir un nombre positif'</span><br>
+            }<br><br>
+            let fact = 1<br>
+            let i = 2<br><br>
+            while (i &#60;= n) {<br>
+            <span class="tab">fact *= i</span><br>
+            <span class="tab">i += 1</span><br>
+            }<br>
+            document.write(fact)
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Hashbang</h3>
+        <p>La première ligne du script Python permet de définir avec quel programme il va être exécuté.</p>
+      </article>
+      <article>
+        <h3>Installer un interpréteur Python</h3>
+        <p>Pour installer Python, se rendre sur
+          <a href="https://www.python.org/downloads/" target="_blank"><b>python.org</b></a>
+          et téléchargez la version adéquat puis lancez l'exécutable. <span class="red">Avant de cliquer sur <b><i>Install 
+            Now</i></b>, veuillez cocher <b>Add Python x.x to PATH</b></span>, sinon il ne sera pas possible d'utiliser 
+            Python en ligne de commande.
+        </p>  
+        <p>Sur la fenêtre <span class="red"><b><i>Setup was successfull</i></b></span>, cliquez sur <span class="red">
+          <b><i>Disable path lenght limit</i></b></span> afin que Python ne soit pas limiter en nombre de caratère.</p>
+        <p>Pour vérifier si Python est déjà installé faire :</p>
+        <div class="code">
+          <code>
+            python --version<br>
+            python3 --version<br>
+          </code>
+        </div>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="var-operat">Les variables et les opérateurs</h2>
+      <article>
+        <h3>Affecter une variable</h3>
+        <p>
+          En Python, il n'existe pas vraiment de mot-clé qui permet de déclarer une variable, il suffit de simplement 
+          l'utiliser.
+        </p>
+        <div class="code">
+          <code>x = 10</code>
+        </div>
+      </article>
+      <article>
+        <h3>Les différents types de données</h3>
+        <ul class="ul-p17">
+          <li>texte : <strong>str</strong></li>
+          <li>numériques : <strong>int</strong>, <strong>float</strong>, <strong>complex</strong></li>
+          <li>séquences : <strong>list</strong>, <strong>tuple</strong>, <strong>range</strong></li>
+          <li>mapping : <strong>dict</strong></li>
+          <li>set : <strong>set</strong>, <strong>frozenset</strong></li>
+          <li>booléen : <strong>bool</strong></li>
+          <li>binaires : <strong>bytes</strong>, <strong>bytearray</strong>, <strong>memoryview</strong></li>
+        </ul>
+      </article>
+      <article>
+        <h3>Une variable de type texte</h3>
+        <p>
+          Il faut délimiter une chaîne de caractères directement avec des <b>"</b> ou en utilisant la syntaxe avec 
+          <b>str()</b> :
+        </p>
+        <div class="code">
+          <code>
+            message = "Hello world"<br>
+            print(type(message))<br>
+            <span class="comment"># ou</span><br>
+            message = str("Hello world")<br>
+            print(type(message))<br>
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>La notation des booléens</h3>
+        <p>La définition d'une valeur booléenne prend une majuscule : True ou False. Écrites <b>true</b> ou 
+          <b>false</b>, ces chaînes 
+          seront considérées comme des variables et non des valeurs.</p>
+        <div class="code">
+          <code>true = True</code>
+        </div>
+      </article>
+      <article>
+        <h3>Les commentaires</h3>
+        <p>En Python, les lignes de commentaires commencent par un #.  La syntaxe pour un commentaire multi-lignes se 
+          fait avec 3 """
+        </p>
+        <p>
+          <div class="code">
+            <code class="comment">
+              #This is a<br>
+              #multiline comment
+            </code>
+          </div>
+        </p>
+        <p>
+          <div class="code">
+            <code class="comment">
+              """<br>
+              This is a<br>
+              multiline comment<br>
+              """<br>
+            </code>
+          </div>
+        </p>
+      </article>
+      <article>
+        <h3>Opérations de concaténation</h3>
+        <p>En Python, il existe plusieurs formes de concaténation :</p>
+        <ul>
+          <li>avec le caractère <b>+</b></li>
+          <li>avec une syntaxe avec <b>tokens</b>.</li>
+        </ul>
+        <p>Pour concaténer deux chaînes en JavaScript, on utilisera la syntaxe suivante :</p>
+        <div class="code">
+          <code>message = "Hello " + "world"</code>
+        </div>
+        <p>Pour l'expression string literal :</p>
+        <div class="code">
+          <code>
+            hello = "Hello"<br>
+            world = "world"<br>
+            message = "%s %s" % (hello, world)<br>
+          </code>
+        </div>
+
+        </p>
+      </article>
+      <article>
+        <h3>Opérations arithmétiques</h3>
+        <ul>
+          <li><b>+</b>, <b>-</b>, <b>*</b>, <b>/</b> ou <b>%</b></li>
+          <li><b>**</b> calcule l'exponentiel d'un nombre</li>
+          <li><b>//</b> calcule le quotient entier arrondi à l'inférieur d'une division, 
+            <span class="comment">par exemple 19 // 5 donnera 3</span>.
+          </li>
+        </ul>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="cond-boucle" class="sub-title-h3">Les conditions et les boucles</h2>
+      <article>
+        <h3>Opérateurs de comparaison</h3>
+        <ul>
+          <li>L'égalité : <b>==</b></li>
+          <li>L'inégalité : <b>!=</b></li>
+          <li>La supériorité : <b>&#62;</b></li>
+          <li>L'infériorité : <b>&#60;</b></li>
+          <li>Et leur déclinaison avec la nuance d'égalité : <b>&#62;=</b> et <b>&#60;=</b></li>
+        </ul>
+      </article>
+      <article>
+        <h3>Opérateurs logiques</h3>
+        <li><b>and</b> qui retourne vrai, si les deux conditions sont vraies</li>
+        <li><b>or</b> qui retourne vrai, si l'une des deux conditions est vraie</li>
+        <li><b>not</b> qui retourne vrai, si la condition est fausse</li>
+      </article>
+      <article>
+        <h3>Opérateurs d'identité</h3>
+        <ul>
+          <li><b>in</b> qui retourne vrai, si la valeur est trouvé dans l'objet</li>
+          <li><b>not</b> in qui retourne vrai, si la valeur est absente de l'objet</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Construire une expression booléenne</h3>
+        <div class="code">
+          <code>expression = x &#62; 5 and y &#60;= 10</code>
+        </div>
+      </article>
+      <article>
+        <h3>Structure conditionnelle</h3>
+        <div class="code">
+          <code>
+            if b > a:<br>
+            <span class="tab">print("b est plus grand que a")</span><br>
+            else:<br>
+            <span class="tab">print("a est plus grand que b")</span>
+          </code>
+        </div>
+        <p>Le mot-clé <b>elseif</b> devient elif en Python.</p>
+        <div class="code">
+          <code>
+            if b > a:<br>
+            <span class="tab">print("b est plus grand que a")</span><br>
+            elif a == b and b > c:<br>
+            <span class="tab">print("a et b sont égaux et b est plus grand que c")</span>
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Imbriquer des structures conditionnelles</h3>
+        <div class="code">
+          <code>
+            if x > 0:<br>
+            <span class="tab">print("x est positif ")</span><br>
+            <span class="tab">if x = 0:</span><br>
+            <span class="tabx2">print("et égal à 0")</span><br>
+            <span class="tab">else:</span><br>
+            <span class="tabx2">print("strictement")</span>
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Boucles</h3>
+        <p>Il existe deux types de boucles en Python : for et while.</p>
+        <h4>Boucle for</h4>
+        <div class="code">
+          <code>
+            users = ["Nicolas", "Laurent", "Laure"]<br>
+            for user in users:<br>
+            <span class="tab">print(user)</span><br>
+          </code>
+        </div>
+        <h4>Boucle while</h4>
+        <div class="code">
+          <code>
+            users = ["Nicolas", "Laurent", "Laure"]<br>
+            i = 0<br><br>
+            while i &#60 len(users):<br>
+            <span class="tabx2">print(users[i])</span><br>
+            <span class="tabx2">i += 1</span><br>
+          </code>
+        </div>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="fonction" class="sub-title-h3">Les fonctions</h2>
+      <article>
+        <h3>Appeler une fonction native</h3>
+        <p>On appelle fonctions natives les fonctions incluses dans un langage. Il en existe beaucoup en Python.</p>
+        <ul>
+          <li>Les fonctions de conversion de type appelé cast : <strong>int()</strong>, <strong>str()</strong>, 
+            <strong>bool()</strong>, etc.
+          </li>
+          <li><strong>input()</strong> qui permet de récupérer une saisie utilisateur</li>
+          <li><strong>print()</strong> qui permet d'afficher un texte à l'écran</li>
+          <li><strong>len()</strong> qui permet de récupérer la longueur d'un objet (chaîne de caractères, tableau, 
+            etc.)
+          </li>
+          <li><strong>min()</strong> et <strong>max()</strong> qui permettent de récupérer respectivement la valeur 
+            minimale et maximale d'un tableau
+          </li>
+        </ul>
+      </article>
+      <article>
+        <h3>Récupérer la longueur d'un objet</h3>
+        <div class="code">
+          <code>
+            string = "Hello world"<br>
+            length = len(string)<br>
+            print("La chaîne \"%s\" fait %s caratères de long" % (string, length))<br><br>
+            <div class="console">
+              Afficha console :<br>
+              La chaîne "Hello world" fait 11 caractères de long
+            </div>
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Les modules</h3>
+        <p>
+          On peut accéder à d'autres fonctions présentes dans des modules importés avec le mot-clé import. La ligne 
+          d'import d'un module doit être positionnée tout en haut du script.
+        </p>
+        <div class="code">
+          <code>
+            import random<br>
+            print(random.randint(0, 100))
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Déclarer une fonction</h3>
+        <p>
+          Afin de déclarer une fonction en Python, on va utiliser le mot-clé def. La syntaxe est identique aux 
+          structures conditionnelles et aux boucles.
+        </p>
+        <div class="code">
+          <code>
+            def say_hello(name, age = 0):<br>
+            <span class="tab">print("Bonjour " + name)</span><br>
+            <span class="tab">if age > 0:</span><br>
+            <span class="tabx2">print("Tu as %s ans" % (age))</span><br><br>
+            say_hello("Nicolas")
+          </code>
+        </div>
+        <h4>Retourner une valeur</h4>
+        <p>Si on veut pouvoir retourner une valeur, on utilise le mot-clé return, comme dans les autres langages.</p>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+  </main>
+  <footer><p>&copy;2021 - Graduate développeur PHP/Symfony</p></footer>
+</body>
+</html>
