@@ -29,22 +29,33 @@
           <li>
             <a href="#assignation">Assignation par copie vs assignation par référence</a>
           </li>
+          <li>
+            <a href="#avant-inconv">Avantages et inconvénients de copie et référence</a>
+          </li>
+          <li>
+            <a href="#shallow-copy">Shallow copy</a>
+          </li>
+          <li>
+            <a href="#deep-copy">Deep copy</a>
+          </li>
         </ul>
       </nav>  
     </section>
     <section class="bgc-section">
       <h2 id="assignation" class="sub-title-h3">Assignation par copie vs assignation par référence</h2>
-      <h3>Assignation de variable</h3>
       <article>
+        <h3>Assignation de variable</h3>
         <p>
-          En JavaScript, il existe deux grandes familles de types de données : les <strong>primitives</strong> et les <strong>objets</strong>.
+          En JavaScript, il existe deux grandes familles de types de données : les <strong>primitives</strong> et les 
+          <strong>objets</strong>.
         </p>
         <p>
-          En JavaScript, la gestion de la mémoire est facilitée. Les valeurs sont automatiquement déclarées en mémoire au moment de l'assignation et les valeurs non-utilisées sont automatiquement supprimées grâce au garbage collector (ramasse-miettes).
+          En JavaScript, la gestion de la mémoire est facilitée. Les valeurs sont automatiquement déclarées en mémoire 
+          au moment de l'assignation et les valeurs non-utilisées sont automatiquement supprimées grâce au garbage collector (ramasse-miettes).
         </p>
       </article>
-      <h3>Primitives</h3>
       <article>
+        <h3>Primitives</h3>
         <p>
           Parmi les primitives, on retrouve par exemple les types de données :
           <ul class="ul-p17">
@@ -64,7 +75,8 @@
               undefined
             </li>
           </ul>
-          Tous ces types de données sont considérés comme immuables. Lorsqu'une valeur de variable est modifiée, une nouvelle lui est déclarée en mémoire et l'ancienne est supprimée.
+          Tous ces types de données sont considérés comme immuables. Lorsqu'une valeur de variable est modifiée, une 
+          nouvelle lui est déclarée en mémoire et l'ancienne est supprimée.
         </p>
         <div class="code">
           <code>
@@ -73,8 +85,8 @@
           </code>
         </div>
       </article>
-      <h3>Objets</h3>
       <article>
+        <h3>Objets</h3>
         <p>
           Les trois types d'objets sont :
           <ul class="ul-p17">
@@ -88,7 +100,8 @@
               function
             </li>
           </ul>
-          Les objets sont considérés comme mutables. Lorsqu'une de ces types de données est modifié, ils ne sont pas entièrement supprimés et recréés mais simplement modifié et stockée dans la mémoire.
+          Les objets sont considérés comme mutables. Si l'un de ces types de données est modifié, ils ne sont pas 
+          entièrement supprimés et recréés mais simplement modifié et stockée dans la mémoire.
         </p>
         <div class="code">
           <code>
@@ -97,16 +110,19 @@
           </code>
         </div>
       </article>
-      <h3>Copie vs Référence</h3>
       <article>
+        <h3>Copie vs Référence</h3>
         <p>
-          Selon le type de données manipulées, le type d'affectation n'est pas le même. Là où dans d'autres langages de programmation il est possible de définir si une variable est assignée par copie ou par référence, en JavaScript, il n'y a pas le choix. Cela dépend du type de données utilisées.
+          Selon le type de données manipulées, le type d'affectation n'est pas le même. Là où dans d'autres langages de 
+          programmation il est possible de définir si une variable est assignée par copie ou par référence, en 
+          JavaScript, il n'y a pas le choix. Cela dépend du type de données utilisées.
         </p>
       </article>
-      <h3>Copie</h3>
       <article>
+        <h3>Copie</h3>
         <p>
-          L'assignation par copie est utilisée lorsqu'on manipule des primitives. Ces types étant immuables, il est impossible de les modifier. De ce fait, JavaScript est obligé de les recréer.
+          L'assignation par copie est utilisée lorsqu'on manipule des primitives. Ces types étant immuables, il est 
+          impossible de les modifier. De ce fait, JavaScript est obligé de les recréer.
         </p>  
         <div class="code">
           <code>
@@ -121,7 +137,8 @@
       <article>
         <h3>Référence</h3>
         <p>
-          L'assignation par référence a lieu lorsqu'on manipule des objets. Ces types étant mutables, on peut les réutiliser pour les modifier. JavaScript n'a pas besoin de les recréer.
+          L'assignation par référence a lieu lorsqu'on manipule des objets. Ces types étant mutables, on peut les 
+          réutiliser pour les modifier. JavaScript n'a pas besoin de les recréer.
         </p>
         <div class="code">
           <code>
@@ -135,8 +152,351 @@
       </article>
       <p class="bgc-up"><a href="#up">Haut</a></bgc-up></p>
     </section>
-    <p>
-    </p>
+    <section class="bgc-section">
+      <h2 id="avant-inconv" class="sub-title-h3">Avantages et inconvénients de copie et référence</h2>
+      <article>
+        <h3>Assignation par copie</h3>
+        <p>
+          Lors d'une assignons de variable par copie, la valeur est dupliquée. Ainsi, les deux variables sont 
+          indépendantes. Ce qui est un avantage. L'inconvénient est que JavaScript utilise plus de mémoire.
+        </p>
+      </article>
+      <article>
+        <h3>Assignation par référence</h3>
+        <p>
+          Lors de l'assignons d'une valeur par référence, la valeur est réutilisée. Ainsi, la nouvelle variable et 
+          l'ancienne font référence au même emplacement mémoire et la modification de l'une entraîne la modification 
+          de l'autre.<br>
+          L'avantage de l'assignation par référence est que la mise à jour d'un objet à plusieurs endroits d'une 
+          application est facilité.<br>
+          L'inconvénient est que, nous ne pourront pas traiter plusieurs variables indépendamment puisqu'elles font 
+          référence au même espace mémoire.
+        </p>
+        <div class="code">
+          <code>
+            let defaultUser = { name: '', age: 0 }<br><br>
+            let userJane = defaultUser<br>
+            userJane.name = 'Jane'<br>
+            userJane.age = 20<br><br>
+            let userJohn = defaultUser<br>
+            userJohn.name = 'John'<br>
+            userJohn.age = 25<br><br>
+            console.log(userJane)<br>
+            <span class="console">
+              Affiche {name: "John", age: 25}<br>
+            </span>
+            console.log(userJohn)<br>
+            <span class="console">
+              Affiche {name: "John", age: 25}<br>
+            </span>
+          </code>
+        </div>
+        <p class="bgc-up"><a href="#up">Haut</a></bgc-up></p>
+      </article>
+    </section>
+    <section class="bgc-section">
+      <h2 id="shallow-copy" class="sub-title-h3">Shallow-copy</h2>
+      <p>
+        Il n'est donc pas possible de copier un objet pour le modifier sans que cela n'impacte l'objet copié. 
+        Heureusement, il existe des méthodes de clonage d'objet telle que shallow copy. Cette méthode permet de cloner 
+        un objet sans l'impacter.
+      </p>
+      <article>
+        <h3>Opérateur spread</h3>
+        <p>
+          La première méthode de shallow copy est l'utilisation de l'opérateur spread : <b>...</b>
+        </p>
+        <div class="code">
+          <code>
+            let users = ['Nicolas', 'Romain']<br>
+            let adminUsers = [...users]<br><br>
+            users.push('Laure')<br><br>
+            console.log(users)<br>
+            <span class="console">
+              Affiche ["Nicolas", "Romain", "Laure"]<br><br>
+            </span>
+            console.log(adminUsers)<br>
+            <span class="console">
+              Affiche ["Nicolas", "Romain"]
+            </span>
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Méthode .slice()</h3>
+        <p>
+          L'utilisation de la méthode <strong>.slice()</strong> crée un nouveau tableau, qui est ensuite assigné à la 
+          variable adminUsers.
+        </p>
+        <div class="code">
+          <code>
+            let users = ['Nicolas', 'Romain']<br>
+            let adminUsers = users.slice()<br><br>
+            users.push('Laure')<br><br>
+            console.log(users)<br>
+            <span class="console">
+              Affiche ["Nicolas", "Romain", "Laure"]<br><br>
+            </span>
+            console.log(adminUsers)<br>
+            <span class="console">
+              Affiche ["Nicolas", "Romain"]
+            </span>
+        </code>
+      </div>
+      </article>
+      <article>
+        <h3>Méthode Object.assign()</h3>
+        <p>
+          La méthode <strong>Object.assign()</strong> peut aussi être utilisée pour créer une nouvelle copie 
+          d'un objet.
+        </p>
+        <div class="code">
+          <code>
+            let users = ['Nicolas', 'Romain']<br>
+            let adminUsers = []<br>
+            Object.assign(adminUsers, users)<br><br>
+            users.push('Laure')<br><br>
+            console.log(users)<br>
+            <span class="console">
+              Affiche ["Nicolas", "Romain", "Laure"]<br><br>
+            </span>
+            console.log(adminUsers)<br>
+            <span class="console">
+              Affiche ["Nicolas", "Romain"]
+            </span>
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Méthode Array.from()</h3>
+        <p>
+          La méthode <strong>Array.from()</strong> permet aussi de créer une copie d'un tableau.
+        </p>
+        <div class="code">
+          <code>
+            let users = ['Nicolas', 'Romain']<br>
+            let adminUsers = Array.from(users)<br><br>
+            users.push('Laure')<br><br>
+            console.log(users)<br>
+            <span class="console">
+              Affiche ["Nicolas", "Romain", "Laure"]<br><br>
+            </span>
+            console.log(adminUsers)<br>
+            <span class="console">
+              Affiche ["Nicolas", "Romain"]
+            </span>
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Limitations</h3>
+        <p>
+          La shallow copy permet de copier les valeurs primitives d'un objet, mais seulement de son premier niveau. Si 
+          d'autres objets sont inclus dans celui-ci, des références seront créées.
+        </p>
+        <div class="code">
+          <code>
+            let users = [['Nicolas'], ['Romain'], ['Laure']]<br>
+            let adminUsers = Array.from(users)<br><br>
+            users[0][0] = 'Pirate'<br><br>
+            console.log(users)<br>
+            <span class="console">
+              Affiche [["Pirate"], ["Romain"], ["Laure"]]<br><br>
+            </span>
+            console.log(adminUsers)<br>
+            <span class="console">
+              Affiche [["Pirate"], ["Romain"], ["Laure"]]
+            </span>
+          </code>
+        </div>
+        <article>
+          <h3>Quelle méthode utiliser ?</h3>
+          <ul class="ul-p17">
+            <li>
+              La méthode <strong>.slice()</strong> est plus rapide que les autres, mais sa syntaxe peut porter à confusion 
+              à la lecture du code.<br>
+            </li>
+            <li>
+              L'opérateur <strong>spread</strong> ou <strong>Array.from()</strong> sont moins performances.<br>
+            </li>
+            <li>
+              La méthode <strong>Object.assign()</strong> est à bannir pour la manipulation de tableaux, tant au niveau 
+              des performances que de la syntaxe, mais reste utile dans le cadre de la manipulation d'objets.<br>
+            </li>
+          </ul>
+            <p>
+              C'est donc une histoire d'appréciation personnelle.
+            </p>
+        </article>
+        <article>
+          <h3>Exemple solution 1</h3>
+          <div class="code">
+            <code>
+              let userTemplate = { name: '', isAdmin: false }<br><br>
+              function createUser(name, isAdmin) {<br>
+                let newUser = {}<br>
+                Object.assign(newUser, userTemplate)<br>
+                newUser.name = name<br>
+                newUser.isAdmin = isAdmin<br><br>
+                return newUser<br>
+              }<br><br>
+              let user = createUser('John', false)<br>
+              let adminUser = createUser('Jane', true)<br><br>
+              console.log(user)<br>
+              <span class="console">
+                { name: 'John', isAdmin: false }
+              </span><br><br>
+              console.log(adminUser)<br>
+              <span class="console">
+                { name: 'Jane', isAdmin: true }
+              </span>
+            </code>
+          </div>
+          <h3>Exemple solution 2</h3>
+          <div class="code">
+            <code>
+              let userTemplate = { name: '', isAdmin: false }<br><br>
+              function createUser(name, isAdmin) {<br>
+                  let newUser = Object.assign({}, userTemplate)<br>
+                  newUser.name = name<br>
+                  newUser.isAdmin = isAdmin<br><br>
+                  return newUser<br>
+              }<br><br>
+              let user = createUser('John', false)<br>
+              let adminUser = createUser('Jane', true)<br><br>
+              console.log(user)<br>
+              <span class="console">
+                { name: 'John', isAdmin: false }
+              </span><br><br>
+              console.log(adminUser)<br>
+              <span class="console">
+                { name: 'Jane', isAdmin: true }
+              </span>
+            </code>
+          </div>
+        </article>
+        <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="deep-copy" class="sub-title-h3">Deep copy</h2>
+      <p>
+        <strong>shallow copy</strong> ne permet pas de cloner des objets imbriqués. Cet inconvénient peut être contourné 
+        grâce à la <strong>deep copy</strong> qui va copier chacune de ses valeurs récursivement.
+      </p>
+      <p>Dans cet exemple, on constate que l'utilisation de la shallow copy répercute la modification du nom du premier 
+        utilisateur sur les valeurs des deux variables.
+      </p>
+      <div class="code">
+        <code>
+          let users = [{ name: 'Nicolas'}, { name: 'Romain' }, { name: 'Laure' }]<br>
+          let adminUsers = users.slice()<br><br>
+          users[0].name = 'Pirate'<br><br>
+          console.log(users) <span class="console">// Affiche [{name: "Pirate"}, {name: "Romain"}, {name: "Laure"}]<br>
+          </span><br>
+          console.log(adminUsers)  <span class="console">// Affiche [{name: "Pirate"}, {name: "Romain"}, {name: 
+            "Laure"}]</span>
+        </code>
+      </div>
+      <p>Pour remédier à ce problème, il existe différentes méthodes de deep copy.</p>
+      <article>
+        <h3>Avec une fonction</h3>
+        <div class="code">
+          <code>
+            const deepCopyFunction = <span class="red">(inObject) => {</span><br>
+            let outObject, value, key<br><br>
+            if (typeof inObject !== "object" || inObject === null) {<br>
+              return inObject <span class="console">// Retourne la valeur si inObject n'est pas un objet</span><br>
+            }<br>
+            <span class="console">// Création d'un tableau ou d'un objet qui contiendra notre valeur</span><br>
+            outObject = Array.isArray(inObject) ? [] : {}<br><br>
+            for (key in inObject) {<br>
+              value = inObject[key]<br>
+              <span class="console">// On effectue une deep-copy de tous les objets imbriqués, ainsi que des tableaux
+              </span><br>
+              outObject[key] = deepCopyFunction(value)<br>
+            }<br><br>
+            return outObject<br>
+          <span class="red">}</span><br><br>
+          let users = [{ name: 'Nicolas'}, { name: 'Romain' }, { name: 'Laure' }]<br>
+          let adminUsers = deepCopyFunction(users)<br><br>
+          users[0].name = 'Pirate'<br><br>
+          console.log(users) <span class="console">// Affiche [{name: "Pirate"}, {name: "Romain"}, 
+            {name: "Laure"}]</span><br>
+          console.log(adminUsers) <span class="console">// Affiche [{name: "Nicolas"}, {name: "Romain"}, 
+            {name: "Laure"}]</span>
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Avec JSON.parse() et JSON.stringify()</h3>
+        <p>En cas de non utilisons de types complexes (dates, fonctions, undefined, Infinity, [NaN], regex...), l'appel 
+          consécutif de deux méthodes permet d'effectuer une deep copy en une ligne de code nativement.
+        </p>
+        <div class="code">
+          <code>
+            let users = [{ name: 'Nicolas'}, { name: 'Romain' }, { name: 'Laure' }]<br>
+            let adminUsers = JSON.parse(JSON.stringify(users))<br><br>
+            users[0].name = 'Pirate'<br><br>
+            console.log(users) <span class="console">// Affiche [{name: "Pirate"}, {name: "Romain"}, 
+              {name: "Laure"}]</span><br>
+            console.log(adminUsers) <span class="console">// Affiche [{name: "Nicolas"}, {name: "Romain"}, 
+              {name: "Laure"}]</span>
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Avec Lodash</h3>
+        <p>
+          <strong>Lodash</strong> est une librairie JavaScript permettant d'effectuer des opérations quotidiennes en JavaScript, mais qui 
+          ne sont pas supportées nativement par le langage, dont la deep copy.
+        </p>
+        <div class="code">
+          <code>
+            import _ from 'lodash'<br><br>
+            let users = [{ name: 'Nicolas'}, { name: 'Romain' }, { name: 'Laure' }]<br>
+            let adminUsers = _.cloneDeep(users)<br><br>
+            users[0].name = 'Pirate'<br><br>
+            console.log(users) <span class="console">// Affiche [{name: "Pirate"}, {name: "Romain"}, 
+              {name: "Laure"}]</span><br>
+            console.log(adminUsers) <span class="console">// Affiche [{name: "Nicolas"}, {name: "Romain"}, 
+              {name: "Laure"}]</span>
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Avec RFDC (Really Fast Deep Clone)</h3>
+        <p>
+          <strong>Really Fast Deep Clone</strong> est une librairie JavaScript mettant à notre disposition une méthode 
+          de deep copy très performante. A utiliser lors du traitement d'objets de très grande taille.
+        </p>
+        <div class="code">
+          <code>
+            const clone = require('rfdc')()<br><br>
+            let users = [{ name: 'Nicolas'}, { name: 'Romain' }, { name: 'Laure' }]<br>
+            let adminUsers = clone(users)<br><br>
+            users[0].name = 'Pirate'<br><br>
+            console.log(users) <span class="console">// Affiche [{name: "Pirate"}, {name: "Romain"}, 
+              {name: "Laure"}]</span><br>
+            console.log(adminUsers) <span class="console">// Affiche [{name: "Nicolas"}, {name: "Romain"}, 
+              {name: "Laure"}]</span>
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Quelle méthode utiliser ?</h3>
+        <p>
+          <strong>deep copy</strong> est plus lente que <strong>shallow copy</strong>. Elle ne doit donc être utilisée qu'en 
+          cas d'absolue nécessité.<br>
+          La définition d'une <strong>fonction</strong> est la méthode la plus rapide dans tous les cas de figure.
+          Cependant, si nous voulons éviter de devoir en définir une, la syntaxe avec <strong>JSON.parse()</strong> et 
+          <strong>JSON.stringify()</strong> peut être une solution viable.<br>
+          Du côté des librairies, la solution de <strong>Lodash</strong> reste la solution la plus utilisée et la plus 
+          répandue. Néanmoins, en cas d'utilisation de gros objets JSON de plusieurs mégaoctets, utiliser 
+          <strong>RFDC</strong>  se révélera plus performante que Lodash.
+        </p>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
   </main>
   <footer><p>&copy;2021 - Graduate développeur PHP/Symfony</p></footer>
 </body>
