@@ -22,13 +22,16 @@
       </section>
       <ul class="li-empty">
         <li><a href="#intro">Introduction</a></li>
-        <li><a href="#event">Les événements</a></li>
+        <li><a href="#events">Les événements</a></li>
         <li><a href="#types">Les types d'événements</a></li>
+        <li><a href="#propagation">La propagation des événements</a></li>
+        <li><a href="#ajout-event">Ajouter/Supprimer un événement au DOM</a></li>
       </ul>
     </nav>
     <section class="bgc-section">
       <h2 id="intro" class="sub-title-h3">Introduction</h2>
       <article>
+        <h3>Le DOM</h3>
         <p>
           Cela consiste à manipuler des objets, éléments, événements et différentes fonctions pour mettre en place des 
           interactions avec l'utilisateur. Nous parlerons alors d'interface web réactive.
@@ -54,7 +57,7 @@
       <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
     <section class="bgc-section">
-      <h2 id="event" class="sub-title-h3">Les événements</h2>
+      <h2 id="events" class="sub-title-h3">Les événements</h2>
       <article>
         <h3>L'objet Event</h3>
         <p>
@@ -80,7 +83,7 @@
         </ul>
       </article>
       <p class="bgc-up"><a href="#up">Haut</a></p>
-    </section>
+    </section>  
     <section class="bgc-section">
       <h2 id="types" class="sub-title-h3">Les types d'événements</h2>
       <article>
@@ -200,6 +203,195 @@
             (en millisecondes).
           </li>
         </ul>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="propagation" class="sub-title-h3">La propagation des événements</h2>
+      <h3>Capture et bouillonnement</h3>
+      <p>Deux phases régissent les événements en JavaScript :</p>
+      <ol class="ul-p17">
+        <li><strong>la capture</strong>,</li>
+        <li><strong>le bouillonnement</strong>.</li>
+      </ol>
+      <p>Lorsqu'un élément est déclenché, JS parcours tout le code de l'ancêtre le plus haut jusqu'à l'élément 
+        déclencheur de l'événement.<br>
+        C'est la phase de <b>capture</b>.<br>
+        Puis JS parcours le code en sens inverse et ce n'est qu'à ce moment qu'il le déclenche.<br>
+        C'est la phase de <b>bouillonnement</b>.<br>
+      </p>
+      <div class="code">
+        <code>
+          const parent = document.getElementById('parent');<br>
+          const children = document.getElementById('children');<br><br>
+          parent.addEventListener('click', () => {<br>
+          <span class="tab">alert('parent')</span><br>
+          })<br><br>
+          children.addEventListener('click', () => {<br>
+          <span class="tab">alert('children')</span><br>
+          })<br>
+        </code>
+      </div>
+      <p>
+        Dans l'exemple ci-dessus, un click sur l'élément children affichera l'alert <i>children</i> puis l'alert 
+        <i>parent</i>.<br>
+        Il existe 2 solutions pour modififier ce comportement.
+      </p>
+      <ul class="ul-p17">
+        <li><strong>Event.stopPropagation()</strong></li>
+        <li>modifier le <strong>3<sup>ème</sup> paramètre optionnel</strong> de la méthode document.addEventListener()</li>
+      </ul>
+      <article>
+        <h3 class="sub-title-h3">Event.stopPropagation()</h3>
+        <p>
+          Placez cette méthode à l'intérieur de la fonction de callback de l’élément écouteur.
+          La méthode stopPropagation() va annuler la phase de bouillonnement et ne remontera pas jusqu'à la div parent.
+        </p>
+        <div class="code">
+          <code>
+            const parent = document.getElementById('parent');<br>
+            const children = document.getElementById('children');<br><br>
+            parent.addEventListener('click', () => {<br>
+            <span class="tab">alert('parent')</span><br>
+            })<br><br>
+            <span class="console">// event en parametre de la fonction de callback représente l'évènement.</span>
+            children.addEventListener('click', (event) => {
+            <span class="tab red">event.stopPropagation();</span><br>
+            <span class="tab">alert('children')</span><br>
+            })
+          </code>
+        </div>
+      </article>
+      <h3 class="sub-title-h3">addEventListener('event', callback, capture?)</h3>
+      <article>
+        <p>
+          En passant à <b>true</b> le 3<sup>ème</sup> paramètre optionnel de la méthode addEventListener() l'événements 
+          sera déclenché lors de la phase de capture.
+        </p>
+        <div class="code">
+          <code>
+            const parent = document.getElementById('parent');<br>
+            const children = document.getElementById('children');<br><br>
+            parent.addEventListener('click', () => {<br>
+            <span class="tab">alert('parent')</span><br>
+            }, <span class="red">true</span>)<br><br>
+            children.addEventListener('click', () => {<br>
+            <span class="tab">alert('children')</span><br>
+            }, <span class="red">true</span>)
+          </code>
+        </div>
+        <p>Dans l'exemple ci-dessus, <i>parent</i> sera affiché avant <i>children</i>.</p>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="ajout-event" class="sub-title-h3">Ajouter/Supprimer un événement au DOM</h2>
+      <article>
+        <h3 class="sub-title-h3">Les sélecteurs</h3>
+        <p>
+          Il nous faudra parfois manipuler des événements. L'objet <b>document</b> met à notre disponition des 
+          méthodes : <b>les sélecteurs</b>.<br>
+        </p>
+        <p class="red"><b>Fondamental :<br>
+          Pour permettre aux sélecteurs d'accéder au DOM, il faut utiliser l'objet JavaScript 
+          <code class="code-inline">document</code> point d'entrée de notre page web.</b>
+        </p>
+        <p>Voici quelques sélecteurs :</p>
+        <ul class="ul-p17">
+          <li><strong>document.getElementById(<span class="console">'title'</span>) :</strong>
+            renvoie l'élément de DOM qui possède l'id <span class="console"><b>#title</b></span>. Pour 
+              rappel, un identifiant doit être unique dans la page</b>.
+          </li>
+          <li><strong>document.getElementsByName('email-input') :</strong> renvoie l'élément de DOM qui possède l'id 
+            <span class="console"><b>name #email-input</b></span>.
+          </li>
+          <li><strong>document.getElementsByTagName(<span class="console">'p'</span>) :</strong> renvoie un tableau 
+            d'éléments de DOM qui correspondent à la balise <span class="console">p</span>.
+          </li>
+          <li><strong>document.getElementsByClassName(<span class="console">'navbar'</span>) :</strong> renvoie un 
+            tableau d'éléments de DOM qui correspondent à la classe CSS <span class="console"><b>navbar</b></span>.
+          </li>
+          <li><strong>document.querySelector(<span class="console"><b>'h3.subtitle'</b></span>) : </strong> renvoie l'élément 
+            DOM trouvé qui correspond au sélecteur CSS <span class="console"><b>h3.subtitle</b></span>.
+          </li>
+        </ul>
+        <p>Il est possible d'enchaîner plusieurs sélecteurs :</p>
+        <div class="code">
+          <code>
+            &#60;div id="<span class="red">myDiv</span>"&#62;<br>
+            <span class="tab">&#60;<span class="red">p</span>&#62;un paragraphe&#60;<span class="red">p</span>&#62;<br>
+            <span class="tab">&#60;span&#62;un span&#60;/span&#62;</span><br>
+            &#60;/div&#62;<br><br>
+            <span class="comment">document.getElementById(<span class="red">'myDiv'</span>).getElementsByTagName(
+              <span class="red">'p'</span>)</span>
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3 class="sub-title-h3">AddEventListener</h3>
+        <p>Permet de lier un événement de DOM. Prend en général 2 paramètres :</p>
+        <ul class="ul-p17">
+          <li><b>type :</b> représenté par une chaîne de caractères,</li>
+          <li><b>listener :</b> fonction JavaScript qui sera exécutée lors de l'émission de l'événement.</li>
+        </ul>
+        <p>Paramètres facultatifs :</p>
+        <ul class="ul-p17">
+          <li><b>capture :</b> booléen indiquant le sens de propagation de l'événement : parent &#62; élément, ou 
+            élément &#62; parent.
+          </li>
+          <li><b>once : </b> booléen indiquant la suppression de l'événement après son appel 
+            (<code class="code-inline">true</code> ou <code class="code-inline">false</code>).
+          </li>
+        </ul>
+      </article>
+      <article>
+        <h3 class="sub-title-h3">RemoveEventListener</h3>
+        <p>Il est très coûteux d'observer un nœud de DOM. C'est pourquoi il est fortement recommandé de supprimer un 
+          eventListener quand on en a plus besoin.<br>
+          <code class="code-inline">RemoveEventListener</code> prend les mêmes paramètres que 
+          <code class="code-inline">AddEventListener</code>.
+        </p>
+        <div class="code">
+          <code>
+            element.addEventListener("click", clickMe); <br><br>
+            element.removeEventListener("click", myFunction); <span class="comment">// Ne fonctionnera pas car le 
+              paramètre listener n'est pas le même</span> <br>
+            element.removeEventListener("mousedown", clickMe); <span class="comment">// Ne fonctionnera pas car le 
+              paramètre type n'est pas le même</span> <br>
+            element.removeEventListener("click", clickMe); <span class="comment">// Fonctionnera</span>
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3 class="sub-title-h3">La délégation d'événement</h3>
+        <p>La délégation d'événement permet de lier un événement non pas sur l'élément ciblé, mais sur l'un de ses 
+          ancêtres.
+        </p>
+        <div class="code">
+          <code>
+            &#60;body&#62;<br> 
+              &#60;div id="event"&#62;<br>
+              <span class="tab">&#60;p class="no-event"&#62;délégation des événements 1&#60;/p&#62;</span><br>
+              <span class="tab">&#60;p&#62;délégation des événements 2&#60;/p&#62; </span><br>
+              <span class="tab">&#60;p class="no-event"&#62;délégation des événements 3&#60;/p&#62; </span><br>
+              &#60;/div&#62; 
+            </body>
+          </code>
+        </div>
+        <br>
+        <div class="code">
+          <code>
+            var element = document.getElementById('event') <br><br>
+            <span class="tab">element.addEventListener('click', function(e) {</span><br>
+            <span class="tabx2">var initElem = e.target;</span><br>
+              <span class="tabx3">  if(initElem.className == 'no-event')</span><br>
+              <span class="tabx4">return;</span><br>
+                <span class="tabx3">}</span><br>
+                <span class="tabx3">alert("Actif seulement sur Délégation 2")</span><br>
+            })
+          </code>
+        </div>
+        <p>Dans l'exemple ci-dessus, l'alerte est active uniquement sur l'élément 2.</p>
       </article>
       <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
