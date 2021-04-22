@@ -14,5 +14,183 @@
     <h1 class="shape-title">Dynamiser vos sites web avec Javascript</h1>
   </header>
   <a href="dynSiteWebJSMenu.html" class="bgc-up">Retour</a>
+  <main>
+    <h2>La programmation événementielle en Javascript</h2>
+    <nav>
+      <section class="return" >
+        <h2 class="sub-title-h2">Sommaire</h2>
+      </section>
+      <ul class="li-empty">
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#event">Les événements</a></li>
+        <li><a href="#types">Les types d'événements</a></li>
+      </ul>
+    </nav>
+    <section class="bgc-section">
+      <h2 id="intro" class="sub-title-h3">Introduction</h2>
+      <article>
+        <p>
+          Cela consiste à manipuler des objets, éléments, événements et différentes fonctions pour mettre en place des 
+          interactions avec l'utilisateur. Nous parlerons alors d'interface web réactive.
+        </p>
+        <p>
+          L'un des éléments centraux de la programmation événementielle en JavaScript est le <strong>DOM</strong> pour 
+          <b>D</b>ocument <b>O</b>bject <b>M</b>odel. Il s'agit tout simplement de l'arborescence d'une page HTML.<br>
+          Il faut voir le DOM comme un ensemble d'objets avec des propriétés, des méthodes et des gestionnaires 
+          d'événements.
+        </p>
+        <div class="blquote-container">
+          <img class="img" src="images/DOM-model.svg" alt="Modèle de DOM">
+          <blockquote class="blquote">
+            <cite>
+              Par ‍Birger Eriksson — Travail personnel, CC BY-SA 3.0, 
+              <a class="link-a" href="https://commons.wikimedia.org/w/index.php?curid=18034500" target="_blank">
+                https://commons.wikimedia.org/w/index.php?curid=18034500
+              </a>
+            </cite>
+          </blockquote>
+        </div>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="event" class="sub-title-h3">Les événements</h2>
+      <article>
+        <h3>L'objet Event</h3>
+        <p>
+          L'objet Event est un événement JavaScript contenant différentes propriétés et méthodes communes à tous les 
+          événements.<br>
+        </p>
+        <p>En voici quelques-unes :</p>
+        <ul>
+          <li><strong>Propriétés :</strong></li>
+            <ul>
+              <li><strong>Event.target :</strong> cible de l'événement,</li>
+              <li><strong>Event.defaultPrevented :</strong>  indique si le comportement par défaut de l’interaction doit 
+                être annulé,
+              </li>
+              <li><strong>Event.bubbles : </strong>indique le sens de propagation de l'événement.</li>
+            </ul>
+          <li><strong>Méthodes :</strong></li>
+            <ul>
+              <li><strong>Event.createEvent() : </strong>crée un nouvel événement</li>
+              <li><strong>Event.preventDefault() : </strong>annule le comportement par défaut de l'événement</li>
+              <li><strong>Event.stopPropagation() : </strong>arrête la propagation de l'événement</li>
+            </ul>
+        </ul>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="types" class="sub-title-h3">Les types d'événements</h2>
+      <article>
+        <h3>Les événements globaux :</h3>
+        <p>
+          Ils ne sont pas liés à une interaction utilisateur mais plutôt à une action de script.
+        </p>
+        <p>En voici quelques-uns :</p>
+        <ul class="ul-p17">
+          <li><strong>offline : </strong>automatiquement déclenché quand le navigateur a perdu sa connexion à Internet.
+          </li>
+          <li><strong>abort : </strong>déclenché quand le chargement d'une ressource a été interrompu par l'utilisateur.
+          </li>
+          <li><strong>ended : </strong>déclenché à la fin de la lecture d'un média ou lorsque la source du média ne 
+            permet plus l'envoi des données.
+          </li>
+          <li><strong>success : </strong>déclenché quand une requête HTTP s'est déroulée correctement.
+          </li>
+        </ul>
+        <div class="code">
+          <code>
+            window.addEventListener("load", function(event) {<br>
+              console.log("Les ressources de la page ont été chargées !");<br>
+            });
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Les événements souris :</h3>
+        <p>
+          Ils permettent d'écouter un ensemble d'interactions que l'utilisateur peut faire avec sa souris.
+        </p>
+        <p>En voici quelques-uns :</p>
+        <ul class="ul-p17">
+          <li><strong>click : </strong>déclenché quand l'utilisateur clique sur un élément du <b>DOM</b>.</li>
+          <li><strong>mouseenter : </strong>déclenché quand l'utilisateur pointe la souris sur un élément.</li>
+          <li><strong>mouseleave : </strong>déclenché quand l'utilisateur déplace le pointeur de la souris en dehors 
+            d'un élément.
+          </li>
+          <li><strong>mouseup : </strong>déclenché quand l'utilisateur relâche un bouton de la souris lorsqu'il se 
+            trouve sur un élément.
+          </li>
+        </ul>
+        <div class="red">
+          <h4>Mauvaises pratiques</h4>
+          <p>
+            Évitez l'utilisation des événements mouseover et mouseout qui déclencheront l'événement autant de fois qu'il y 
+            a de descendants qui lui sont liés.<br>
+            <b><i>mouseenter</i></b> ou <b><i>mouseleave</i></b> ne se déclenchent que pour l'élément auquel ils sont 
+            associés.
+          </p>
+        </div>
+        <div class="code">
+          <code>
+            var button = document.getElementById('button');<br>
+            function evenement() {<br>
+              alert('Vous avez cliqué sur le bouton');<br>
+            }<br><br>
+            button.addEventListener('click', evenement);
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Les événements claviers :</h3>
+        <p>
+          Ces événements sont liés lors d'une pressions sur le clavier par l'utilisateur.
+        </p>
+        <p>En voici quelques-uns :</p>
+        <ul class="ul-p17">
+          <li><strong>keyup : </strong>déclenché quand l'utilisateur relâche une touche du clavier.</li>
+          <li><strong>keydown : </strong>déclenché quand l'utilisateur maintient enfoncée une touche du clavier.</li>
+        </ul>
+        <div class="red">
+          <h4>Mauvaises pratiques</h4>
+          <p>
+            L'événement <b><i>keypress</i></b> est à proscrire, car il ne fonctionne pas pour toutes les touches du 
+            clavier (Alt, Ctrl, Shift, par exemple). La documentation l'indiqué comme étant déprécié et ne sera bientôt 
+            plus supporté par les navigateurs.
+          </p>
+        </div>
+        <div class="code">
+          <code>
+            var key = document.getElementById('key');<br>
+            function keyboard() {<br>
+              alert('Vous venez d\'appuyer sur une touche du clavier');<br>
+            }<br><br>
+            key.addEventListener('keydown', keyboard);
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Les événements de formulaires :</h3>
+        <p>Interagit avec tous les éléments d'un formulaire HTML.</p>
+        <div class="code">
+          <code>
+            var form = document.getElementById('form');<br>
+            function form() {<br>
+              alert('Vous êtes sur le point de soumettre le formulaire');<br>
+            }<br><br>
+            form.addEventListener('submit', form);
+          </code>
+        </div>
+      </article>
+      <article class="comment">
+        <h4 >Bonnes pratiques</h4>
+        <p>Attention de bien utiliser les événements en JavaScript car dans le cas contraire, ils consommeront 
+          beaucoup de ressources navigateur.</p>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+  </main>
 </body>
 </html>
