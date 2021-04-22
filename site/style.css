@@ -218,6 +218,14 @@ a:hover {
   margin-left: 2rem;
 }
 
+.tabx3 {
+  margin-left: 3rem;
+}
+
+.tabx4 {
+  margin-left: 4rem;
+}
+
 /* Pour carte */
 .card {
   width: 45%;
@@ -278,6 +286,11 @@ a:hover {
   width: 300px;
   height: 350px;
   height: auto;
+}
+
+.code-inline {
+  font-size: 1.5em;
+  font-weight: normal;
 }
 
 .blquote {
