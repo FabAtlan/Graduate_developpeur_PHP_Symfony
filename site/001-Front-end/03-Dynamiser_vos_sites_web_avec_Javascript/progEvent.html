@@ -187,7 +187,19 @@
       <article class="comment">
         <h4 >Bonnes pratiques</h4>
         <p>Attention de bien utiliser les événements en JavaScript car dans le cas contraire, ils consommeront 
-          beaucoup de ressources navigateur.</p>
+          beaucoup de ressources navigateur.<br>
+          Dans le cas ou un utilisateur appuie sur un touche plusieurs fois, les appels à la fonction liée peuvent 
+          ralentir l'application. Pour éviter ce comportement, il est possible de coupler le déclenchement des 
+          événements avec les fonctions <strong>debounce()</strong> et <strong>throttle()</strong>.
+        </p>
+        <ul class="ul-p17">
+          <li><strong>debounce() </strong> permet de bloquer l'appel à une fonction pendant un certain délai 
+            (en millisecondes).
+          </li>
+          <li><strong>throttle() </strong>permet de reporter les appels à une fonction pendant un certain délai 
+            (en millisecondes).
+          </li>
+        </ul>
       </article>
       <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
