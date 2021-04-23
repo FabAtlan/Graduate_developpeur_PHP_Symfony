@@ -197,6 +197,16 @@ a:hover {
   border-radius: 10px;
 }
 
+.letterMaj {
+  margin: 0 0 10px;
+  font-size: 2em;
+}
+
+.lexLink {
+  font-weight: bold;
+  opacity: .8;
+}
+
 .bgc-up {
   width: fit-content;
   margin: 15px 0;
