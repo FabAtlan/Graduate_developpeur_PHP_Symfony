@@ -26,6 +26,9 @@
         <li><a href="#types">Les types d'événements</a></li>
         <li><a href="#propagation">La propagation des événements</a></li>
         <li><a href="#ajout-event">Ajouter/Supprimer un événement au DOM</a></li>
+        <li><a href="#perso">Les événements personnalisés</a></li>
+        <li><a href="#activeElement">Activer / désactiver un élément de DOM</a></li>
+        <li><a href="#value">Récupérer la valeur d'un élément</a></li>
       </ul>
     </nav>
     <section class="bgc-section">
@@ -203,6 +206,50 @@
             (en millisecondes).
           </li>
         </ul>
+        <div class="code">
+          <code>
+            var button = document.getElementById('button') <br><br>
+            button.addEventListener('click', debounce(function(e){<br>
+            <span class="tabx2">alert('Click')</span><br>
+            }, 2000))<br><br>
+            function <span class="red">debounce(callback, delay)</span>{<br>
+            <span class="tabx2">var timer;</span><br>
+            <span class="tabx2">return function(){</span><br>
+            <span class="tabx4">var args = arguments;</span><br>
+            <span class="tabx4">var context = this;</span><br>
+            <span class="tanx4">clearTimeout(timer);</span><br>
+            <span class="tabx4">timer = setTimeout(function(){</span><br>
+            <span class="tabx6">callback.apply(context, args);</span><br>
+            <span class="tabx4">}, delay)</span><br>
+            <span class="tabx2">}</span><br>
+            }<br><br>
+            <span class="comment">/*----------------*/</span><br><br>
+            var button = document.getElementById('button')<br><br>
+            button.addEventListener('click', <span class="red">throttle(function(e)</span>{<br>
+            <span class="tabx2">alert('Click')</span><br>
+            }, 5000))<br><br>
+            function throttle(callback, delay) {<br>
+            <span class="tabx2">var last;</span><br>
+            <span class="tabx2">var timer;</span><br>
+            <span class="tabx2">return function () {</span><br>
+            <span class="tabx4">var context = this;</span><br>
+            <span class="tabx4">var now = +new Date();</span><br>
+            <span class="tabx4">var args = arguments;</span><br>
+            <span class="tabx4">if (last && now < last + delay) {</span><br>
+            <span class="tabx6">clearTimeout(timer);</span><br>
+            <span class="tabx6">timer = setTimeout(function () {</span><br>
+            <span class="tabx8">last = now;</span><br>
+            <span class="tabx8">callback.apply(context, args);</span><br>
+            <span class="tabx6">}, delay);</span><br>
+            <span class="tabx4">} else {</span><br>
+            <span class="tabx6">last = now;</span><br>
+            <span class="tabx6">callback.apply(context, args);</span><br>
+            <span class="tabx4">}</span><br>
+            <spant class="tabx2">};</spant><br>
+            }
+          </code>
+          </div>
+        </div>
       </article>
       <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
@@ -212,7 +259,7 @@
       <p>Deux phases régissent les événements en JavaScript :</p>
       <ol class="ul-p17">
         <li><strong>la capture</strong>,</li>
-        <li><strong>le bouillonnement</strong>.</li>
+        <li><strong>le bouillonnement <i>(bubbling)</i></strong>.</li>
       </ol>
       <p>Lorsqu'un élément est déclenché, JS parcours tout le code de l'ancêtre le plus haut jusqu'à l'élément 
         déclencheur de l'événement.<br>
@@ -322,8 +369,7 @@
             <span class="tab">&#60;<span class="red">p</span>&#62;un paragraphe&#60;<span class="red">p</span>&#62;<br>
             <span class="tab">&#60;span&#62;un span&#60;/span&#62;</span><br>
             &#60;/div&#62;<br><br>
-            <span class="comment">document.getElementById(<span class="red">'myDiv'</span>).getElementsByTagName(
-              <span class="red">'p'</span>)</span>
+            document.getElementById(<span class="red">'myDiv'</span>).getElementsByTagName(<span class="red">'p'</span>)
           </code>
         </div>
       </article>
@@ -345,7 +391,7 @@
         </ul>
       </article>
       <article>
-        <h3 class="sub-title-h3">RemoveEventListener</h3>
+        <h3 class="sub-title-h3" id="removeEvent">RemoveEventListener</h3>
         <p>Il est très coûteux d'observer un nœud de DOM. C'est pourquoi il est fortement recommandé de supprimer un 
           eventListener quand on en a plus besoin.<br>
           <code class="code-inline">RemoveEventListener</code> prend les mêmes paramètres que 
@@ -353,12 +399,13 @@
         </p>
         <div class="code">
           <code>
-            element.addEventListener("click", clickMe); <br><br>
+            element.<span class="console">addEventListener</span>(<span class="red">"click", clickMe</span>); <br><br>
             element.removeEventListener("click", myFunction); <span class="comment">// Ne fonctionnera pas car le 
               paramètre listener n'est pas le même</span> <br>
             element.removeEventListener("mousedown", clickMe); <span class="comment">// Ne fonctionnera pas car le 
               paramètre type n'est pas le même</span> <br>
-            element.removeEventListener("click", clickMe); <span class="comment">// Fonctionnera</span>
+            element.<span class="console">removeEventListener</span>(span.redd<span class="red">"click", clickMe</span>
+            ); <span class="comment"> // Fonctionnera</span>
           </code>
         </div>
       </article>
@@ -370,10 +417,12 @@
         <div class="code">
           <code>
             &#60;body&#62;<br> 
-              &#60;div id="event"&#62;<br>
-              <span class="tab">&#60;p class="no-event"&#62;délégation des événements 1&#60;/p&#62;</span><br>
+              &#60;div id="<span class="red">event</span>"&#62;<br>
+              <span class="tab">&#60;p class="<span class="comment">no-event</span>"&#62;délégation des événements 
+              1&#60;/p&#62;</span><br>
               <span class="tab">&#60;p&#62;délégation des événements 2&#60;/p&#62; </span><br>
-              <span class="tab">&#60;p class="no-event"&#62;délégation des événements 3&#60;/p&#62; </span><br>
+              <span class="tab">&#60;p class="<span class="comment">no-event</span>"&#62;délégation des événements 
+              3&#60;/p&#62; </span><br>
               &#60;/div&#62; 
             </body>
           </code>
@@ -381,10 +430,10 @@
         <br>
         <div class="code">
           <code>
-            var element = document.getElementById('event') <br><br>
+            var element = document.getElementById('<span class="red">event</span>') <br><br>
             <span class="tab">element.addEventListener('click', function(e) {</span><br>
             <span class="tabx2">var initElem = e.target;</span><br>
-              <span class="tabx3">  if(initElem.className == 'no-event')</span><br>
+              <span class="tabx3">  if(initElem.className == '<span class="comment">no-event</span>')</span><br>
               <span class="tabx4">return;</span><br>
                 <span class="tabx3">}</span><br>
                 <span class="tabx3">alert("Actif seulement sur Délégation 2")</span><br>
@@ -392,6 +441,65 @@
           </code>
         </div>
         <p>Dans l'exemple ci-dessus, l'alerte est active uniquement sur l'élément 2.</p>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="perso" class="sub-title-h3">Les événements personnalisés</h2>
+      <article>      
+        <p>A l'aide du constructeur <code class="code-inline">Event</code>, JavaScript nous permet de créer nos propres 
+        événements de 2 manières différentes :
+          <ol class="ul-p17">
+            <li><strong>Event()</strong></li>
+            <li><strong>CustomEvent()</strong></li>
+          </ol>
+          Le déclenchement de l'événement se fera à l'aide de la méthode 
+          <code class="code-inline">dispatchEvent</code>.
+        </p>
+        <div class="code">
+          <code>
+            var <span class="comment">myEvent</span> = new <span class="red">Event</span>('personnalEvent');<br>
+            <span class="comment">// Déclencher l'événement :</span><br>
+            element.<span class="red">dispatchEvent</span>(<span class="comment">myEvent</span>);
+          </code>
+        </div>
+        <p>Il est égalemet possible d'ajouter des données personnalisées à l'aide du paramètre 
+          <code class="code-inline">detail</code> du constructeur 
+          <code class="code-inline">CustomEvent()</code-inline></code>
+        </p>
+        <div class="code">
+          <code>
+            var event = new <span class="red">CustomEvent</span>(<span class="console">'personnalEvent'</span>, { 
+              <span class="red">detail</span> : { '<span class="console">myData</span>': 'mon événement perso' } })<br>
+            var element = document.getElementById('navbar')<br><br>
+            element.addEventListener(<span class="console">'personnalEvent'</span>, displayMe)<br><br>
+            element.dispatchEvent(event)<br><br>
+            function displayMe(e) {<br>
+            <span class="tab">console.log(e.<span class="red">detail</span>.<span class="console">myData</span>)</span><br>
+            }
+          </code>
+        </div>
+        <p class="red"><strong>Il est toujours une bonne pratique de supprimer les événements personnalisés quand nous 
+          n'en n'avons plus besoin (voir <a href="#removeEvent">removeEventListener</a>).</strong>
+        </p>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="activeElement" class="sub-title-h3">Activer / désactiver un élément de DOM</h2>
+      <article>
+        <div class="code">
+          <code>
+            element.<span class="red">disabled</span> = <span class="console">true / false</span>
+          </code>
+        </div>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="value" class="sub-title-h3">Récupérer la valeur d'un élément</h2>
+      <article>
+        <div class="code"><code>element.<span class="red">value</span></code></div>
       </article>
       <p class="bgc-up"><a href="#up">Haut</a></p>
     </section>
