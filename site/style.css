@@ -78,7 +78,7 @@
 
 .card {
   height: 800px;
-  margin: .2em;
+  margin: .2em auto;
   padding: 2em;
   background-color: var(--bgcCard);
   box-shadow: 0 0 15px 8px #49494959;
@@ -121,8 +121,28 @@ li {
 }
 /* --- */
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 800px) {
   .title-h1 {
     font-size: 2em;
-  }  
+  }
+
+  .container {
+    width: 80%;
+  }
+
+  .bgc-header {
+    box-shadow: none;
+  }
+
+  .card {
+    width: 70%;
+  }
+
+  body {
+    font-size: 1.2rem;
+  }
+
+  .bgc-main > section {
+    margin-top: 15%;
+  }
 }
