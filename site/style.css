@@ -30,8 +30,8 @@
 }
 
 .flex-end {
-  display: flex;
-  justify-content: flex-end;
+  /* display: flex;
+  justify-content: flex-end; */
 }
 
 .bgc-header {
@@ -122,6 +122,19 @@ li {
 /* --- */
 
 @media screen and (min-width: 800px) {
+  .breadcrumb {
+    display: flex;
+  }
+ 
+  .flex-end {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .breadcrumb li:hover {
+    transform: translateY(-5px);
+  }
+
   .title-h1 {
     font-size: 2em;
   }
