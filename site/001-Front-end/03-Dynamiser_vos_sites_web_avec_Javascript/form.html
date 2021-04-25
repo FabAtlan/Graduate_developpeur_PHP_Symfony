@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ce site présente mes notes de cours sur ma formation STUDI de Graduate développeur 
+  PHP / Symfony.">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Notes - Graduate développeur PHP/Symfony</title>
+</head>
+<body>
+  <header id="up">
+    <h1 class="shape-title">Dynamiser vos sites web avec Javascript</h1>
+  </header>
+  <a href="dynSiteWebJSMenu.html" class="bgc-up">Retour</a>
+  <main>
+    <h2>Les formulaires HTML et JavaScript</h2>
+    <nav>
+      <section class="return" >
+        <h2 class="sub-title-h2">Sommaire</h2>
+      </section>
+      <ul class="li-empty">
+        <li><a href="#manipText">Manipuler les champs de type texte</a></li>
+        <li><a href="#manipCheckbox">Manipuler les checkbox, radio et select</a></li>
+      </ul>
+    </nav>
+    <section class="bgc-section">
+      <h2 id="manipText" class="sub-title-h3">Manipuler les champs de type texte</h2>
+      <p>Le formulaire HTML étant en place, JavaScript va nous permettre d'interagir avec lui.</p>
+      <article>
+        <h3>Accès et modification de la valeur d'une zone de texte</h3>
+        <p>
+          Pour accéder à la valeur d'un champ texte (text, textarea), utiliser la propriété 
+          <code class="code-inline">value</code><br>
+        </p>
+        <div class="code">
+          <code>
+            &#60;form&#62;<br>
+            <span class="tab">&#60;input type="text" id="short-txt" name="short-txt" value="un text court"&#62;</span><br>
+            <span class="tab">&#60;textarea id="long-txt" name="long-txt"&#62;Un texte long&#60;/textarea&#62;<br>
+              &#60;/form&#62;</span><br>
+              <span class="comment">//---------------</span><br>
+              var shorttxt = document.getElementById('short-txt')<br>
+              var longtxt = document.getElementById('long-txt')<br>
+              <span class="comment">// Accès à la valeur par la propriété value</span><br>
+              console.log(shorttxt.value, longtxt.value)
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Modification</h3>
+        <div class="code">
+          <code>
+            var longtxt = document.getElementById('long-txt')<br>
+            <span class="console">longtxt.value = 'Un texte modifié !'</span><br>
+            console.log(shorttxt.value, longtxt.value)<br>
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3>Focus et blur sur une zone de texte</h3>
+        <p>Nous pourrons lier deux événements spécifiques : focus et blur. 
+          <code class="code-inline">focus</code> est déclenché quand on clique dans une zone de texte pour y écrire.<br>
+          <code class="code-inline">blur</code> est déclenché quand nous quittont un champ.
+        </p>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+    <section class="bgc-section">
+      <h2 id="manipCheckbox" class="sub-title-h3">Manipuler les checkbox, radio et select</h2>
+      <article>
+        <h3></h3>
+      </article>
+      <p class="bgc-up"><a href="#up">Haut</a></p>
+    </section>
+  </main>
+</body>
+</html>
