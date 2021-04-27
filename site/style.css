@@ -119,12 +119,27 @@ html {
   font-size: .9em;
 }
 
+.code-inline {
+  background-color: #fffadb;
+  padding: .8px;
+  border-radius: 3px;
+  border: 1px solid #beb998;
+}
+
 .code-yellow {
   color: #eeba11;
 }
 
 .code-blue {
   color: #789be9;
+}
+
+.tab {
+  margin-left: 10px;
+}
+
+.comment {
+  color: #4a8d2f;
 }
 
 /* BreadCrump */
