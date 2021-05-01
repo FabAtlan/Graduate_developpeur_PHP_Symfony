@@ -1,6 +1,6 @@
 @import url(../site/reset-all-css.css);
 
-/* --- Variables globales --- */
+/* --- VARIABLES GLOBALES --- */
 :root {
   --fontSzMain: .9rem;
   --colorBreadCrump: #949494;
@@ -12,7 +12,7 @@
   --bgcCard: #f2f7f8;
 }
 
-/* MAIN */
+/* GENERAL */
 html,
 body {
   box-sizing: border-box;
@@ -25,7 +25,6 @@ body {
 .bgc-footer {
   background-color: var(--bgcHeader);
 }
-
 
 .container {
   width: 100%;
@@ -49,9 +48,10 @@ body {
 
 /* NAVIGATION */
 .nav-header {
-  width: 100%;
-  margin: 10px 0;
-  margin-left: 5px;
+  margin: 10px 5px;
+  display: grid;
+  grid-template-columns: .5fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 /* LISTE */
@@ -95,7 +95,6 @@ li {
 
 .arrow-left:hover {
   background-color: #e9e7e756;
-  border-radius: 100%;
 }
 
 /* SECTION */
@@ -204,4 +203,24 @@ li {
   color: #4a8d2f;
 }
 
-/* --- */
+/* SOCIAL */
+.logo li {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.logo a {
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.logo a:hover {
+  color: var(--colorBreadCrumpHover);
+}
+
+.logo-friconix {
+  width:1.2em;
+  height:auto;
+  vertical-align: middle;
+  color: #dc3545;
+}
