@@ -67,13 +67,86 @@
         </p>
       </article>
       <p class="bgc-up"><a href="#up">Haut</a></p>
+      <article>
+        <h3 class="title-h3">Document.createTextNode()</h3>
+        <p>Créé un nouveau noeud de texte.</p>
+        <div class="code-block">
+          <code class="">var text = document.createTextNode(data);</code>
+        </div>
+        <p><span class="code-inline"><code>text</code></span> est un nœud de texte.</p>
+        <p><span class="code-inline"><code>data</code></span> est une chaîne contenant les données à placer dans le nœud de texte.</p>
+      </article>
     </section>
     <section class="bgc-section">
-      <h2 id="manipCheckbox" class="sub-title-h3">Manipuler les checkbox, radio et select</h2>
+      <h3 class="title-h3">Manipuler les checkbox, radio et select</h3>
+      <p>Les éléments de formulaire donnant lieu à un choix de l'utilisateur ont en commun l'événement 
+        <span class="code-inline"><code>change</code></span>.</p>
       <article>
-        <h3></h3>
+        <h3 class="title-h3">Checkbox</h3>
+        <p>La propriété <span class="code-inline"><code>checked</code></span> de l'objet 
+          <span><code class="code-inline">Event</code></span> est utilisé pour détecter l'état du bouton.</p>
+        <div class="code-block">
+          <code>
+            <span class="comment"><code>//HTML</code></span><br>
+            &#60;label for="check"&#62;Cocher moi&#60;/label&#62;<br>
+            &#60;input type="checkbox" id="check" name="check"&#62;<br><br>
+            <span class="comment"><code>//SCRIPT</code></span><br>
+            var checkbox = document.getElementById('check')<br>
+            checkbox.addEventListener('change', () =&#62; {<br>
+            <span class="tabx2">alert(event.target.checked)</span><br>
+            <span class="comment tabx2">// True si coché, false sinon</span><br>
+            })
+          </code>
+        </div>
       </article>
-      <p class="bgc-up"><a href="#up">Haut</a></p>
+      <article>
+        <h3 class="title-h3">Boutons radio</h3>
+        <p>Avec les boutons radio seul un choix est possible. Il faut donc placer un 
+          <span><code class="code-inline">addEventListener</code></span> sur chacun des choix à l'aide d'une boucle.</p>
+        <div class="code-block">
+          <code>
+            <span class="comment"><code>//HTML</code></span><br>
+            &#60;input type="radio" name="gender" value="Femme"&#62;Femme<br>
+            &#60;input type="radio" name="gender" value="Homme"&#62;Homme<br>
+            <br>
+            <span class="comment"><code>//SCRIPT</code></span><br>
+            var radio = document.getElementsByName('gender')<br><br>
+            for (var i = 0; i &#60; radio.length; i++) {<br>
+            <span class="tabx2">radio[i].addEventListener('change', (e) => {</span><br>
+            <span class="tabx4">alert(e.target.value);</span><br>
+            <span class="tabx2">});</span><br>
+            }
+          </code>
+        </div>          
+      </article>
+      <article>
+        <h3 class="title-h3">Listes déroulantes</h3>
+        <p>De la même manière, l'événement <span><code class="code-inline">change</code></span> est employé.</p>
+        <div class="code-block">
+          <code>
+            <span class="comment"><code>//HTML</code></span><br>
+            &#60;label for="language"&#62;Langage :&#60;/label&#62;<br>
+            &#60;select name="language" id="language"&#62;<br>
+            <span class="tabx2">&#60;option value="javascript" selected&#62;JavaScript&#60;/option&#62;</span><br>
+            <span class="tabx2">&#60;option value="php"&#62;PHP&#60;/option&#62;</span><br>
+            <span class="tabx2">&#60;option value="python"&#62;Python&#60;/option&#62</span>;<br>
+            &#60;/select&#62;<br><br>
+            <span class="comment"><code>//SCRIPT</code></span><br>
+            var language = document.getElementById('language')<br><br>
+            language.addEventListener('change', (event) => {<br>
+            <span class="tab">alert(event.target.value)</span><br>
+            })
+          </code>
+        </div>
+      </article>
+      <article>
+        <h3 class="title-h3">Soumission d'un formulaires HTML</h3>
+        <p>Avant de soumettre un formulaire au serveur (back-end), il est préférable de vérifier les données côté 
+          front-end.
+        </p>
+        <p>L'objet formulaire du DOM possède une propriété <span><code class="code-inline">elements</code></span> 
+          représentant les champs de saisie.</p>
+      </article>
     </section>
   </main>
 </body>

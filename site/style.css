@@ -16,9 +16,47 @@ html {
   background-color: #353535;
 }
 
+/* HEADER */
+.bgc-header {
+  width: inherit;
+  height: 5em;
+  position: fixed;
+  background-color: var(--bgcHeader);
+  box-shadow: 0 5px 20px 5px #242424;
+}
+
 .container {
   width: 100%;
-  margin: 0 auto;
+  margin: auto;
+  padding: 5%;;
+}
+
+.content-section {
+  margin: 5% 0;
+  padding: 2%;
+  background-color: #f0f3f5;
+  border-radius: 5px;
+}
+
+.nav-header {
+  padding: 1em;
+  height: fit-content;
+  display: none;
+}
+
+/* --- */
+
+.bgc-footer {
+  padding: 2em 0;
+  color: #fff;
+  font-size: .9em;
+  font-weight: bold;
+  text-align: center;
+  background-color: var(--bgcFooter);
+}
+
+.bgc-main {
+  background-color: rgb(218, 216, 216);
 }
 
 /* Titre */
@@ -31,8 +69,7 @@ html {
 
 .title-h2 {
   color: #1f4758;
-  margin-top: 0;
-  margin-bottom: 10px;
+  margin: 10px 0;
   font-size: 1.2em;
 }
 
@@ -55,30 +92,6 @@ html {
 .flex-end {
   display: flex;
   justify-content: flex-end;
-}
-
-.bgc-header {
-  top: 0;
-}
-
-.bgc-header {
-  width: inherit;
-  position: fixed;
-  background-color: var(--bgcHeader);
-  box-shadow: 0 5px 20px 5px #242424;
-}
-
-.bgc-footer {
-  padding: 2em 0;
-  color: #fff;
-  font-size: .9em;
-  font-weight: bold;
-  text-align: center;
-  background-color: var(--bgcFooter);
-}
-
-.bgc-main {
-  background-color: rgb(218, 216, 216);
 }
 
 .bgc-main > section {
@@ -116,42 +129,72 @@ html {
   padding: 8px;
   background-color: rgb(24, 24, 24);
   color:  rgb(235, 235, 235);
-  font-size: .9em;
+  font-size: .8em;
 }
 
 .code-inline {
-  background-color: #fffadb;
-  padding: .8px;
+  background-color: #bbb59c;
+  color: #796f4b;
+  padding: .6px;
   border-radius: 3px;
   border: 1px solid #beb998;
+  font-size: .8em;
+}
+
+.code-main {
+  color: #ccc7b8;
 }
 
 .code-yellow {
-  color: #eeba11;
+  color: #af890d;
 }
 
 .code-blue {
-  color: #789be9;
+  color: #3565ca;
+}
+
+.code-red {
+  color: #972d13;
+}
+
+.letter-maj {
+  font-weight: bold;
+  font-size: 1.5em;
 }
 
 .tab {
   margin-left: 10px;
 }
 
+.tabx2 {
+  margin-left: 20px;
+}
+
+.tabx3 {
+  margin-left: 30px;
+}
+
+.tabx4 {
+  margin-left: 40px;
+}
+
 .comment {
   color: #4a8d2f;
 }
 
-/* BreadCrump */
-.breadcrumb {
-  padding: 2.5%;
+.circle {
+  list-style-type: disc;
+  margin-left: 2em;
 }
 
 li {
-  padding: 10px;
+  padding: 5px;
 }
 
+/* BreadCrump */
 .breadcrumb li {
+  margin: 0;
+  width: fit-content;
   padding: 5px;
   font-weight: bold;
   color: var(--colorBreadCrump);

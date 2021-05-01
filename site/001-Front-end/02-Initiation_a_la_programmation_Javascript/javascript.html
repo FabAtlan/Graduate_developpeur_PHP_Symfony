@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body style="background-color: blanchedalmond;">
+  <h1>JavaScript</h1>
+  <h2>A quoi ça sert ?</h2>
+  <ul>
+    <li>à modifier dynamiquement des pages web sans rechargement de page</li>
+    <li>à communiquer en tâche de fond avec des applications serveurs ou des webs services</li>
+    <li>Il est le seul langage pouvant être exécuter en natif par le navigateur</li>
+  </ul>
+  <h2>Syntaxe de JavaScript</h2>
+  <h3>Les commentaires</h3>
+  <code>
+    //<br>
+    /*...*/<br>
+  </code>
+  <h3>Bloc d'instruction ou liste de propriétés</h3>
+  <code>{...}</code>
+  <h3>Expression</h3>
+  <code>(...)</code>
+  <h3>Les fonctions et leurs arguments</h3>
+  <code>maFonction(arg1, arg2...)</code>
+  <h2>Indentation</h2>
+  <p>Préférez une indentation de 2 ou 4 espaces.</p>
+  <h2>Nommage</h2>
+  <p>Les variables et les fonctionssont à déclarer en <strong>camel case</strong>, une <b>majuscule</b> à chaque 
+    <b>nouveau mot</b>.<br>
+    <code>maVariable</code><br>
+    <code>maFonction</code>
+  </p>
+  <img src="../../images/CamelCase1.png" alt="Camel case dromadaire" title="Dromadaire">
+  <blockquote>
+    <cite><a href="https://commons.wikimedia.org/wiki/File:CamelCase.svg?uselang=fr">CamelCase.svg</a>
+    </cite>
+  </blockquote>
+  <p>Les classes sont à déclarer avec la <b>1<sup>ère</sup> lettre du mot</b> en <b>majuscule</b> et en <strong>camel case</strong> 
+    également.<br>
+    <code>MaClasse</code>
+  </p>
+  <img src="../../images/CamelCase.png" alt="Camel case chameaux" title="Chameau">
+  <blockquote>
+    <cite><a href="https://commons.wikimedia.org/wiki/File:CamelCase_new.svg?uselang=fr">CamelCase new.svg</a>
+    </cite>
+  </blockquote>
+  <h2>Les variables</h2>
+  <p>JavaScript n'est pas un langage typé.</p>
+  <p>Déclarérez une variable avec <code>var</code> ou <code>let</code></p>
+  <h2>Les opérateurs arithmétiques</h2>
+  <p><b>Addition et soustraction :</b> <code>+</code> et <code>-</code></p>
+  <p><b>Multiplication et division :</b> <code>*</code> et <code>-</code></p>
+  <p><b>Le modulo (reste de la division) :</b> <code>%</code></p>
+  <p><b>Incrémentation et décrémentation :</b> <code>++</code> et <code>--</code></p>
+  <h2>Les opérateurs logiques</h2>
+  <p><b>Booleen : </b><code>true</code> ou <code>false</code></p>
+  <p><b>Supérieur et inférieur : </b><code>&#62;</code> ou <code>&#60;</code></p>
+  <p><b>Supérieur ou égale à : </b><code>&#62;=</code></p>
+  <p><b>Inférieur ou égale à : </b><code>&#60;=</code></p>
+  <p><b>Egalité simple : </b><code>==</code></p>
+  <p><b>Egalité stricte : </b><code>===</code></p>
+  <p><b>Inverse : </b><code>!</code></p>
+  <p><b>Différence simple : </b><code>!=</code></p>
+  <p><b>Différence stricte : </b><code>!==</code></p>
+  <p><b>ET : </b>&&</p>
+  <p><b>OU : </b>||</p>
+  <h2>Les structures conditionnelles</h2>
+  <p><b>SI :</b> <code>if (expression) {...}</code></p>
+  <p><b>SI SINON :</b> <code>if (expression) {...} else {...}</code></p>
+  <p><b>SI SINON SI :</b> <code>if (expression) {...} else if {...}</code></p>
+  <h3>Les boucles</h3>
+  <p><b>FOR : </b><br>
+    <code>
+      for (let i = 0; i &#60; limit; i++) {<br>
+      <span class="tab">...</span><br>
+      }
+    </code>
+  </p>
+  <p><b>WHILE : </b><br>
+    <code>
+      let i = 0<br>
+      while (i &#60; limit) {<br>
+      <span class="tab">...</span><br>
+      <span class="tab">i++</span><br>
+      }
+    </code>
+  </p>
+  <p><b>DO WHILE : </b><br>
+    <code>
+      let i = 0<br>
+      do {<br>
+      <span class="tab">...</span><br>
+      <span class="tab">i++</span><br>
+      } while (i &#60; limit)
+    </code>
+  </p>
+  <h2>Les fonctions</h2>
+  <p>
+    <code>
+      function maFonction(arg1, arg2, ...) {<br>
+      <span class="tab">...</span><br>
+      }
+    </code>
+  </p>
+  <p><code>maFonction(arg1, arg2, ...)</code></p>
+  <h2>Les fonctions <code>return</code></h2>
+  <p>
+    <code>
+      function maFonction(arg1, arg2,...) {<br>
+      <span class="tab">...</span><br>
+      <span class="tab">return valeur</span><br>
+      }
+    </code>
+  </p>
+  <p><code>var1 = maFonction(arg1, arg2,...)</code></p>
+  <h3>La portée des variables</h3>
+  <h3>Les objets</h3>
+  <h3>Exemple :</h3>
+  <p><code>window</code> est un objet fourni par le navigateur.</p>
+  <p><code>console</code> est un objet.</p>
+  <h3>Qu'est-ce qu'un objet ?</h3>
+  <p><b>Voiture :</b></p>
+  <p>
+    Un objet a des propriétés/attributs et des méthodes.<br>
+    <ul>
+      <li><b>Caractéristiques (couleur, puissance...) :</b> propriétés/attributs</li>
+      <li><b>Actions (démarrer, accélérer,...) :</b> méthodes.</li>
+    </ul>
+  </p>
+  <p>Syntaxe pour accéder à une méthode :<br><code>objet.methode()</code></p>
+  <p>Syntaxe pour accéder à une propriété :<br><code>objet.propriete</code></p>
+  <h2>Créer un objet</h2>
+  <p>
+    <code>
+      var product1 = {nom: 'Table', ht: 100}<br>
+      var product2 = {nom: 'Couteau', ht: 5}<br>
+      console.log(product1.nom + ' prix ht = ' + product1.ht)<br>
+      console.log(product2.nom + ' prix ht = ' + product2.ht)<br>
+    </code>
+  </p>
+  <p>
+    <code>
+
+    </code>
+  </p>
+  <h2>Ajouter une propriétés</h2>
+  <p>
+    <code>
+      product1.color = 'red'
+    </code>
+  </p>
+  <h2>Les tableaux ARRAY</h2>
+  <h3>Déclarer un tableau</h3>
+  <p><code>var myTab = new Array()</code></p>
+  <p><code>var myTab = []</code></p>
+  <p>Les tableaux sont indexés de <code>0</code> à nombre d'entrées <code>- 1</code>.</p>
+  <h3>Récupérer le nombre total d'éléments dans un tableau</h3>
+  <p><code>var nElements = myTab.length</code></p>
+  <h3>Ajouter un objet à la fin d'un tableau</h3>
+  <p><code>myTab.push(element)</code></p>
+  <h3>Supprimer le dernier élémet d'un tableau</h3>
+  <p><code>myTab.pop()</code></p>
+  <h3>Supprimer un élément d'un tableau</h3>
+  <p><code>delete myTab[1]</code> <span class="comment">// supression de la valeur qui sera a <code>undefined</code></span></p>
+  <h3>Parcourir un tableau</h3>
+  <p><code>for (let i in myTab) {...}</code></p>
+  <h3>Créer un arrêt pour débugger</h3>
+  <p>Ajoutez <code>debugger</code> dans le code.</p>
+  <h3>Créer et ajouter un élément</h3>
+  <p><code>document.createElement(element_a_creer)</code></p>
+  
+</body>
+</html>

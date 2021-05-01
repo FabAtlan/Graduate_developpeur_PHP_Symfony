@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="container">
+  <section class="content-section">
+    <h1 class="title-h1">jQuery</h1>
+    <article>
+      <h2 class="title-h2">Introduction</h2>
+      <p>En 2006, 
+        <a href="https://fr.wikipedia.org/wiki/John_Resig" title="Vers la page WikiPedia de John Resig">John Resig</a> à 
+        lancé la librairie JavaScript libre <strong>
+          <a href="https://jquery.com/" title="Vers le site officiel de jQuery">jQuery</a></strong>.<br>
+          <b>jQuery</b> permet notamment de parcourir le <b>DOM</b>, de gérer les écouteurs d'événements, de créer des 
+          animations...
+        </p>  
+        <cite><a href="https://fr.wikipedia.org/wiki/JQuery">Vers le Wiki de jQuery</a></cite>
+      </article>
+  </section>
+  <section class="content-section">
+    <article>
+      <h2 class="title-h2">Installer jQuery en minifié</h2>
+      <p>Le fichier source est diponible dans sa version classique <b>jquerry.js</b> et dans sa version 
+        <span id="minified"><a href="../lexique.html#minified" title="Définition">minifiée</a></span> <b>jquery.min.js</b>
+      </p>
+      <p>Au niveau du HTML, le script appelant doit être inclus avant les autres scripts destinés à 
+        l'utiliser.
+        <div class="code-block">
+          <code class="code-main">
+            &#60;script src="<span class="code-red">jquery-3.6.0.min.js</span>"&#62;&#60;/script&#62;
+          </code>
+        </div>
+      </p>
+    </article>
+  </section>
+  <section class="content-section">
+    <article>
+      <h2 class="title-h2" id="cdn">Utiliser jQuery via son <a href="../lexique.html#cdn" title="Définition">CDN</a></h2>
+      <a href="https://jquery.com/download/#using-jquery-with-a-cdn">Using jQuery with a CDN</a>
+    </article>
+  </section>
+  <section class="content-section">
+    <h2 class="title-h2">Vérifier l'installationde jQuery</h2>
+    <h3 class="title-h3">Avec la fonction anonyme</h3>
+    <div class="code-block">
+      <code class="code-main">
+        $(document).ready(() => {<br>
+          <span class="tab">alert('jQuery est installé !')<br>
+          })
+        </code>
+      </div>
+      <h3 class="title-h3">Tester si l'objet global jQuery est inclus</h3>
+      <div class="code-block">
+        <code class="code-main">
+          if (<span class="code-red">jQuery</span>) {<br>
+            alert('jQuery est inclus à la page')<br>
+          } else {<br>
+              alert('jQuery n\'est  pas inclus à la page')<br>
+          }
+        </code>
+      </div>
+  </section>
+  <section class="content-section">
+    <article>
+      <h2 class="title-h2">Comment utiliser jQuery ?</h2>
+      <h3 class="title-h3">La fonction principale</h3>
+      <p>Pour utiliser cette librairie la fonction principale doit obligatoirement être incluse</p>
+      <div class="code-block">
+        <code class="code-main">
+          jQuery(<span class="code-red">document</span>).ready(() => {<br>
+          <span class="tab comment">// Code jQuery</span><br>
+          })
+        </code>
+      </div>
+      <p><code class="code-red"><b>document</b></span></code> représente le <b>DOM</b>.<br>
+        <code class="code-red"><b>ready</b></code> est l'événement signifiant que le code s'exécutera une fois la 
+        page entièrement chargée.
+      </p>
+      <h3 class="title-h3">Ecriture simplifiée de la fonction principale avec l'alia <code>$</code></h3>
+      <div class="code-block">
+        <code class="code-main">
+          $(function() { <span class="comment">// <code>ready</code> est remplacé par l'alias <code>$</code></span><br>
+          <span class="tab">// Code jQuery</span><br>
+          });
+        </code>
+      </div>
+      <p>Si l'alias <code>$</code> est utilisé par d'autres librairies, préférez les écriture ci-dessous pour bien 
+        identifier la librairie jQuery.</p>
+      <div class="code-block">
+        <code class="code-main">
+          <span class="code-red">jQuery</span>(function(<span class="code-red">$</span>){<br>
+          <span class="tab">alert('jQuery est inclus !')</span><br>
+          });<br>
+          <span class="comment">// Ou</span><br>
+          <span class="code-red">$</span>(function(<span class="code-red">$</span>){<br>
+          <span class="tabx2">alert('jQuery est inclus !')</span><br>
+          });
+        </code>
+      </div>
+    </article>
+  </section>
+  <section class="content-section">
+    <h2 class="title-h2">Syntaxe générale</h2>
+    <article>
+      <div class="code-block">
+        <code class="code-main">
+          <span class="code-red">$</span>(<span class="code-yellow">'selecteur'</span>).
+          <span class="code-blue">methode()</span>
+        </code>
+      </div>
+      <ul class="circle">
+        <li><code class="code-main code-red">$</code> doit être systématiquement utilisé.</li>
+        <li><span class="code-yellow">'selecteur'</span>sélectionnez l'élément du <b>DOM</b></li>
+        <li><span class="code-blue">methode()</span>indiquez la méthode afin de réaliser le traitement</li>
+      </ul>
+    </article>
+  </section>
+  <section class="content-section">
+    <h2 class="title-h2">Les sélecteurs jQuery</h2>
+    <p>Les sélecteurs jQuery s'utilisent de la même façon qu'en CSS.</p>
+    <div class="code-block">
+      <code class="code-main">
+        &#60;div id="<span class="code-red">content</span>"&#62;Présentation de jQuery&#60;/div&#62;<br>
+        $(<span class="code-red">'#content'</span>)
+      </code>
+    </div>
+    <p>Autres méthodes de sélection.</p>
+    <div class="code-block">
+      <code class="code-main">
+        $('<span class="code-red">div</span>') <span class="comment">// Sélection de la div par son nom de balise.</span><br>
+        $('<span class="code-red">#content</span>') <span class="comment">// Sélection de la div par son attribut id #content</span><br>
+        $('<span class="code-red">.content-div</span>') <span class="comment">// Sélection des div par la classe .content-div</span>
+      </code>
+    </div>
+  </section>
+  <section class="content-section">
+    <h2 class="title-h2">Appeler une méthode</h2>
+    <article>
+      <ul>
+        <li><code class="code-inline">html('&#60;span&#62;exemple&#60;/span&#62;')</code> : insert du code HTML dans 
+          l'élément sélectionné.
+        </li>
+        <li><code class="code-inline">text('exemple')</code> : insert du texte dans l'élément sélectionné.
+        </li>
+        <li><code class="code-inline">css('key', 'value')</code> : ajouter/modifier la valeur d'un attribut CSS.
+        </li>
+        <li><code class="code-inline">click()</code> : écouter l'événement <code class="code-inline">click</code> de la 
+          souris.
+        </li>
+      </ul>
+    </article>
+  </section>
+</body>
+</html>
