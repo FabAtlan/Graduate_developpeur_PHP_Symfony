@@ -12,51 +12,115 @@
   --bgcCard: #f2f7f8;
 }
 
-html {
+/* MAIN */
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   background-color: #353535;
+}
+
+.bgc-header,
+.bgc-footer {
+  background-color: var(--bgcHeader);
+}
+
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* POSITIONNEMENT */
+.vert-align {
+  vertical-align: middle;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /* HEADER */
 .bgc-header {
-  width: inherit;
-  height: 5em;
-  position: fixed;
-  background-color: var(--bgcHeader);
-  box-shadow: 0 5px 20px 5px #242424;
+  padding: 5px;
+  height: fit-content;
 }
 
-.container {
+/* NAVIGATION */
+.nav-header {
   width: 100%;
-  margin: auto;
-  padding: 5%;;
+  margin: 10px 0;
+  margin-left: 5px;
 }
 
+/* LISTE */
+.circle {
+  list-style-type: disc;
+  margin-left: 2em;
+}
+
+li {
+  padding: 5px;
+}
+
+/* BREADCRUMB */
+.breadcrumb {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.breadcrumb li {
+  font-weight: bold;
+  color: var(--colorBreadCrump);
+  transition: .3s;
+}
+
+.breadcrumb a:hover {
+  text-decoration: none;
+  color: var(--colorBreadCrumpHover);
+}
+
+.breadcrumb .active {
+  font-weight: bold;
+  color: var(--colorBreadCrumpActive);
+}
+
+.arrow-left {
+  border-radius: 100%;
+  transition: .3s;
+}
+
+.arrow-left:hover {
+  background-color: #e9e7e756;
+  border-radius: 100%;
+}
+
+/* SECTION */
 .content-section {
-  margin: 5% 0;
+  width: 95%;
+  margin: 5% auto;
   padding: 2%;
   background-color: #f0f3f5;
   border-radius: 5px;
 }
 
-.nav-header {
-  padding: 1em;
-  height: fit-content;
-  display: none;
-}
-
-/* --- */
-
+/* FOOTER */
 .bgc-footer {
-  padding: 2em 0;
+  padding: 2.5em;
   color: #fff;
   font-size: .9em;
   font-weight: bold;
-  text-align: center;
-  background-color: var(--bgcFooter);
 }
 
-.bgc-main {
-  background-color: rgb(218, 216, 216);
+.nav-footer {
+  margin-bottom: 50px;
+}
+
+.social {
+  padding: 5px;
 }
 
 /* Titre */
@@ -78,48 +142,6 @@ html {
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 1em;
-}
-/* --- */
-
-.txt-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.flex-end {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.bgc-main > section {
-  margin-top: 40%;
-}
-
-.nav-summary {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.nav-summary a {
-  padding: 0px;
-}
-
-.margin-content {
-  padding: 5em .5em;
-}
-
-.card {
-  width: 100%;
-  height: auto;
-  margin: .2em auto;
-  padding: 2em 1em;
-  background-color: var(--bgcCard);
-  box-shadow: 0 0 15px 8px #49494959;
-  border-radius: .8em;
 }
 
 /* Code */
@@ -182,111 +204,4 @@ html {
   color: #4a8d2f;
 }
 
-.circle {
-  list-style-type: disc;
-  margin-left: 2em;
-}
-
-li {
-  padding: 5px;
-}
-
-/* BreadCrump */
-.breadcrumb li {
-  margin: 0;
-  width: fit-content;
-  padding: 5px;
-  font-weight: bold;
-  color: var(--colorBreadCrump);
-  transition: .3s;
-}
-
-.breadcrumb li:hover {
-  transform: translateX(-5px);
-}
-
-.breadcrumb a:hover {
-  text-decoration: none;
-  color: var(--colorBreadCrumpHover);
-}
-
-.breadcrumb-divider:after {
-  content: "/";
-  padding: 0 .5em ;
-}
-
-.breadcrumb .active {
-  font-weight: bold;
-  color: var(--colorBreadCrumpActive);
-}
-
-.breadcrumb .active:hover {
-  transform: none;
-}
 /* --- */
-
-.returnSummary {
-  width: fit-content;
-  border-radius: 5px;
-  background: #ece0c3;
-  border: 1px solid #bead85;
-  padding: 8px;
-  font-size: .8em;
-  font-weight: bold;
-}
-
-.returnSummary a:hover {
-  text-decoration: none;
-  color: #3a3939;
-}
-
-@media screen and (min-width: 800px) {
-  .breadcrumb {
-    display: flex;
-  }
- 
-  .flex-end {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .breadcrumb li:hover {
-    transform: translateY(-5px);
-  }
-  .breadcrumb .active:hover {
-    transform: none;
-  }
-
-  .title-h1 {
-    margin: 0;
-    font-size: 2em;
-  }
-
-  .title-h2 {
-    color: #043862;
-    margin: 25px 0 10px 0 ;
-    font-size: 1.2em;
-  }
-
-  .title-h3 {
-    color: #4595d6;
-    margin: 15px 0 10px 0 ;
-    font-size: 1em;
-  }
-
-  .container {
-    /* width: 80%; */
-  }
-
-  .bgc-header {
-    box-shadow: none;
-  }
-
-  body {
-    font-size: 1.2rem;
-  }
-
-  .bgc-main > section {
-    margin-top: 15%;
-  }
-}
