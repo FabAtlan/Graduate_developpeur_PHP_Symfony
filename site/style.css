@@ -54,11 +54,13 @@ body {
 
 /* ASIDE */
 .menu-aside {
-  width: inherit;
+  width: 95%;
+  margin: 0 auto;
 }
 
 .menu-aside .content-section {
   text-align: center;
+  width: fit-content;
 }
 
 .nav-menu {
