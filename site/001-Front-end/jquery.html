@@ -11,7 +11,7 @@
   <header class="bgc-header">
     <nav aria-label="Fil d'ariane" class="nav-header">
       <div>
-        <a href="../001-Front-end/MainMenuFrontEnd.html">
+        <a href="../001-Front-end/03-Dynamiser_vos_sites_web_avec_Javascript/dynSiteWebJSMenu.html">
           <img class="arrow-left vert-align" src="../images/arrow-left.png">
         </a>
         <img class="arrow-left vert-align" src="../images/arrow-right.png">
@@ -19,6 +19,11 @@
       <ul class="breadcrumb">
         <li><a href="../../index.html">Accueil</a></li>
         <li><a href="../001-Front-end/MainMenuFrontEnd.html">Front-end</a></li>
+        <li><a href="../001-Front-end/02-Initiation_a_la_programmation_Javascript/MainMenuJavaScript.html">JavaScript</a>
+        </li>
+        <li><a href="../001-Front-end/03-Dynamiser_vos_sites_web_avec_Javascript/dynSiteWebJSMenu.html">
+          Dynamiser son site web</a>
+        </li>
         <li class="active">jQuery</li>
       </ul>
     </nav>
@@ -138,7 +143,7 @@
     </section>
     <section class="content-section">
       <h2 class="title-h2">Les sélecteurs jQuery</h2>
-      <p>Les sélecteurs jQuery s'utilisent de la même façon qu'en CSS.</p>
+      <p>Les sélecteurs jQuery sont les mêmes qu'en CSS et s'utilisent de la même façon.</p>
       <div class="code-block">
         <code class="code-main">
           &#60;div id="<span class="code-red">content</span>"&#62;Présentation de jQuery&#60;/div&#62;<br>
@@ -156,6 +161,7 @@
     </section>
     <section class="content-section">
       <h2 class="title-h2">Appeler une méthode</h2>
+      <h3 class="title-h3">A la suite d'une méthode</h3>
       <article>
         <ul>
           <li><code class="code-inline">html('&#60;span&#62;exemple&#60;/span&#62;')</code> : insert du code HTML dans 
@@ -169,6 +175,26 @@
             souris.
           </li>
         </ul>
+        <h3 class="title-h3">Avec une fontion anonyme</h3>
+        <p>Possibilité d'y associer un script avec écouteurs d'événements.</p>
+        <div class="code-block">
+          <code class="code-main">
+            &#60;div id="content" class="content-div"&#62;<br>
+            <span class="tab">Présentation de jQuery</span><br>
+            <span class="tab">&#60;p&#62;&#60;/p&#62;</span><br>
+            &#60;/div&#62;<br><br>
+            $('#content p').click(function() {<br>
+            <span class="tab">alert('Clique sur le paragraphe')</span><br>
+            })
+          </code>
+        </div>
+        <h3 class="title-h3">Avec enchaînement des méthodes</h3>
+        <p>Permet d'associer plusieurs comportements à un élément en une seule fois.</p>
+        <div class="code-block">
+          <code class="code-main">
+            $('#content p').text('Bonjour tout le monde !').css('color', 'blue')
+          </code>
+        </div>
       </article>
     </section>
   </main>
