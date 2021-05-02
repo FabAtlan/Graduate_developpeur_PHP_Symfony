@@ -52,6 +52,23 @@ body {
   grid-template-rows: 1fr;
 }
 
+/* ASIDE */
+.menu-aside {
+  width: inherit;
+}
+
+.menu-aside .content-section {
+  text-align: center;
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  grid-gap: 10px;
+}
+
 /* LISTE */
 .circle {
   list-style-type: disc;
