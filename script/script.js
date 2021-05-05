@@ -12,9 +12,9 @@ let listPages = [
   {name: 'Lexique', active : false}
 ]
 
-for (let i = 0; i < pages.length; i++) {
-  console.log(pages[i].href)
-}
+// for (let i = 0; i < pages.length; i++) {
+//   console.log(pages[i].href)
+// }
 
 // Arrow left
 arrowLeft.addEventListener('click', () => {
