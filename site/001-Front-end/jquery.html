@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>jQuery</title>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body class="container">
@@ -31,19 +31,20 @@
   <main>
     <aside class="menu-aside">
         <section class="content-section">
-          <h2 class="title-h2">jQuery</h2>
+          <h1 class="title-h1">jQuery</h1>
           <h2 class="title-h3">Menu</h2>
           <nav aria-label="Menu général sur jQuery">
             <ul  class="nav-menu">
-              <li>Introduction</li>
-              <li>Documentation</li>
-              <li>Installer jQuery en minifié</li>
-              <li>Utiliser jQuery via son CDN</li>
-              <li>Vérifier l'installation de jQuery</li>
-              <li>Comment utiliser jQuery</li>
-              <li>Syntaxe générale</li>
-              <li>Les sélecteurs jQuery</li>
-              <li>Appeler une méthode</li>
+              <li><a href="#intro">Introduction</a></li>
+              <li><a href="#doc">Documentation</a></li>
+              <li><a href="#install">Installer jQuery</a></li>
+              <li><a href="#use">Comment utiliser jQuery</a></li>
+              <li><a href="#syntaxe">Syntaxe générale</a></li>
+              <li><a href="#selectors">Les sélecteurs jQuery</a></li>
+              <li><a href="#event">La programmation événementielle</a></li>
+              <li><a href="#add">Ajouter un élément</a></li>
+              <li><a href="#remove">Supprimer un élément</a></li>
+              <li><a href="#trigger">Simuler un événement</a></li>
             </ul>
           </nav>
         </section>
@@ -51,10 +52,10 @@
     <section class="content-section">
       <h1 class="title-h1">jQuery</h1>
       <article>
-        <h2 class="title-h2">Introduction</h2>
+        <h2 class="title-h2" id="intro">Introduction</h2>
         <p>En 2006, 
           <a href="https://fr.wikipedia.org/wiki/John_Resig" title="Vers la page WikiPedia de John Resig">John Resig</a> à 
-          lancé la librairie JavaScript libre <strong>
+          lancé la <a href="../lexique.html#librairie" title="Définition">librairie</a> JavaScript libre <strong>
             <a href="https://jquery.com/" title="Vers le site officiel de jQuery" target="_blank">jQuery</a></strong>.<br>
             <b>jQuery</b> permet notamment de parcourir le <b>DOM</b>, de gérer les écouteurs d'événements, de créer des 
             animations...
@@ -63,34 +64,29 @@
         </article>
     </section>
     <section class="content-section">
-      <h1 class="title-h1">Documentation de jQuery</h1>
+      <h1 class="title-h1" id="doc">Documentation de jQuery</h1>
       <p><a href="https://api.jquery.com/" target="_blank" title="Lien de la documentation">Vers la documention officielle.</a></p>
     </section>
     <section class="content-section">
       <article>
-        <h2 class="title-h2">Installer jQuery en minifié</h2>
-        <p>Le fichier source est diponible dans sa version classique <b>jquerry.js</b> et dans sa version 
-          <span id="minified"><a href="../lexique.html#minified" title="Définition">minifiée</a></span> <b>jquery.min.js</b>
+        <h2 id="install" class="title-h2">Installer jQuery</h2>
+        <p>Le fichier source est diponible dans sa version classique <b>jquery.js</b> et dans sa version 
+          <a id="minified" href="../lexique.html#minified" title="Définition">minifiée</a> <b>jquerry.min.js</b>. 
+          Au niveau du HTML, le script appelant doit être inclus avant les autres scripts destinés à l'utiliser. La 
+          version minifié est à privilégier.
         </p>
-        <p>Au niveau du HTML, le script appelant doit être inclus avant les autres scripts destinés à 
-          l'utiliser.
-          <div class="code-block">
-            <code class="code-main">
-              &#60;script src="<span class="code-red">jquery-3.6.0.min.js</span>"&#62;&#60;/script&#62;
-            </code>
-          </div>
-        </p>
+        <h3 class="title-h3">Version minifiée</h3>
+        <i><a href="https://jquery.com/download/#jquery" target="_blank">Utiliser jQuery minifié.</a></i>
       </article>
-    </section>
-    <section class="content-section">
       <article>
-        <h2 class="title-h2" id="cdn">Utiliser jQuery via son <a href="../lexique.html#cdn" title="Définition">CDN</a></h2>
-        <a href="https://jquery.com/download/#using-jquery-with-a-cdn">Using jQuery with a CDN</a>
+        <h3 class="title-h3" id="cdn">Utiliser jQuery via son
+          <a href="../lexique.html#cdn" title="Définition">CDN</a>
+        </h3>
+        <i>
+          <a href="https://jquery.com/download/#using-jquery-with-a-cdn" target="_blank">Utilisez jQuery avec un CDN.</a>
+        </i>
       </article>
-    </section>
-    <section class="content-section">
-      <h2 class="title-h2">Vérifier l'installation de jQuery</h2>
-      <h3 class="title-h3">Avec la fonction anonyme</h3>
+      <h3 class="title-h3">Vérifier l'installation de jQuery</h3>
       <div class="code-block">
         <code class="code-main">
           $(document).ready(() => {<br>
@@ -111,7 +107,7 @@
     </section>
     <section class="content-section">
       <article>
-        <h2 class="title-h2">Comment utiliser jQuery ?</h2>
+        <h2 class="title-h2" id="use">Comment utiliser jQuery ?</h2>
         <h3 class="title-h3">La fonction principale</h3>
         <p>Pour utiliser cette librairie la fonction principale doit obligatoirement être incluse</p>
         <div class="code-block">
@@ -149,7 +145,7 @@
       </article>
     </section>
     <section class="content-section">
-      <h2 class="title-h2">Syntaxe générale</h2>
+      <h2 class="title-h2" id="syntaxe">Syntaxe générale</h2>
       <article>
         <div class="code-block">
           <code class="code-main">
@@ -165,60 +161,174 @@
       </article>
     </section>
     <section class="content-section">
-      <h2 class="title-h2">Les sélecteurs jQuery</h2>
-      <p>Les sélecteurs jQuery sont les mêmes qu'en CSS et s'utilisent de la même façon.</p>
+      <h2 class="title-h2" id="selectors">Les sélecteurs jQuery</h2>
+      <p>La syntaxe de base est la suivante :</p>
       <div class="code-block">
         <code class="code-main">
-          &#60;div id="<span class="code-red">content</span>"&#62;Présentation de jQuery&#60;/div&#62;<br>
-          $(<span class="code-red">'#content'</span>)
+          <span class="code-red">$</span>(<span class="code-yellow">'selecteur'</span>).<span class="code-blue">methode()</span>
+        </code> 
+      </div>
+      <p>Les sélecteurs jQuery s'utilisent de la même façon qu'en CSS. Une sélection par identifiant commence par 
+        <span class="code-red"><b>#</b></span> et pour une classe avec un <span class="code-red"><b>.</b></span>.<br>
+        Exemple :
+      </p>
+      <div class="code-block">
+        <code class="code-main">
+          $(<span class="code-red">'div'</span>) <span class="comment">// balise</span><br>
+          $(<span class="code-red">'#bases'</span>) <span class="comment">// identifiant</span><br>
+          $(<span class="code-red">'.bases'</span>) <span class="comment">// classe</span>
         </code>
       </div>
-      <p>Autres méthodes de sélection.</p>
+      <h3 class="title-h3">Enchaîner les sélecteurs</h3>
       <div class="code-block">
         <code class="code-main">
-          $('<span class="code-red">div</span>') <span class="comment">// Sélection de la div par son nom de balise.</span><br>
-          $('<span class="code-red">#content</span>') <span class="comment">// Sélection de la div par son attribut id #content</span><br>
-          $('<span class="code-red">.content-div</span>') <span class="comment">// Sélection des div par la classe .content-div</span>
+          $('<span class="code-red">div p</span>') <span class="comment">// Séléction de la balise div puis de la balise p</span><br>
+          $('<span class="code-red">#content p</span>') <span class="comment">// Séléction de l'identifiant content puis de la balise p</span>
+        </code>
+      </div>
+      <h3 class="title-h3">Sélection avec les pseudo-classes</h3>
+      <div class="code-block">
+        <code class="code-main">
+          $(<span class="code-red">'#content:first-child'</span>) <span class="comment">// Sélectionnera le 1er enfant 
+            de l'élément #content.</span>
+        </code>
+      </div>
+      <p> Liste des pseudo-classes les plus utilisées :<br>
+        <ul>
+          <li class="circle">:first-child</li>
+          <li class="circle">:last-child</li>
+          <li class="circle">:last-of-type</li>
+          <li class="circle">:hover</li>
+          <li class="circle">:before</li>
+          <li class="circle">:after</li>
+          <li class="circle">nth-child(x)</li>
+        </ul>
+      </p>
+
+      <h3 class="title-h3">Sélection multiple</h3>
+      <p>Listez les sélecteurs en les séparant par une virgule.</p>
+      <div class="code-block">
+        <code class="code-main">
+          $(<span class="code-red">'h1, h2, h3, .titre'</span>) 
+          <span class="comment">
+            // Sélectionnera les balises h1, h2 et h3 ainsi que les éléments ayant la classe .titre
+          </span>
+        </code>
+      </div>
+      <h3 class="title-h3">Le sélecteur <span class="code-inline">this</span></h3>
+      <p>Permet d'agir sur l'élément courant mais il n'est utilisable qu'à l'intérieur d'une fonction anonyme.</p>
+      <div class="code-block">
+        <code class="code-maine">
+          $('#content p').text('Bonjour tout le monde !')<br></br>
+          $('#content p').html(function() {<br>
+          <span class="tab">$(<span class="code-red">this</span>).text('Bonjour tout le monde !')</span><br>
+          })  
+        </code>
+      </div>
+      <p class="code-red">D'un point de vue performance, préférez pour le ciblage d'un élément du DOM, la notion 
+        de <b>parent/enfant</b>.
+      </p>
+    </section>
+    <section class="content-section">
+      <h2 class="title-h2" id="event">La programmation événementielle</h2>
+      <ul>
+        <li class="circle"><code class="code-inline">html()</code> permet de récupérer le code HTML d'un élément. Si par 
+          contre un argument lui est affecté, cette méthode ajoutera du contenu HTML.
+        <div class="code-block">
+          <code class="code-main">
+            $('p').<span class="code-yellow">html()</span> <span class="comment">// Retourne le contenu HTML</span><br>
+            $('p').<span class="code-yellow">html(<span class="code-yellow">'&#60;p&#62;Hello !&#60;/p&#62;'</span>)
+            </span> <span class="comment">// Ajoute un nouveau contenu HTML</span><br>
+          </code>
+        </div>
+        </li>
+        <li class="circle"><code class="code-inline">css('key', 'value')</code> permet d'ajouter/modifier la valeur d'un 
+          attribut CSS.
+          <div class="code-block">
+            <code class="code-main">
+              $(<span class="code-red">'h3'</span>).css(<span class="code-yellow">'Propriete'</span>, 
+              <span class="code-yellow">'valeur'</span>)
+            </code>
+          </div>
+        </li>
+        <li class="circle"><code class="code-inline">each()</code> permet de parcourir une liste d'éléments. Elle prend 
+          en paramètre une fonction anonyme :
+          <div class="code-block">
+            <code class="code-main">
+              &#60;div id="content"&#62;<br>
+              <span class="tab">&#60;ul id="<span class="code-red">list</span>"&#62;</span><br>
+              <span class="tabx2">&#60;li&#62;PHP&#60;/li&#62;</span><br>
+              <span class="tabx2">&#60;li&#62;HTML&#60;/li&#62;</span><br>
+              <span class="tabx2">&#60;li&#62;CSS&#60;/li&#62;</span><br>
+              <span class="tabx2">&#60;li&#62;jQuery&#60;/li&#62;</span><br>
+              <span class="tab">&#60;/ul&#62;</span><br>
+              span.code&#60;/div&#62;<br><br>
+              $(document).ready(() => {<br>
+              <span class="tab">$('<span class="code-red">#list</span> li').<span class="code-yellow">each</span>(function() {</span><br>
+              <span class="tabx3">console.log($(this).text())</span><br>
+              <span class="tab">})</span><br>
+              })
+            </code>
+          </div>
+        </li> 
+        <li class="circle"><code class="code-inline">data()</code> : permet de créer des objets utilisables seulement 
+          par jQuery.
+          <div class="code-block">
+            <code class="code-main">
+
+            </code>
+          </div>
+        </li>
+        <li class="circle"><code class="code-inline">text('exemple')</code> : insert du texte dans l'élément sélectionné.
+        </li>
+        <li class="circle"><code class="code-inline">click()</code> : écouter l'événement <code class="code-inline">click</code> de la 
+          souris.
+        </li>
+      </ul>
+    </section>
+    <section class="content-section">
+      <h2 class="title-h2" id="add">Ajouter un élément</h2>
+      <p><code class="code-inline">append()</code> permet d'ajouter un élément en tant que <b>dernier enfant</b>.</p>
+      <p><code class="code-inline">prepend()</code> permet d'ajouter un élément en tant que <b>premier enfant</b>.</p>
+      <div class="code-block">
+        <code class="code-main">
+          &#60;div id="content"&#62;<br>
+          <span class="tab">&#60;ul id="list"&#62;</span><br>
+          <span class="tabx2">&#60;li&#62;Au milieu&#60;/li&#62;</span><br>
+          <span class="tab">&#60;/ul&#62;</span><br>
+          &#60;/div&#62;<br><br>
+          $(function() {<br>
+          <span class="tab">let list = $('ul')</span><br>
+          <span class="tab">list.<span class="code-yellow">prepend</span>('&#60;li&#62;Premier&#60;/li&#62;')</span><br>
+          <span class="tab">list.<span class="code-yellow">append</span>('&#60;li&#62;Dernier&#60;/li&#62;')</span><br>
+          });<br><br>
+          <span class="comment">// Résultat navigateur<br>
+          Premier<br>
+          Au milieu<br>
+          Dernier
+          </span>
         </code>
       </div>
     </section>
     <section class="content-section">
-      <h2 class="title-h2">Appeler une méthode</h2>
-      <h3 class="title-h3">A la suite d'une méthode</h3>
-      <article>
-        <ul>
-          <li><code class="code-inline">html('&#60;span&#62;exemple&#60;/span&#62;')</code> : insert du code HTML dans 
-            l'élément sélectionné.
-          </li>
-          <li><code class="code-inline">text('exemple')</code> : insert du texte dans l'élément sélectionné.
-          </li>
-          <li><code class="code-inline">css('key', 'value')</code> : ajouter/modifier la valeur d'un attribut CSS.
-          </li>
-          <li><code class="code-inline">click()</code> : écouter l'événement <code class="code-inline">click</code> de la 
-            souris.
-          </li>
-        </ul>
-        <h3 class="title-h3">Avec une fontion anonyme</h3>
-        <p>Possibilité d'y associer un script avec écouteurs d'événements.</p>
-        <div class="code-block">
+      <h2 class="title-h2" id="remove">Supprimer un élément</h2>
+      <p>Pour supprimer un élément du DOM utilisez <code class="code-inline">remove()</code>.</p>
+    </section>
+    <section class="content-section">
+      <h2 class="title-h2" id="trigger">Simuler un événement</h2>
+      <p>Pour déclencher un événement sans attendre une action de l'utilisateur utilisez 
+        <code class="code-inline">trigger()</code>.</p>
+        <dive class="code-block">
           <code class="code-main">
-            &#60;div id="content" class="content-div"&#62;<br>
-            <span class="tab">Présentation de jQuery</span><br>
-            <span class="tab">&#60;p&#62;&#60;/p&#62;</span><br>
-            &#60;/div&#62;<br><br>
-            $('#content p').click(function() {<br>
-            <span class="tab">alert('Clique sur le paragraphe')</span><br>
-            })
+          $(document).ready(() => {<br>
+          <span class="tab">>$('#form').<span class="code-red">submit</span>(function(e) {<br>
+          <span class="tabx2">e.preventDefault()</span><br>
+          <span class="tabx2">alert('envoi du formulaire')</span><br>
+          <span class="tab">>})</span><br>
+          <span class="tab">>$('#form').<span class="code-yellow">trigger</span>(<span class="code-red">'submit'</span>)</span<br>
+          });
           </code>
-        </div>
-        <h3 class="title-h3">Avec enchaînement des méthodes</h3>
-        <p>Permet d'associer plusieurs comportements à un élément en une seule fois.</p>
-        <div class="code-block">
-          <code class="code-main">
-            $('#content p').text('Bonjour tout le monde !').css('color', 'blue')
-          </code>
-        </div>
-      </article>
+        </dive>
     </section>
   </main>
   <footer class="bgc-footer">
