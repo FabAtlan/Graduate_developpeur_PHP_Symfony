@@ -56,5 +56,5 @@ validation.addEventListener('click', () => {
 
 // Home
 home.addEventListener('click', () => {
-  document.location.href = '../script/script.js'
+  document.location.href = 'site/script/script.js'
 })
