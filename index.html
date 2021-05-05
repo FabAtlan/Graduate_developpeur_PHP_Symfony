@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ce site présente mes notes de cours sur ma formation STUDI de Graduate développeur PHP / Symfony.">
   <link rel="stylesheet" href="site/style.css">
   <title>Graduate développeur PHP/Symfony</title>
 </head>
@@ -12,17 +11,17 @@
   <header class="bgc-header">
     <nav aria-label="Fil d'ariane" class="nav-header">
       <div>
-        <a href="site/lexique.html">
-          <img class="arrow-left vert-align" src="site/images/arrow-left.png">
-        </a>
-        <a href="#"><img class="arrow-left vert-align" src="site/images/check.png"></a>
-        <a href="site/001-Front-end/MainMenuFrontEnd.html">
-          <img class="arrow-left vert-align" src="site/images/arrow-right.png">
-        </a>
-        <img class="arrow-left vert-align" src="site/images/home.png">
+        <!-- Arrow left -->
+        <img id="arrowLeft" class="arrow-left vert-align" src="site/images/arrow-left.png">
+        <!-- Validation -->
+        <img id="validation" class="arrow-left vert-align" src="site/images/check.png">
+        <!-- Arrow right -->
+        <img id="arrowRight" class="arrow-left vert-align" src="site/images/arrow-right.png">
+        <!-- Home -->
+        <img id="home" class="arrow-left vert-align" src="site/images/home.png">
       </div>
       <ul class="breadcrumb">
-        <li class="active">Accueil</li>
+        <li><a class="active" href="index.html">Accueil</a></li>
         <li><a href="site/001-Front-end/MainMenuFrontEnd.html">Front-end</a></li>
         <li><a href="site/005-Back-end/MainMenuBackEnd.html">Back-end</a></li>
         <li><a href="site/liens-utiles.html">Liens utiles</a></li>
@@ -75,5 +74,6 @@
     </section>
     <p class="text-center">&copy;2021 - Graduate développeur PHP/Symfony</p>
   </footer>
+  <script src="script/script.js"></script>
 </body>
 </html>
