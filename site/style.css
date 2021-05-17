@@ -14,7 +14,6 @@
 
 /* LOGO */
 #language {
-  margin: 40px;
   text-align: center;
 }
 
@@ -48,6 +47,12 @@
 
 #github,#sort-alpha-down, #external-link-alt {
   color: #000;
+}
+
+#font-awesome {
+  background-color: rgb(63, 132, 221);
+  width:5;
+  border-radius: 3px;
 }
 
 .trans-y:hover {
