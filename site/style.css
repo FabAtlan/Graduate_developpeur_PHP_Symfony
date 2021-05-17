@@ -79,6 +79,12 @@ body {
   margin: 0 auto;
 }
 
+.lg-h1 {
+  font-size: 2em;
+  color: #efefef;
+  text-transform: capitalize;
+}
+
 #title {
   font-size: 2em;
   color: #efefef;
@@ -86,7 +92,6 @@ body {
 
 .main-title {
   margin: 0 auto;
-  /* width: 95%; */
   min-height: 40vh;
   text-align: center;
   background-color: #a0c9d47c;
@@ -107,7 +112,10 @@ body {
 /* HEADER */
 .bgc-header {
   padding: 5px;
-  height: fit-content;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  
 }
 
 /* NAVIGATION */
@@ -149,6 +157,7 @@ li {
 
 /* BREADCRUMB */
 .breadcrumb {
+  margin-left: 20px;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
@@ -178,6 +187,7 @@ li {
 }
 
 #navigation {
+  margin-right: 20px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
@@ -320,4 +330,15 @@ li {
 
 #lexique {
   color: #000;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 70%;
+    background-color: rgb(105, 105, 105);
+  }
+
+  .lg-h1 {
+    font-size: 3em;
+  }
 }
