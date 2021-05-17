@@ -12,6 +12,48 @@
   --bgcCard: #f2f7f8;
 }
 
+/* LOGO */
+#language {
+  margin: 40px;
+  text-align: center;
+}
+
+#html5,
+#css3-alt,
+#js-square,
+#php,
+#github,
+#sort-alpha-down,
+#external-link-alt {
+  margin: 15px;
+  padding: 5px;
+  transition: all .3s ease-in-out;
+}
+
+#html5 {
+  color: #972d13;
+}
+
+#css3-alt {
+  color: #3565ca;
+}
+
+#js-square {
+  color: #af890d;
+}
+
+#php {
+  color: #4F5B93;
+}
+
+#github,#sort-alpha-down, #external-link-alt {
+  color: #000;
+}
+
+.trans-y:hover {
+  transform: translateY(-10px);
+}
+
 /* GENERAL */
 html,
 body {
@@ -32,8 +74,20 @@ body {
   margin: 0 auto;
 }
 
+#title {
+  font-size: 2em;
+  color: #efefef;
+}
+
 .main-title {
-  height: 700px;
+  margin: 0 auto;
+  /* width: 95%; */
+  min-height: 40vh;
+  text-align: center;
+  background-color: #a0c9d47c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* POSITIONNEMENT */
@@ -257,4 +311,8 @@ li {
   height:auto;
   vertical-align: middle;
   color: #dc3545;
+}
+
+#lexique {
+  color: #000;
 }
